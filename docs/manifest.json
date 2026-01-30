@@ -1,0 +1,44 @@
+{
+  "generated": "2026-01-30T19:30:00Z",
+  "repository": {
+    "owner": "tractorjuice",
+    "name": "arckit-test-project-v17-fuel-prices",
+    "branch": "main"
+  },
+  "defaultDocument": "projects/000-global/ARC-000-PRIN-v1.0.md",
+  "global": [
+    {
+      "path": "projects/000-global/ARC-000-PRIN-v1.0.md",
+      "title": "Architecture Principles",
+      "category": "Architecture",
+      "documentId": "ARC-000-PRIN-v1.0",
+      "isDefault": true
+    }
+  ],
+  "projects": [
+    {
+      "id": "001-uk-fuel-price-transparency-service",
+      "name": "UK Fuel Price Transparency Service",
+      "documents": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-STKE-v1.0.md",
+          "title": "Stakeholder Drivers & Goals",
+          "category": "Discovery",
+          "documentId": "ARC-001-STKE-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v1.0.md",
+          "title": "Business & Technical Requirements",
+          "category": "Discovery",
+          "documentId": "ARC-001-REQ-v1.0"
+        }
+      ],
+      "diagrams": [],
+      "decisions": [],
+      "wardleyMaps": [],
+      "dataContracts": [],
+      "reviews": [],
+      "vendors": []
+    }
+  ]
+}
