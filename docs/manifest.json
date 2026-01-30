@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-30T21:30:00Z",
+  "generated": "2026-01-30T22:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v17-fuel-prices",
@@ -43,6 +43,12 @@
           "title": "Data Model",
           "category": "Architecture",
           "documentId": "ARC-001-DATA-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RISK-v1.0.md",
+          "title": "Risk Register",
+          "category": "Governance",
+          "documentId": "ARC-001-RISK-v1.0"
         }
       ],
       "diagrams": [],
