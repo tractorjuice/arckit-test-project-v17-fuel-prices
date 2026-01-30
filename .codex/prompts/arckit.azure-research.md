@@ -24,74 +24,13 @@ This command performs **Azure-specific technology research** using the Microsoft
 - **UK Government suitability**: G-Cloud, data residency, classification
 - **Implementation guidance**: Bicep/Terraform templates, code samples
 
-## Microsoft Learn MCP Requirement
+## Microsoft Learn MCP Integration
 
-> **CRITICAL**: This command **REQUIRES** the Microsoft Learn MCP Server to be installed. It will not work without it.
+> **IMPORTANT**: This command is designed to leverage the [Microsoft Learn MCP Server](https://learn.microsoft.com/en-us/training/support/mcp) when available.
 
-### Check for MCP Tools First
+### If Microsoft Learn MCP tools are available:
 
-**Before doing anything else**, check if the following MCP tools are available:
-- `microsoft_docs_search`
-- `microsoft_docs_fetch`
-- `microsoft_code_sample_search`
-
-**If MCP tools are NOT available, STOP immediately** and display this message:
-
-```
-## Microsoft Learn MCP Server Required
-
-This command requires the **Microsoft Learn MCP Server** to access official Azure documentation.
-
-### Installation Instructions
-
-Add the following to your Claude Code MCP configuration (`~/.claude/claude_desktop_config.json` or project `.mcp.json`):
-
-**Option 1: NPX (Recommended)**
-```json
-{
-  "mcpServers": {
-    "microsoft-docs": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-server-microsoft-docs"]
-    }
-  }
-}
-```
-
-**Option 2: Global Install**
-```bash
-npm install -g @anthropic/mcp-server-microsoft-docs
-```
-
-Then add to your MCP config:
-```json
-{
-  "mcpServers": {
-    "microsoft-docs": {
-      "command": "mcp-server-microsoft-docs"
-    }
-  }
-}
-```
-
-### After Installation
-
-1. Restart Claude Code to load the MCP server
-2. Run `/arckit.azure-research` again
-
-### More Information
-
-- MCP Overview: https://modelcontextprotocol.io/
-- Microsoft Learn MCP: https://learn.microsoft.com/en-us/training/support/mcp
-```
-
-**Do not proceed with the command if MCP is not available.**
-
----
-
-### MCP Tools Available
-
-Once MCP is confirmed available, use these tools to gather authoritative Azure documentation:
+Use these MCP tools to gather authoritative Azure documentation:
 
 **1. Search Microsoft Documentation** (`microsoft_docs_search`):
 ```
@@ -118,13 +57,17 @@ Query examples:
 Language filters: bicep, terraform, csharp, python, javascript
 ```
 
+### If MCP tools are NOT available:
+
+Fall back to web search for Azure documentation:
+- Use WebSearch for "site:learn.microsoft.com [query]"
+- Use WebFetch on Microsoft Learn URLs
+- Reference Azure Architecture Center: https://learn.microsoft.com/azure/architecture/
+- Reference Azure Well-Architected: https://learn.microsoft.com/azure/well-architected/
+
 ## Instructions
 
-### 1. Check MCP Availability (MANDATORY FIRST STEP)
-
-**STOP if MCP tools are not available** - display installation instructions above.
-
-### 2. Check Project Prerequisites
+### 1. Check Prerequisites
 
 **MANDATORY**:
 - Check if any `ARC-*-REQ-*.md` file exists in `projects/{project}/`
@@ -136,19 +79,19 @@ Language filters: bicep, terraform, csharp, python, javascript
 - Check if any `ARC-*-STKE-*.md` file exists (stakeholder priorities)
 - Check if project is UK Government (for G-Cloud, data residency requirements)
 
-### 3. Find the Project
+### 2. Find the Project
 
 - If user specifies project name or number, use that
 - Otherwise, look for most recent project directory in `projects/`
 - Use the same project directory where the requirements document exists
 
-### 4. Read the Template
+### 3. Read the Template
 
 Read `.arckit/templates/azure-research-template.md` to understand the output structure
 
 > **Note**: Read the `VERSION` file and update the version in the template metadata line when generating.
 
-### 5. Extract Requirements for Azure Mapping
+### 4. Extract Requirements for Azure Mapping
 
 **Read the requirements document and identify Azure service needs**:
 
@@ -184,9 +127,9 @@ Read `.arckit/templates/azure-research-template.md` to understand the output str
 - ML platform → Azure Machine Learning
 - Bot → Azure Bot Service
 
-### 6. Research Azure Services Using MCP
+### 5. Research Azure Services Using MCP
 
-For each requirement category, use MCP tools:
+For each requirement category, use MCP tools (or web search fallback):
 
 #### Step 1: Service Discovery
 
@@ -273,7 +216,7 @@ microsoft_code_sample_search: "Azure [service] [language]"
 
 **Languages**: bicep, terraform, csharp, python, javascript, powershell
 
-### 7. UK Government Specific Research
+### 6. UK Government Specific Research
 
 If this is a UK Government project:
 
@@ -296,7 +239,7 @@ If this is a UK Government project:
 - Reference Azure attestation against 14 NCSC principles
 - Fetch: https://learn.microsoft.com/azure/compliance/offerings/offering-uk-ncsc
 
-### 8. Cost Estimation
+### 7. Cost Estimation
 
 **Use Azure Pricing Information**:
 
@@ -317,7 +260,7 @@ microsoft_docs_search: "Azure [service] pricing"
 - Spot VMs (for fault-tolerant workloads)
 - Auto-scaling policies
 
-### 9. Generate Architecture Diagram
+### 8. Generate Architecture Diagram
 
 Create a Mermaid diagram showing:
 - Azure services and their relationships
@@ -326,7 +269,7 @@ Create a Mermaid diagram showing:
 - Security boundaries (NSGs, WAF, Firewall)
 - Data flows
 
-### 10. Write the Output
+### 9. Write the Output
 
 **Generate Document ID**:
 ```bash
@@ -334,7 +277,7 @@ Create a Mermaid diagram showing:
 ```
 
 **Write to file**:
-- Write to `projects/{project-dir}/research/ARC-{PROJECT_ID}-AZRS-v1.0.md`
+- Write to `projects/{project-dir}/ARC-{PROJECT_ID}-AZRS-v1.0.md`
 - Use the exact template structure from `azure-research-template.md`
 
 **IMPORTANT - Auto-Populate Document Information Fields**:
@@ -353,7 +296,7 @@ Before completing the document, populate document information fields:
 - `[PROJECT_NAME]` → Full project name
 - `[OWNER_NAME_AND_ROLE]` → Document owner
 
-### 11. Summarize What You Created
+### 10. Summarize What You Created
 
 Provide a summary:
 
@@ -361,7 +304,7 @@ Provide a summary:
 ## Azure Research Complete ✅
 
 **Project**: [Project Name]
-**File Created**: `projects/[PROJECT]/research/ARC-{PROJECT_ID}-AZRS-v1.0.md`
+**File Created**: `projects/[PROJECT]/ARC-{PROJECT_ID}-AZRS-v1.0.md`
 
 ### Azure Services Recommended
 
@@ -419,7 +362,7 @@ User: `/arckit.azure-research Research Azure services for microservices platform
 5. Search Azure Architecture Center for microservices patterns
 6. Map to Azure Security Benchmark
 7. Generate Bicep/Terraform examples
-8. Write to `projects/001-platform/research/ARC-001-AZRS-v1.0.md`
+8. Write to `projects/001-platform/ARC-001-AZRS-v1.0.md`
 
 ### Example 2: UK Government Data Platform
 
@@ -441,8 +384,8 @@ User: `/arckit.azure-research Azure options for UK Government data analytics pla
 
 ## Important Notes
 
-- **MCP Required**: This command requires Microsoft Learn MCP - do not proceed without it
-- **Official Sources Only**: Use only Microsoft Learn documentation via MCP, not third-party blogs
+- **MCP First**: Always try Microsoft Learn MCP tools first, fall back to web search
+- **Official Sources Only**: Use only Microsoft Learn documentation, not third-party blogs
 - **UK Focus**: Always check UK region availability and G-Cloud status
 - **Well-Architected**: Assess every recommendation against the 5 pillars
 - **Security Benchmark**: Map recommendations to Azure Security Benchmark controls
@@ -480,10 +423,9 @@ User: `/arckit.azure-research Azure options for UK Government data analytics pla
 
 To avoid exceeding Claude Code's 32K token output limit:
 
-1. **Check MCP availability first** - stop with installation instructions if not available
-2. **Generate the full Azure research document** following the template structure
-3. **Use the Write tool** to create `projects/[PROJECT]/research/ARC-{PROJECT_ID}-AZRS-v1.0.md`
-4. **DO NOT** output the full document in your response
-5. **Show ONLY the summary** as specified in step 11
+1. **Generate the full Azure research document** following the template structure
+2. **Use the Write tool** to create `projects/[PROJECT]/ARC-{PROJECT_ID}-AZRS-v1.0.md`
+3. **DO NOT** output the full document in your response
+4. **Show ONLY the summary** as specified in step 10
 
 Generate the Azure research findings now, write to file using Write tool, and show only the summary.
