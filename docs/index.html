@@ -975,6 +975,17 @@
                         });
                     }
 
+                    if (project.research) {
+                        project.research.forEach(doc => {
+                            allDocuments.push({
+                                ...doc,
+                                project: projectName,
+                                category: 'Research',
+                                searchText: `${doc.title} research aws azure cloud ${projectName}`.toLowerCase()
+                            });
+                        });
+                    }
+
                     if (project.vendors) {
                         project.vendors.forEach(vendor => {
                             if (vendor.documents) {
@@ -1219,6 +1230,14 @@
                 });
             }
 
+            // Research
+            if (project.research && project.research.length > 0) {
+                listHtml += `<li class="app-nav-category">Research</li>`;
+                project.research.forEach(doc => {
+                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
+                });
+            }
+
             // Decisions (ADRs)
             if (project.decisions && project.decisions.length > 0) {
                 listHtml += `<li class="app-nav-category">Decisions</li>`;
@@ -1422,13 +1441,21 @@
                 // Setup keyboard shortcuts
                 setupKeyboardShortcuts();
 
-                // Handle initial hash
+                // Handle initial hash or load default document
                 if (window.location.hash) {
                     const path = window.location.hash.slice(1);
                     loadDocument(path);
 
                     // Mark as active
                     const link = document.querySelector(`a[data-path="${path}"]`);
+                    if (link) link.classList.add('active');
+                } else if (manifest.defaultDocument) {
+                    // Load Architecture Principles as default landing page
+                    const defaultPath = manifest.defaultDocument;
+                    window.location.hash = defaultPath;
+                    loadDocument(defaultPath);
+
+                    const link = document.querySelector(`a[data-path="${defaultPath}"]`);
                     if (link) link.classList.add('active');
                 }
 
@@ -1448,6 +1475,7 @@
                 manifest.projects.forEach(p => {
                     if (p.documents) count += p.documents.length;
                     if (p.diagrams) count += p.diagrams.length;
+                    if (p.research) count += p.research.length;
                     if (p.decisions) count += p.decisions.length;
                     if (p.vendors) {
                         p.vendors.forEach(v => {
