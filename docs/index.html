@@ -572,41 +572,55 @@
         /* Header */
         .app-header {
             background: #0b0c0c;
-            padding: 0;
             height: var(--header-height);
+            display: flex;
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 50;
         }
 
-        .app-header-inner {
+        .app-header__container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 100%;
             padding: 0 1.5rem;
+            width: 100%;
         }
 
-        .app-header-left {
+        .app-header__left {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .app-header-title {
+        .app-header__link {
             color: white;
             font-size: 1.25rem;
             font-weight: 700;
             text-decoration: none;
         }
 
-        .app-header-title:hover {
+        .app-header__link:hover {
             text-decoration: underline;
         }
 
-        .app-header-meta {
+        .app-header__nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .app-header__nav a,
+        .app-header__stats {
             color: #b1b4b6;
+            text-decoration: none;
             font-size: 0.875rem;
+        }
+
+        .app-header__nav a:hover {
+            color: white;
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -630,16 +644,7 @@
         }
 
         /* Stats */
-        .app-stats {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .app-stat {
-            font-size: 0.8125rem;
-        }
-
-        .app-stat-value {
+        .app-header__stats .app-stat-value {
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -683,11 +688,11 @@
                 padding: 1.5rem;
             }
 
-            .app-header-meta {
+            .app-header__nav a {
                 display: none;
             }
 
-            .app-header-title {
+            .app-header__link {
                 font-size: 1rem;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -747,13 +752,16 @@
 
     <!-- Header -->
     <header class="app-header">
-        <div class="app-header-inner">
-            <div class="app-header-left">
+        <div class="app-header__container">
+            <div class="app-header__left">
                 <button class="app-mobile-menu" id="mobile-menu" aria-label="Open navigation menu">&#9776;</button>
-                <a href="#" class="app-header-title" id="header-title">Project Documentation</a>
+                <a href="#" class="app-header__link" id="header-title">Project Documentation</a>
             </div>
-            <div class="app-stats" id="header-stats"></div>
-            <span class="app-header-meta" id="header-meta"></span>
+            <nav class="app-header__nav" aria-label="Site navigation">
+                <span class="app-header__stats" id="header-stats"></span>
+                <a href="https://github.com/tractorjuice/arckit-test-project-v17-fuel-prices" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://tractorjuice.github.io/arc-kit/">ArcKit</a>
+            </nav>
         </div>
     </header>
 
@@ -843,12 +851,12 @@
 
     <script>
         // ============================================
-        // Configuration - UPDATE THESE VALUES
+        // Configuration
         // ============================================
         const CONFIG = {
-            owner: 'tractorjuice',           // GitHub username/org
-            repo: 'arckit-test-project-v17-fuel-prices',             // Repository name
-            branch: 'main'          // Branch name (usually 'main')
+            owner: 'tractorjuice',
+            repo: 'arckit-test-project-v17-fuel-prices',
+            branch: 'main'
         };
 
         // ============================================
@@ -980,6 +988,17 @@
                         });
                     }
 
+                    if (project.research) {
+                        project.research.forEach(doc => {
+                            allDocuments.push({
+                                ...doc,
+                                project: projectName,
+                                category: 'Research',
+                                searchText: `${doc.title} research aws azure cloud ${projectName}`.toLowerCase()
+                            });
+                        });
+                    }
+
                     if (project.decisions) {
                         project.decisions.forEach(doc => {
                             allDocuments.push({
@@ -991,13 +1010,35 @@
                         });
                     }
 
-                    if (project.research) {
-                        project.research.forEach(doc => {
+                    if (project.wardleyMaps) {
+                        project.wardleyMaps.forEach(doc => {
                             allDocuments.push({
                                 ...doc,
                                 project: projectName,
-                                category: 'Research',
-                                searchText: `${doc.title} research aws azure cloud ${projectName}`.toLowerCase()
+                                category: 'Wardley Maps',
+                                searchText: `${doc.title} wardley map strategy ${projectName}`.toLowerCase()
+                            });
+                        });
+                    }
+
+                    if (project.dataContracts) {
+                        project.dataContracts.forEach(doc => {
+                            allDocuments.push({
+                                ...doc,
+                                project: projectName,
+                                category: 'Data Contracts',
+                                searchText: `${doc.title} data contract mesh ${projectName}`.toLowerCase()
+                            });
+                        });
+                    }
+
+                    if (project.reviews) {
+                        project.reviews.forEach(doc => {
+                            allDocuments.push({
+                                ...doc,
+                                project: projectName,
+                                category: 'Reviews',
+                                searchText: `${doc.title} review hld dld ${projectName}`.toLowerCase()
                             });
                         });
                     }
@@ -1262,6 +1303,30 @@
                 });
             }
 
+            // Wardley Maps
+            if (project.wardleyMaps && project.wardleyMaps.length > 0) {
+                listHtml += `<li class="app-nav-category">Wardley Maps</li>`;
+                project.wardleyMaps.forEach(doc => {
+                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
+                });
+            }
+
+            // Data Contracts
+            if (project.dataContracts && project.dataContracts.length > 0) {
+                listHtml += `<li class="app-nav-category">Data Contracts</li>`;
+                project.dataContracts.forEach(doc => {
+                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
+                });
+            }
+
+            // Reviews
+            if (project.reviews && project.reviews.length > 0) {
+                listHtml += `<li class="app-nav-category">Reviews</li>`;
+                project.reviews.forEach(doc => {
+                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
+                });
+            }
+
             // Vendors
             if (project.vendors && project.vendors.length > 0) {
                 listHtml += `<li class="app-nav-category">Vendors</li>`;
@@ -1417,7 +1482,6 @@
         async function init() {
             // Update header
             document.getElementById('header-title').textContent = `${CONFIG.repo} Documentation`;
-            document.getElementById('header-meta').textContent = `${CONFIG.owner}/${CONFIG.repo}`;
 
             try {
                 // Load manifest
@@ -1434,16 +1498,14 @@
                         `Generated: ${date.toLocaleDateString()}`;
                 }
 
+                // Build search index first so allDocuments is populated
+                buildSearchIndex(manifest);
+
                 // Update header stats
                 const totalDocs = allDocuments.length || countDocuments(manifest);
                 const projectCount = manifest.projects ? manifest.projects.length : 0;
-                document.getElementById('header-stats').innerHTML = `
-                    <span class="app-stat"><span class="app-stat-value">${totalDocs}</span> documents</span>
-                    <span class="app-stat"><span class="app-stat-value">${projectCount}</span> projects</span>
-                `;
-
-                // Build search index
-                buildSearchIndex(manifest);
+                document.getElementById('header-stats').innerHTML =
+                    `<span class="app-stat-value">${totalDocs}</span> docs · <span class="app-stat-value">${projectCount}</span> projects`;
 
                 // Build navigation
                 buildNavigation(manifest);
@@ -1493,6 +1555,9 @@
                     if (p.diagrams) count += p.diagrams.length;
                     if (p.research) count += p.research.length;
                     if (p.decisions) count += p.decisions.length;
+                    if (p.wardleyMaps) count += p.wardleyMaps.length;
+                    if (p.dataContracts) count += p.dataContracts.length;
+                    if (p.reviews) count += p.reviews.length;
                     if (p.vendors) {
                         p.vendors.forEach(v => {
                             if (v.documents) count += v.documents.length;
