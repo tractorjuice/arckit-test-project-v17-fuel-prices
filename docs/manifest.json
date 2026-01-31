@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-31T18:00:00Z",
+  "generated": "2026-01-31T19:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v17-fuel-prices",
@@ -43,12 +43,6 @@
           "title": "Technology & Service Research — Data Sources",
           "category": "Discovery",
           "documentId": "ARC-001-RSCH-v1.0"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RSCH-v2.0.md",
-          "title": "Technology & Service Research — Open Source Tools",
-          "category": "Discovery",
-          "documentId": "ARC-001-RSCH-v2.0"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v1.0.md",
@@ -107,6 +101,12 @@
           "title": "Azure Technology Research",
           "category": "Research",
           "documentId": "ARC-001-AZRS-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v2.0.md",
+          "title": "Technology & Service Research — Open Source Tools",
+          "category": "Research",
+          "documentId": "ARC-001-RSCH-v2.0"
         }
       ],
       "decisions": [],
