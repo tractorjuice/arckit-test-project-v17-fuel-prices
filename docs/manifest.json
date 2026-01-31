@@ -81,7 +81,14 @@
           "documentId": "ARC-001-PLAN-v1.0"
         }
       ],
-      "diagrams": [],
+      "diagrams": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/diagrams/ARC-001-DIAG-001-v1.0.md",
+          "title": "Data Pipeline — High-Level Data Flow",
+          "category": "Diagrams",
+          "documentId": "ARC-001-DIAG-001-v1.0"
+        }
+      ],
       "decisions": [],
       "wardleyMaps": [],
       "dataContracts": [],
