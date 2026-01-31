@@ -39,13 +39,13 @@
           "documentId": "ARC-001-REQ-v2.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v1.0.md",
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RSCH-v1.0.md",
           "title": "Technology & Service Research — Data Sources",
           "category": "Discovery",
           "documentId": "ARC-001-RSCH-v1.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v2.0.md",
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RSCH-v2.0.md",
           "title": "Technology & Service Research — Open Source Tools",
           "category": "Discovery",
           "documentId": "ARC-001-RSCH-v2.0"
