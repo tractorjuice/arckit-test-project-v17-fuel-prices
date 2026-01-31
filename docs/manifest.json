@@ -39,6 +39,18 @@
           "documentId": "ARC-001-REQ-v2.0"
         },
         {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v1.0.md",
+          "title": "Technology & Service Research — Data Sources",
+          "category": "Discovery",
+          "documentId": "ARC-001-RSCH-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v2.0.md",
+          "title": "Technology & Service Research — Open Source Tools",
+          "category": "Discovery",
+          "documentId": "ARC-001-RSCH-v2.0"
+        },
+        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v1.0.md",
           "title": "Project Plan",
           "category": "Planning",
@@ -85,12 +97,6 @@
       ],
       "research": [
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v1.0.md",
-          "title": "Technology & Service Research — Data Sources",
-          "category": "Research",
-          "documentId": "ARC-001-RSCH-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.0.md",
           "title": "AWS Technology Research",
           "category": "Research",
@@ -101,12 +107,6 @@
           "title": "Azure Technology Research",
           "category": "Research",
           "documentId": "ARC-001-AZRS-v1.0"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v2.0.md",
-          "title": "Technology & Service Research — Open Source Tools",
-          "category": "Research",
-          "documentId": "ARC-001-RSCH-v2.0"
         }
       ],
       "decisions": [],
