@@ -1,5 +1,5 @@
 {
-  "generated": "2026-01-31T19:00:00Z",
+  "generated": "2026-02-01T12:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v17-fuel-prices",
@@ -37,6 +37,18 @@
           "title": "Business & Technical Requirements (v2.0 — In-Car Platforms)",
           "category": "Discovery",
           "documentId": "ARC-001-REQ-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v1.0.md",
+          "title": "Data Source Discovery — External APIs & Datasets",
+          "category": "Discovery",
+          "documentId": "ARC-001-DSCT-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v2.0.md",
+          "title": "Data Source Discovery — External APIs & Datasets (v2.0)",
+          "category": "Discovery",
+          "documentId": "ARC-001-DSCT-v2.0"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RSCH-v1.0.md",
