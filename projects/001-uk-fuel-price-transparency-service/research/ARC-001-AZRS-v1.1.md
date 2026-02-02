@@ -6,12 +6,12 @@
 
 | Field | Value |
 |-------|-------|
-| **Document ID** | ARC-001-AZRS-v1.0 |
+| **Document ID** | ARC-001-AZRS-v1.1 |
 | **Document Type** | Azure Technology Research |
 | **Project** | UK Fuel Price Transparency Service (Project 001) |
 | **Classification** | OFFICIAL |
 | **Status** | DRAFT |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Created Date** | 2026-02-02 |
 | **Last Modified** | 2026-02-02 |
 | **Review Cycle** | Quarterly |
@@ -26,6 +26,7 @@
 | Version | Date | Author | Changes | Approved By | Approval Date |
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-02-02 | ArcKit AI | Initial creation from `/arckit.azure-research` command | PENDING | PENDING |
+| 1.1 | 2026-02-02 | ArcKit AI | Updated for requirements v2.0: added in-car platform API guidance (FR-014, FR-015, INT-008, UC-7), updated Azure Functions to recommend Flex Consumption plan (Linux Consumption retiring Sept 2028), refreshed APIM v2 tier details including Premium v2 GA with availability zones, added Android Auto/Apple CarPlay API design patterns | PENDING | PENDING |
 
 ---
 
@@ -35,9 +36,9 @@
 
 This document presents Azure-specific technology research findings for the UK Fuel Price Transparency Service ("Fuel Finder"). It provides Azure service recommendations, architecture patterns, and implementation guidance based on official Microsoft documentation accessed via the Microsoft Learn MCP server.
 
-**Requirements Analyzed**: 15 functional, 20 non-functional, 8 integration, 6 data entity requirements
+**Requirements Analyzed**: 15 functional, 20 non-functional, 8 integration, 6 data entity requirements (from ARC-001-REQ-v2.0, including Android Auto/Apple CarPlay use case UC-7)
 
-**Azure Services Evaluated**: 12 Azure services across 7 categories
+**Azure Services Evaluated**: 12 Azure services across 9 categories
 
 **Research Sources**: Microsoft Learn, Azure Architecture Center, Azure Well-Architected Framework, Azure Security Benchmark, Microsoft Learn MCP Server
 
@@ -45,8 +46,8 @@ This document presents Azure-specific technology research findings for the UK Fu
 
 | Requirement Category | Recommended Azure Service | Tier | Monthly Estimate |
 |---------------------|---------------------------|------|------------------|
-| Web Application and API Hosting | Azure Container Apps | Consumption | GBP 320 |
-| Event-Driven Processing | Azure Functions | Consumption | GBP 45 |
+| Web Application and API Hosting | Azure Container Apps | Consumption | GBP 350 |
+| Event-Driven Processing | Azure Functions | Flex Consumption | GBP 50 |
 | Relational Database | Azure SQL Database | General Purpose (Zone-Redundant) | GBP 580 |
 | Caching | Azure Cache for Redis | Standard C2 | GBP 135 |
 | Messaging and Queuing | Azure Service Bus | Standard | GBP 25 |
@@ -57,7 +58,7 @@ This document presents Azure-specific technology research findings for the UK Fu
 | Object Storage and Audit | Azure Blob Storage | Hot + Immutable | GBP 55 |
 | Monitoring | Azure Monitor + Application Insights | Standard | GBP 180 |
 | Networking | Virtual Network + Private Endpoints | Standard | GBP 95 |
-| **Total** | | | **GBP 2,030** |
+| **Total** | | | **GBP 2,065** |
 
 ### Architecture Pattern
 
@@ -65,7 +66,7 @@ This document presents Azure-specific technology research findings for the UK Fu
 
 **Reference Architecture**: https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation
 
-This pattern targets the migration and modernisation of web applications to Azure with reliability, security, and cost optimisation as primary concerns. It aligns with the Fuel Finder's need for a citizen-facing web application backed by APIs, data processing pipelines, and open data publication.
+This pattern targets the migration and modernisation of web applications to Azure with reliability, security, and cost optimisation as primary concerns. It aligns with the Fuel Finder's need for a citizen-facing web application backed by APIs, data processing pipelines, and open data publication. For v1.1, the pattern is extended to include in-car platform API endpoints optimised for Android Auto and Apple CarPlay consumption.
 
 ### UK Government Suitability
 
@@ -86,7 +87,7 @@ This pattern targets the migration and modernisation of web applications to Azur
 
 **Requirements Addressed**: FR-001, FR-002, FR-003, FR-005, FR-006, FR-007, FR-008, FR-010, FR-014, FR-015, NFR-P-001, NFR-P-002, NFR-S-001, NFR-S-002, NFR-A-001, NFR-A-002
 
-**Why This Category**: The Fuel Finder service requires hosting for a citizen-facing web application (price search and comparison), a retailer-facing submission portal, a CMA enforcement dashboard, and RESTful APIs for open data access. The workload is containerised, event-driven, and must scale to handle peak traffic from approximately 8,500 forecourts submitting prices and millions of citizen searches.
+**Why This Category**: The Fuel Finder service requires hosting for a citizen-facing web application (price search and comparison), a retailer-facing submission portal, a CMA enforcement dashboard, RESTful APIs for open data access, and in-car platform APIs optimised for Android Auto and Apple CarPlay (FR-014, FR-015). The workload is containerised, event-driven, and must scale to handle peak traffic from approximately 8,500 forecourts submitting prices and millions of citizen searches.
 
 ---
 
@@ -101,10 +102,11 @@ This pattern targets the migration and modernisation of web applications to Azur
 - **Serverless containers**: Run containers without managing infrastructure; automatic scaling from zero to thousands of replicas
 - **Built-in ingress**: HTTPS ingress with automatic TLS termination, traffic splitting for blue/green deployments
 - **Dapr integration**: Built-in Dapr sidecar for service-to-service invocation, pub/sub messaging, state management
-- **KEDA-based autoscaling**: Scale based on HTTP traffic, Azure Service Bus queue depth, custom metrics
+- **KEDA-based autoscaling**: Scale based on HTTP traffic, Azure Service Bus queue depth, custom metrics; up to 1,000 instances per app
 - **Managed identity**: System-assigned and user-assigned managed identities for secure access to Azure resources
 - **VNet integration**: Deploy into a custom virtual network for network isolation with private endpoints
 - **Revisions and traffic splitting**: Multiple active revisions with percentage-based traffic routing for canary deployments
+- **Cold start optimisation**: Sub-second cold starts; proactive wake strategies documented for latency-sensitive endpoints
 
 **Pricing Tiers**:
 
@@ -121,7 +123,20 @@ This pattern targets the migration and modernisation of web applications to Azur
 | Retailer Portal | 1 vCPU, 2 GiB memory, 1-4 replicas | GBP 60 | Lower traffic, scales during submission windows |
 | Open Data API | 2 vCPU, 4 GiB memory, 2-10 replicas | GBP 100 | High read throughput, KEDA scaling on requests |
 | CMA Dashboard | 1 vCPU, 2 GiB memory, 1-2 replicas | GBP 40 | Internal only, low replica count |
-| **Total** | | **GBP 320** | Consumption plan with auto-scaling |
+| In-Car Platform API | 1 vCPU, 2 GiB memory, 1-6 replicas | GBP 30 | Lightweight JSON responses for Android Auto / Apple CarPlay (FR-014, FR-015) |
+| **Total** | | **GBP 350** | Consumption plan with auto-scaling |
+
+**In-Car Platform API Design (v1.1 Addition)**:
+
+The in-car platform API is a dedicated Container App serving simplified JSON payloads optimised for Android Auto and Apple CarPlay consumption (FR-014, FR-015, INT-008). Design considerations:
+
+- **Endpoint**: `/api/v1/in-car/prices` -- returns minimal JSON payload (<5KB) with nearby fuel prices, optimised for low-bandwidth in-car data connections
+- **Response format**: Compact JSON with fuel station name, distance, price, and navigation coordinates only
+- **Latency target**: <200ms p95 (stricter than the general <500ms API target) to support real-time in-car displays
+- **Caching**: Aggressive Redis caching with 15-minute TTL aligned to price update frequency; Front Door edge caching for location-based responses
+- **Scaling**: KEDA HTTP scaler with burst capacity for commuter peak hours (07:00-09:00, 16:30-18:30)
+- **Versioning**: Separate API version (`v1-car`) to allow independent evolution without affecting web/open data consumers
+- **Navigation integration**: Response includes `navigation_uri` field with `geo:` URI scheme for direct handoff to car navigation
 
 **Azure Well-Architected Assessment**:
 
@@ -173,7 +188,7 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 **Pricing**: P1v3 (Production) from GBP 95/month per instance; minimum 1 instance always running.
 
-**Why Not Recommended**: App Service requires always-on instances (no scale-to-zero), leading to higher costs for low-traffic services like the CMA dashboard. Container Apps provides better cost efficiency through consumption billing and more flexibility for a multi-service architecture.
+**Why Not Recommended**: App Service requires always-on instances (no scale-to-zero), leading to higher costs for low-traffic services like the CMA dashboard and the in-car API during off-peak hours. Container Apps provides better cost efficiency through consumption billing and more flexibility for a multi-service architecture including the dedicated in-car platform endpoint.
 
 ---
 
@@ -181,14 +196,14 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 | Criteria | Azure Container Apps | Azure App Service | Winner |
 |----------|---------------------|-------------------|--------|
-| Cost (monthly, 4 services) | GBP 320 | GBP 380+ | Container Apps |
+| Cost (monthly, 5 services) | GBP 350 | GBP 475+ | Container Apps |
 | Scale-to-zero | Yes | No | Container Apps |
 | Container native | Yes | Limited | Container Apps |
 | Ease of setup | Medium | Easy | App Service |
 | UK Availability | UK South, UK West | UK South, UK West | Tie |
-| Feature Match | 95% | 80% | Container Apps |
+| Feature Match | 95% | 75% | Container Apps |
 
-**Recommendation**: Azure Container Apps - provides consumption-based billing with scale-to-zero, native container support, and Dapr integration for service-to-service communication, making it the best fit for a multi-service architecture with variable traffic patterns.
+**Recommendation**: Azure Container Apps - provides consumption-based billing with scale-to-zero, native container support, and Dapr integration for service-to-service communication, making it the best fit for a multi-service architecture with variable traffic patterns including the new in-car platform API.
 
 ---
 
@@ -200,39 +215,46 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 ---
 
-#### Recommended: Azure Functions
+#### Recommended: Azure Functions (Flex Consumption Plan)
 
 **Service Overview**:
 - **Full Name**: Azure Functions
 - **Category**: Compute / Serverless Functions
 - **Documentation**: https://learn.microsoft.com/azure/azure-functions/functions-overview
 
+**v1.1 Update - Flex Consumption Plan**: Microsoft now recommends the Flex Consumption plan as the preferred serverless hosting option for Azure Functions. The classic Linux Consumption plan is retiring on 30 September 2028. Flex Consumption offers faster horizontal scaling (up to 1,000 instances), configurable memory sizes (512 MB, 2,048 MB, or 4,096 MB), VNet integration, and always-ready instances to reduce cold starts.
+
 **Key Features**:
-- **Event-driven triggers**: Service Bus, HTTP, Timer, Blob Storage, Event Grid triggers
-- **Consumption billing**: Pay only for execution time and memory; 1 million free executions/month
+- **Event-driven triggers**: Service Bus, HTTP, Timer, Blob Storage (Event Grid source), Event Grid triggers
+- **Flex Consumption billing**: Pay only for execution time and memory; configurable per-instance concurrency for optimal efficiency
 - **Language support**: C#, Python, JavaScript/TypeScript, Java, PowerShell
-- **Durable Functions**: Orchestrate complex workflows (fan-out/fan-in for batch validation)
-- **VNet integration**: Secure access to private resources via VNet integration
+- **Durable Functions**: Orchestrate complex workflows (fan-out/fan-in for batch validation); Azure Storage and Durable Task Scheduler supported as storage providers
+- **VNet integration**: Native VNet integration via subnet delegation (Microsoft.App/environments) for secure access to private resources
+- **Always-ready instances**: Pre-provisioned instances to eliminate cold starts for latency-sensitive functions
+- **Configurable memory**: Choose 512 MB, 2,048 MB, or 4,096 MB per instance based on workload requirements
+- **Fast scaling**: Dynamic scale-out up to 1,000 instances based on per-instance concurrency and incoming events
 
 **Estimated Cost for This Project**:
 
 | Resource | Configuration | Monthly Cost | Notes |
 |----------|---------------|--------------|-------|
-| Price Ingestion Function | Service Bus trigger, approximately 500K executions/month | GBP 15 | Validates and transforms submissions |
-| Scheduled Compliance Check | Timer trigger, hourly | GBP 5 | Detects late/missing submissions |
-| Data Publication Pipeline | Blob trigger + Durable Functions | GBP 15 | Generates open data snapshots |
-| GOV.UK Notify Integration | HTTP trigger, approximately 50K/month | GBP 10 | Sends retailer notifications |
-| **Total** | | **GBP 45** | Consumption plan |
+| Price Ingestion Function | Service Bus trigger, approx 500K executions/month, 2048 MB | GBP 18 | Validates and transforms submissions |
+| Scheduled Compliance Check | Timer trigger, hourly, 512 MB | GBP 5 | Detects late/missing submissions |
+| Data Publication Pipeline | Event Grid trigger + Durable Functions, 2048 MB | GBP 17 | Generates open data snapshots |
+| GOV.UK Notify Integration | HTTP trigger, approx 50K/month, 512 MB | GBP 10 | Sends retailer notifications |
+| **Total** | | **GBP 50** | Flex Consumption plan |
 
 **Azure Well-Architected Assessment**:
 
 | Pillar | Rating | Notes |
 |--------|--------|-------|
-| **Reliability** | 4/5 | Built-in retry policies, dead-letter queues, Durable Functions for orchestration |
-| **Security** | 5/5 | Managed identity, VNet integration, no public endpoint required |
-| **Cost Optimization** | 5/5 | Consumption billing, 1M free executions, no idle cost |
-| **Operational Excellence** | 4/5 | Application Insights integration, distributed tracing |
-| **Performance Efficiency** | 4/5 | Auto-scales to hundreds of instances, cold start approximately 1-2s |
+| **Reliability** | 4/5 | Built-in retry policies, dead-letter queues, Durable Functions for orchestration, always-ready instances |
+| **Security** | 5/5 | Managed identity, VNet integration (native in Flex Consumption), no public endpoint required |
+| **Cost Optimization** | 5/5 | Flex Consumption billing, configurable memory to avoid over-provisioning, no idle cost |
+| **Operational Excellence** | 4/5 | Application Insights integration, distributed tracing, per-function scaling metrics |
+| **Performance Efficiency** | 5/5 | Up to 1,000 instances, always-ready for cold-start elimination, configurable concurrency |
+
+**Migration Note**: If the project initially deploys on the classic Consumption plan (Windows), migration to Flex Consumption is recommended before September 2028. Flex Consumption currently supports Linux only and does not support deployment slots; use site update strategies for zero-downtime deployments.
 
 ---
 
@@ -308,9 +330,9 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 ### Category 4: Caching
 
-**Requirements Addressed**: NFR-P-001, NFR-P-002, FR-005, FR-006
+**Requirements Addressed**: NFR-P-001, NFR-P-002, FR-005, FR-006, FR-014, FR-015
 
-**Why This Category**: The citizen-facing price search must respond in <500ms (API) and <3s (page load). Published fuel prices are read-heavy (millions of searches vs thousands of submissions per day), making caching essential for performance and cost reduction.
+**Why This Category**: The citizen-facing price search must respond in <500ms (API) and <3s (page load). The in-car platform API has a stricter <200ms p95 target. Published fuel prices are read-heavy (millions of searches vs thousands of submissions per day), making caching essential for performance and cost reduction.
 
 ---
 
@@ -328,13 +350,14 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 - **Persistence**: RDB/AOF persistence for data durability
 - **VNet integration**: Deploy into a VNet for network isolation (Premium tier)
 - **Redis Cluster**: Automatic sharding for horizontal scaling (Premium tier)
+- **Zone redundancy**: Standard tier now provides zone-redundant replication by default in supported regions
 
 **Pricing Tiers**:
 
 | Tier | Monthly Cost | Features | Use Case |
 |------|-------------|----------|----------|
 | Basic C0 | GBP 12 | 250 MB, no SLA, no replication | Dev/Test |
-| Standard C2 | GBP 135 | 6 GB, replicated, 99.9% SLA | Production |
+| Standard C2 | GBP 135 | 6 GB, replicated, zone-redundant, 99.9% SLA | Production |
 | Premium P1 | GBP 300 | 6 GB, VNet, clustering, persistence | Enterprise |
 | Enterprise E10 | GBP 550 | 12 GB, RediSearch, active geo-replication | Mission-critical |
 
@@ -342,21 +365,22 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 | Resource | Configuration | Monthly Cost | Notes |
 |----------|---------------|--------------|-------|
-| Price Cache | Standard C2, 6 GB | GBP 135 | Caches published prices, location data, search results |
-| **Total** | | **GBP 135** | Standard tier sufficient; upgrade to Premium if VNet isolation required |
+| Price Cache | Standard C2, 6 GB | GBP 135 | Caches published prices, location data, search results, in-car API responses |
+| **Total** | | **GBP 135** | Standard tier sufficient; zone-redundant by default |
 
 **Caching Strategy**:
 - **Published prices**: Cache with 30-minute TTL (prices update every 30 minutes per regulations)
 - **Forecourt metadata**: Cache with 24-hour TTL (location, opening hours rarely change)
 - **Search results**: Cache popular postcode/location searches with 15-minute TTL
+- **In-car API responses**: Cache by geohash grid cell with 15-minute TTL; compact JSON format pre-serialised in cache to minimise response assembly time (supports <200ms target for FR-014, FR-015)
 - **Session data**: Store retailer portal sessions (if needed)
-- **Expected hit rate**: >90% for citizen price searches
+- **Expected hit rate**: >90% for citizen price searches, >95% for in-car API (limited result set)
 
 **Azure Well-Architected Assessment**:
 
 | Pillar | Rating | Notes |
 |--------|--------|-------|
-| **Reliability** | 4/5 | Standard tier has built-in replication, 99.9% SLA |
+| **Reliability** | 4/5 | Standard tier has built-in zone-redundant replication, 99.9% SLA |
 | **Security** | 4/5 | TLS encryption, access keys, firewall rules; Premium adds VNet |
 | **Cost Optimization** | 4/5 | Standard C2 handles projected load; reserved pricing available |
 | **Operational Excellence** | 4/5 | Azure Monitor metrics, diagnostic logs, alerts |
@@ -366,9 +390,9 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 ### Category 5: Messaging and Integration
 
-**Requirements Addressed**: INT-001, INT-002, INT-003, INT-005, INT-006, FR-004, FR-009, FR-011
+**Requirements Addressed**: INT-001, INT-002, INT-003, INT-005, INT-006, INT-008, FR-004, FR-009, FR-011
 
-**Why This Category**: The data pipeline requires asynchronous processing: price submissions arrive via API, are validated, transformed, and published. Decoupling submission from processing ensures reliability (submissions are not lost during processing failures) and scalability (processing scales independently).
+**Why This Category**: The data pipeline requires asynchronous processing: price submissions arrive via API, are validated, transformed, and published. Decoupling submission from processing ensures reliability (submissions are not lost during processing failures) and scalability (processing scales independently). INT-008 (in-car platform integration) uses the same messaging backbone for price update propagation.
 
 ---
 
@@ -400,14 +424,15 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 - `validation-results`: Validated submissions ready for publication
 - `compliance-alerts`: Non-compliance events for CMA enforcement
 - `notification-requests`: Outbound notifications via GOV.UK Notify
+- `cache-invalidation` (v1.1 addition): Topic with subscriptions for price cache and in-car API cache invalidation on price update
 
 ---
 
 ### Category 6: API Gateway
 
-**Requirements Addressed**: FR-005, FR-006, FR-010, INT-004, INT-007, NFR-SEC-002, NFR-P-002
+**Requirements Addressed**: FR-005, FR-006, FR-010, FR-014, FR-015, INT-004, INT-007, INT-008, NFR-SEC-002, NFR-P-002
 
-**Why This Category**: The service exposes multiple APIs: open data API (public, unauthenticated, high-volume), price submission API (authenticated, retailer-facing), and internal APIs (CMA enforcement tools). API Management provides rate limiting, authentication, documentation, versioning, and analytics.
+**Why This Category**: The service exposes multiple APIs: open data API (public, unauthenticated, high-volume), price submission API (authenticated, retailer-facing), in-car platform API (public, optimised for Android Auto/Apple CarPlay), and internal APIs (CMA enforcement tools). API Management provides rate limiting, authentication, documentation, versioning, and analytics.
 
 ---
 
@@ -426,27 +451,51 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 - **Versioning and revisions**: API versioning with non-breaking revision management
 - **Analytics**: Built-in analytics dashboard for API usage, latency, errors
 - **OpenAPI support**: Import/export OpenAPI 3.0 specifications
+- **MCP server support** (v1.1 note): APIM now supports Model Context Protocol (MCP) server management across all tiers for AI agent integration
 
-**Pricing Tiers (v2)**:
+**Pricing Tiers (v2)** -- Updated for v1.1:
 
 | Tier | Monthly Cost | Features | Use Case |
 |------|-------------|----------|----------|
-| Basic v2 | GBP 115 | 250 req/s, no VNet | Dev/Test, small production |
-| Standard v2 | GBP 230 | 500 req/s, VNet integration | Production |
-| Premium v2 | GBP 460 | 2500 req/s, multi-region, VNet | Enterprise, multi-region |
+| Basic v2 | GBP 115 | 250 req/s, no VNet, SLA backed | Dev/Test, small production |
+| Standard v2 | GBP 230 | 500 req/s, VNet integration (outbound) | Production |
+| Premium v2 | GBP 460 | 2500 req/s, full VNet injection, availability zones, workspaces | Enterprise, multi-region |
+
+**v1.1 Update**: Premium v2 is now generally available with full VNet injection (both inbound and outbound isolation), availability zone support, and workspace-based federated API management. For this project, Standard v2 remains sufficient, but Premium v2 is available for upgrade if full network isolation or availability zone support is required for the API gateway itself.
 
 **Estimated Cost for This Project**:
 
 | Resource | Configuration | Monthly Cost | Notes |
 |----------|---------------|--------------|-------|
-| APIM Instance | Standard v2, 1 unit | GBP 230 | Open data API + submission API + internal APIs |
+| APIM Instance | Standard v2, 1 unit | GBP 230 | Open data API + submission API + in-car API + internal APIs |
 | **Total** | | **GBP 230** | Standard v2 provides VNet integration and sufficient throughput |
 
-**API Design**:
+**API Design** (Updated for v1.1):
 - **Open Data API** (`/api/v1/prices`): Public, unauthenticated, rate-limited (60 req/min per IP), cached responses
 - **Submission API** (`/api/v1/submissions`): Authenticated (API key + OAuth 2.0), retailer-specific rate limits
+- **In-Car Platform API** (`/api/v1-car/prices`): Public, unauthenticated, rate-limited (120 req/min per IP), compact JSON responses (<5KB), aggressive caching (FR-014, FR-015, INT-008)
 - **Enforcement API** (`/api/v1/enforcement`): Internal only, Azure AD authentication, no public access
-- **Developer Portal**: Self-service API key registration for third-party consumers
+- **Developer Portal**: Self-service API key registration for third-party consumers, including Android Auto / Apple CarPlay integration guide
+
+**In-Car API APIM Policy** (v1.1 Addition):
+```xml
+<!-- In-Car Platform API Policy -->
+<policies>
+    <inbound>
+        <rate-limit calls="120" renewal-period="60" />
+        <cache-lookup vary-by-query-parameter="lat,lon,radius,fuel_type" />
+        <set-header name="X-Response-Format" exists-action="override">
+            <value>compact</value>
+        </set-header>
+    </inbound>
+    <outbound>
+        <cache-store duration="900" /> <!-- 15 minute cache -->
+        <set-header name="Cache-Control" exists-action="override">
+            <value>public, max-age=900</value>
+        </set-header>
+    </outbound>
+</policies>
+```
 
 ---
 
@@ -508,7 +557,8 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 - **CMA Staff**: Federated SSO via CMA's existing IdP (SAML 2.0 or OIDC)
 - **DESNZ Staff**: Federated SSO via DESNZ's existing IdP
 - **Retailers**: API key authentication (issued per forecourt) + OAuth 2.0 client credentials for automated submissions
-- **Citizens**: Anonymous access (no authentication for price search)
+- **Citizens**: Anonymous access (no authentication for price search or in-car API)
+- **In-Car API**: Anonymous access, rate-limited per IP; no user authentication required (FR-014, FR-015)
 - **Service-to-Service**: Managed identities (no credentials stored or rotated)
 
 ---
@@ -541,8 +591,8 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 **WAF Rules**:
 - OWASP 3.2 Core Rule Set (SQL injection, XSS, LFI, RFI, command injection)
 - Bot protection (block known bad bots, allow search engines)
-- Rate limiting (per IP: 60 req/min for open data API, 10 req/min for submission API)
-- Geo-filtering (allow UK only for submission API; worldwide for open data API)
+- Rate limiting (per IP: 60 req/min for open data API, 120 req/min for in-car API, 10 req/min for submission API)
+- Geo-filtering (allow UK only for submission API; worldwide for open data API and in-car API)
 - Custom rule: Block requests without valid User-Agent header
 
 ---
@@ -593,7 +643,7 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 **Requirements Addressed**: NFR-M-001, NFR-M-002, NFR-M-003, NFR-A-002, NFR-A-003
 
-**Why This Category**: The service requires comprehensive monitoring for SLA compliance (99.9% citizen availability, 99.95% API availability), performance tracking (<500ms API response), security event detection, and operational alerting.
+**Why This Category**: The service requires comprehensive monitoring for SLA compliance (99.9% citizen availability, 99.95% API availability), performance tracking (<500ms API response, <200ms in-car API response), security event detection, and operational alerting.
 
 ---
 
@@ -626,7 +676,7 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 
 **Alerting Strategy**:
 - **P1 (Critical)**: Service down, SLA breach, security incident - PagerDuty/phone
-- **P2 (High)**: API latency >500ms, error rate >1%, database failover - email + Teams
+- **P2 (High)**: API latency >500ms, in-car API latency >200ms, error rate >1%, database failover - email + Teams
 - **P3 (Medium)**: Compliance submission rate drop, cache miss ratio >20% - email
 - **P4 (Low)**: Cost anomaly, capacity threshold warning - daily digest
 
@@ -635,6 +685,7 @@ Azure App Service is a fully managed PaaS for hosting web applications, REST API
 - **Business Dashboard**: Submission volumes, forecourt coverage %, API consumer analytics
 - **Security Dashboard**: Authentication failures, WAF blocks, threat detections
 - **Compliance Dashboard**: Retailer submission rates, enforcement case metrics
+- **In-Car API Dashboard** (v1.1 addition): p95/p99 latency, cache hit rates, peak-hour traffic patterns, geographic distribution of requests
 
 ---
 
@@ -652,7 +703,9 @@ The Reliable Web App (RWA) pattern provides prescriptive guidance for web applic
 
 For the Fuel Finder service, this pattern is adapted to use Azure Container Apps instead of App Service (for scale-to-zero and multi-service hosting) while retaining the core patterns: cache-aside for published prices, queue-based load levelling for price submissions, and the retry pattern for all external integrations (GOV.UK Notify, retailer API calls). The architecture uses Azure Front Door as the entry point with WAF protection, routes traffic to Container Apps via private endpoints, and stores data in Azure SQL Database with Redis caching.
 
-The event-driven processing layer uses Azure Functions triggered by Service Bus queues, implementing the competing consumers pattern for horizontal scaling of the data validation and publication pipeline. This decouples the submission API from the processing pipeline, ensuring that high submission volumes during peak periods do not affect citizen-facing search performance.
+The event-driven processing layer uses Azure Functions (Flex Consumption plan) triggered by Service Bus queues, implementing the competing consumers pattern for horizontal scaling of the data validation and publication pipeline. This decouples the submission API from the processing pipeline, ensuring that high submission volumes during peak periods do not affect citizen-facing search performance.
+
+**v1.1 Extension -- In-Car Platform API**: The architecture is extended with a dedicated Container App serving the in-car platform API (`/api/v1-car/prices`). This endpoint returns compact JSON payloads (<5KB) optimised for Android Auto and Apple CarPlay consumption. It shares the same Redis cache and SQL Database backend but uses pre-serialised cache entries and aggressive Front Door edge caching to achieve the <200ms p95 latency target. The in-car API is exposed through the same APIM gateway with a dedicated product and rate limiting policy, and is documented in the developer portal with Android Auto / Apple CarPlay integration patterns.
 
 ### Architecture Diagram
 
@@ -662,6 +715,7 @@ graph TB
         Citizens["Citizens / Motorists"]
         Retailers["Fuel Retailers (~8,500)"]
         ThirdParty["Third-Party Apps"]
+        InCar["Android Auto /<br/>Apple CarPlay"]
         CMAStaff["CMA Staff"]
         DESNZStaff["DESNZ Staff"]
     end
@@ -679,10 +733,11 @@ graph TB
                 CA_Retailer["Container App<br/>Retailer Portal"]
                 CA_API["Container App<br/>Open Data API"]
                 CA_CMA["Container App<br/>CMA Dashboard"]
+                CA_InCar["Container App<br/>In-Car Platform API"]
             end
             subgraph "Integration Subnet (10.0.2.0/24)"
                 APIM["API Management<br/>Standard v2"]
-                Func["Azure Functions<br/>Data Pipeline"]
+                Func["Azure Functions<br/>Flex Consumption<br/>Data Pipeline"]
             end
             subgraph "Data Subnet (10.0.3.0/24)"
                 SQL["Azure SQL Database<br/>General Purpose 4 vCores<br/>Zone-Redundant"]
@@ -724,6 +779,7 @@ graph TB
     Citizens --> FD
     Retailers --> FD
     ThirdParty --> FD
+    InCar --> FD
     CMAStaff --> FD
     DESNZStaff --> FD
 
@@ -739,9 +795,12 @@ graph TB
     CA_API --> SQL
     CA_CMA --> SQL
     CA_CMA --> Entra
+    CA_InCar --> Redis
+    CA_InCar --> SQL
 
     APIM --> CA_API
     APIM --> CA_Retailer
+    APIM --> CA_InCar
 
     CA_Retailer --> SB
     SB --> Func
@@ -761,6 +820,7 @@ graph TB
     Monitor --> LogAn
     CA_Citizen --> AppIns
     CA_API --> AppIns
+    CA_InCar --> AppIns
     Func --> AppIns
     SQL --> LogAn
 ```
@@ -773,11 +833,12 @@ graph TB
 | Retailer Portal | Azure Container Apps | Price submission, account management | Consumption (1 vCPU) |
 | Open Data API | Azure Container Apps | RESTful API for third-party consumers | Consumption (2 vCPU) |
 | CMA Dashboard | Azure Container Apps | Enforcement monitoring, compliance tools | Consumption (1 vCPU) |
-| Data Pipeline | Azure Functions | Ingestion, validation, publication | Consumption |
+| In-Car Platform API | Azure Container Apps | Android Auto / Apple CarPlay optimised API | Consumption (1 vCPU) |
+| Data Pipeline | Azure Functions | Ingestion, validation, publication | Flex Consumption |
 | API Gateway | Azure API Management | Rate limiting, auth, documentation | Standard v2 |
 | Primary Database | Azure SQL Database | Relational data, ACID transactions | General Purpose 4 vCores |
 | DR Database | Azure SQL Database | Geo-replica for disaster recovery | General Purpose 2 vCores |
-| Price Cache | Azure Cache for Redis | Published price caching, search results | Standard C2 |
+| Price Cache | Azure Cache for Redis | Published price caching, search results, in-car API cache | Standard C2 |
 | Message Broker | Azure Service Bus | Async processing, queue-based load levelling | Standard |
 | Secrets | Azure Key Vault | Connection strings, API keys, certificates | Standard |
 | CDN + WAF | Azure Front Door | Edge caching, DDoS, OWASP WAF | Premium |
@@ -1029,6 +1090,80 @@ output sqlServerFqdn string = sqlServer.properties.fullyQualifiedDomainName
 output databaseName string = sqlDb.name
 ```
 
+#### Bicep Example - In-Car Platform Container App (v1.1 Addition)
+
+```bicep
+// modules/in-car-api.bicep
+param location string
+param environment string
+param projectName string
+param containerAppsEnvironmentId string
+param registryLoginServer string
+param appInsightsConnectionString string
+
+resource inCarApi 'Microsoft.App/containerApps@2024-03-01' = {
+  name: 'ca-${projectName}-incar-${environment}'
+  location: location
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    managedEnvironmentId: containerAppsEnvironmentId
+    configuration: {
+      ingress: {
+        external: false // Internal only; exposed via APIM + Front Door
+        targetPort: 8080
+        transport: 'http'
+        corsPolicy: {
+          allowedOrigins: ['*']
+          allowedMethods: ['GET']
+        }
+      }
+      registries: [
+        {
+          server: registryLoginServer
+          identity: 'system'
+        }
+      ]
+    }
+    template: {
+      containers: [
+        {
+          name: 'incar-api'
+          image: '${registryLoginServer}/${projectName}-incar-api:latest'
+          resources: {
+            cpu: json('1.0')
+            memory: '2Gi'
+          }
+          env: [
+            {
+              name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+              value: appInsightsConnectionString
+            }
+          ]
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 6
+        rules: [
+          {
+            name: 'http-scaling'
+            http: {
+              metadata: {
+                concurrentRequests: '100'
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
+output inCarApiFqdn string = inCarApi.properties.configuration.ingress.fqdn
+```
+
 #### Terraform Example - Core Infrastructure
 
 ```hcl
@@ -1189,6 +1324,7 @@ stages:
 | SQL Database Private Endpoint | Bicep template for SQL with PE | https://learn.microsoft.com/azure/azure-sql/database/private-endpoint-overview |
 | API Management Policies | Rate limiting, caching, auth policies | https://learn.microsoft.com/azure/api-management/api-management-policies |
 | Functions Service Bus Trigger | Processing messages from Service Bus | https://learn.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger |
+| Flex Consumption Plan Quickstart | Azure Functions Flex Consumption setup | https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan |
 
 ---
 
@@ -1198,28 +1334,30 @@ stages:
 
 | Category | Azure Service | Configuration | Monthly Cost |
 |----------|---------------|---------------|--------------|
-| Compute | Azure Container Apps | 4 apps, Consumption plan | GBP 320 |
-| Compute | Azure Functions | Consumption plan, approximately 1M executions | GBP 45 |
+| Compute | Azure Container Apps | 5 apps, Consumption plan | GBP 350 |
+| Compute | Azure Functions | Flex Consumption, approx 1M executions | GBP 50 |
 | Database | Azure SQL Database | GP 4 vCores (primary) + GP 2 vCores (DR) | GBP 580 |
 | Caching | Azure Cache for Redis | Standard C2 (6 GB) | GBP 135 |
-| Messaging | Azure Service Bus | Standard, approximately 5M ops/month | GBP 25 |
+| Messaging | Azure Service Bus | Standard, approx 5M ops/month | GBP 25 |
 | API Gateway | Azure API Management | Standard v2 | GBP 230 |
 | Security | Azure Key Vault | Standard | GBP 10 |
-| Security | Microsoft Entra ID | P1, approximately 50 users | GBP 45 |
+| Security | Microsoft Entra ID | P1, approx 50 users | GBP 45 |
 | Networking | Azure Front Door Premium | CDN + WAF + DDoS | GBP 310 |
-| Storage | Azure Blob Storage | Hot + Immutable, approximately 850 GB | GBP 55 |
+| Storage | Azure Blob Storage | Hot + Immutable, approx 850 GB | GBP 55 |
 | Monitoring | Azure Monitor suite | App Insights + Log Analytics + Alerts | GBP 180 |
-| Networking | VNet + Private Endpoints | Approximately 12 private endpoints | GBP 95 |
-| **Total** | | | **GBP 2,030** |
+| Networking | VNet + Private Endpoints | Approximately 14 private endpoints | GBP 95 |
+| **Total** | | | **GBP 2,065** |
+
+**v1.1 Cost Change**: GBP 2,065/month (up from GBP 2,030 in v1.0). The increase of GBP 35/month is due to the additional In-Car Platform API Container App (GBP 30) and slightly higher Azure Functions cost (GBP 5) from the Flex Consumption plan with configurable memory.
 
 ### 3-Year TCO
 
 | Year | Monthly | Annual | Cumulative | Notes |
 |------|---------|--------|------------|-------|
-| Year 1 | GBP 2,030 | GBP 24,360 | GBP 24,360 | Full production + setup costs |
-| Year 2 | GBP 1,870 | GBP 22,440 | GBP 46,800 | Reserved instances (SQL, Redis) save approximately 8% |
-| Year 3 | GBP 1,870 | GBP 22,440 | GBP 69,240 | Continued reserved pricing |
-| **Total** | | | **GBP 69,240** | 3-year TCO |
+| Year 1 | GBP 2,065 | GBP 24,780 | GBP 24,780 | Full production + setup costs |
+| Year 2 | GBP 1,900 | GBP 22,800 | GBP 47,580 | Reserved instances (SQL, Redis) save approx 8% |
+| Year 3 | GBP 1,900 | GBP 22,800 | GBP 70,380 | Continued reserved pricing |
+| **Total** | | | **GBP 70,380** | 3-year TCO |
 
 ### Cost Optimization Recommendations
 
@@ -1227,17 +1365,19 @@ stages:
 
 2. **Azure Cache for Redis Reserved**: 1-year reservation saves approximately 20% on Redis (GBP 27/month saving).
 
-3. **Container Apps Scale-to-Zero**: The CMA Dashboard and Retailer Portal can scale to zero outside business hours, reducing compute costs by approximately 30% for those services.
+3. **Container Apps Scale-to-Zero**: The CMA Dashboard, Retailer Portal, and In-Car API can scale to zero outside business hours or off-peak, reducing compute costs by approximately 30% for those services.
 
 4. **Blob Storage Lifecycle Policies**: Move audit trail data >90 days old to Cool tier, >1 year to Archive tier (saves approximately 60% on storage for archived data).
 
-5. **Azure Front Door Caching**: Aggressive caching of open data API responses (30-minute TTL aligned with price update frequency) reduces origin requests by approximately 80%.
+5. **Azure Front Door Caching**: Aggressive caching of open data API and in-car API responses (15-30 minute TTL aligned with price update frequency) reduces origin requests by approximately 80%.
 
 6. **Dev/Test Pricing**: Use Azure Dev/Test pricing for non-production environments (up to 55% discount on compute).
 
 7. **Azure Advisor**: Enable Azure Advisor for continuous right-sizing recommendations.
 
-**Estimated Savings with Optimizations**: GBP 300/month (15% reduction) through reserved instances, lifecycle policies, and scale-to-zero.
+8. **Flex Consumption Memory Tuning** (v1.1): Use 512 MB instances for lightweight functions (Timer triggers, HTTP notifications) and 2,048 MB only for data-intensive functions (ingestion, publication). This avoids over-provisioning memory.
+
+**Estimated Savings with Optimizations**: GBP 310/month (15% reduction) through reserved instances, lifecycle policies, scale-to-zero, and memory tuning.
 
 ---
 
@@ -1300,7 +1440,7 @@ This project is classified OFFICIAL, so standard Azure (public cloud) is suitabl
 | Data Type | Storage Location | Replication | Notes |
 |-----------|------------------|-------------|-------|
 | Primary Database | UK South | UK West (geo-replica) | Failover group, data stays in UK |
-| Cache | UK South | In-region replication | Standard tier replication |
+| Cache | UK South | In-region replication | Standard tier zone-redundant replication |
 | Blob Storage (Open Data) | UK South | UK West (GRS) | Geo-redundant, both UK regions |
 | Blob Storage (Audit) | UK South | UK West (GRS) | Immutable WORM + geo-redundant |
 | Log Analytics | UK South | N/A | Single workspace, UK South |
@@ -1322,12 +1462,15 @@ This project is classified OFFICIAL, so standard Azure (public cloud) is suitabl
 | Azure Cache for Redis | https://learn.microsoft.com/azure/azure-cache-for-redis/cache-overview |
 | Azure Service Bus | https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview |
 | Azure API Management | https://learn.microsoft.com/azure/api-management/api-management-key-concepts |
+| Azure API Management v2 Tiers | https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview |
 | Azure Key Vault | https://learn.microsoft.com/azure/key-vault/general/overview |
 | Azure Front Door | https://learn.microsoft.com/azure/frontdoor/front-door-overview |
 | Microsoft Entra ID | https://learn.microsoft.com/entra/identity/ |
 | Azure Blob Storage | https://learn.microsoft.com/azure/storage/blobs/storage-blobs-overview |
 | Azure Monitor | https://learn.microsoft.com/azure/azure-monitor/overview |
 | Azure Functions | https://learn.microsoft.com/azure/azure-functions/functions-overview |
+| Azure Functions Hosting Options | https://learn.microsoft.com/azure/azure-functions/functions-scale |
+| Azure Functions Flex Consumption | https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan |
 | Azure Well-Architected Framework | https://learn.microsoft.com/azure/well-architected/ |
 | Azure Security Benchmark | https://learn.microsoft.com/security/benchmark/azure/ |
 
@@ -1337,6 +1480,7 @@ This project is classified OFFICIAL, so standard Azure (public cloud) is suitabl
 |------------------------|------|
 | Reliable Web App Pattern for .NET | https://learn.microsoft.com/azure/architecture/web-apps/guides/reliable-web-app/dotnet/plan-implementation |
 | Modern Web App Pattern | https://learn.microsoft.com/azure/architecture/web-apps/guides/enterprise-app-patterns/modern-web-app/dotnet/guidance |
+| Microservices on Container Apps | https://learn.microsoft.com/azure/architecture/example-scenario/serverless/microservices-with-container-apps |
 | Protect APIs with Front Door and APIM | https://learn.microsoft.com/azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-api-management |
 | Queue-Based Load Leveling | https://learn.microsoft.com/azure/architecture/patterns/queue-based-load-leveling |
 | Cache-Aside Pattern | https://learn.microsoft.com/azure/architecture/patterns/cache-aside |
@@ -1349,6 +1493,7 @@ This project is classified OFFICIAL, so standard Azure (public cloud) is suitabl
 | Azure SQL with Private Endpoint | https://learn.microsoft.com/azure/azure-sql/database/private-endpoint-overview |
 | API Management Policy Snippets | https://learn.microsoft.com/azure/api-management/policies/ |
 | Functions Service Bus Trigger | https://learn.microsoft.com/azure/azure-functions/functions-bindings-service-bus |
+| Flex Consumption Quickstart | https://learn.microsoft.com/azure/azure-functions/flex-consumption-plan |
 
 ---
 
@@ -1359,8 +1504,9 @@ This project is classified OFFICIAL, so standard Azure (public cloud) is suitabl
 1. **Review Findings**: Share this document with the CMA architecture team and DESNZ stakeholders for review
 2. **Validate Costs**: Use the Azure Pricing Calculator (https://azure.microsoft.com/pricing/calculator/) to refine estimates with exact configurations
 3. **Security Review**: Engage CMA SIRO and security team for Azure Security Benchmark alignment review
-4. **POC Planning**: Deploy a minimal proof-of-concept in UK South with Container Apps + SQL Database + Redis to validate architecture
+4. **POC Planning**: Deploy a minimal proof-of-concept in UK South with Container Apps + SQL Database + Redis to validate architecture, including in-car API latency testing
 5. **G-Cloud Procurement**: Initiate G-Cloud 14 direct award process via Digital Marketplace
+6. **In-Car API Design Sprint** (v1.1): Conduct design sprint for Android Auto / Apple CarPlay API contract, including third-party developer consultation (Emma persona) and in-car UX testing (Mike persona)
 
 ### Integration with Other ArcKit Commands
 
