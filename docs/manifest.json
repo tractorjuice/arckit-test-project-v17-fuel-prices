@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-02T09:40:00Z",
+  "generated": "2026-02-02T11:00:00Z",
   "repository": {
     "owner": "tractorjuice",
     "name": "arckit-test-project-v17-fuel-prices",
@@ -131,6 +131,18 @@
           "title": "AWS Technology Research (v1.1)",
           "category": "Research",
           "documentId": "ARC-001-AWRS-v1.1"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v2.0.md",
+          "title": "Azure Technology Research (v2.0)",
+          "category": "Research",
+          "documentId": "ARC-001-AZRS-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v2.0.md",
+          "title": "AWS Technology Research (v2.0)",
+          "category": "Research",
+          "documentId": "ARC-001-AWRS-v2.0"
         }
       ],
       "decisions": [],
