@@ -2,7 +2,7 @@
 
 **Architecture governance project for a government service consuming petrol and diesel price data via the CMA Fuel Finder open data scheme.**
 
-Built with [ArcKit](https://tractorjuice.github.io/arc-kit/) v1.0.3 — 42 AI-driven slash commands for architecture governance across Claude Code, Gemini CLI, and Codex CLI.
+Built with [ArcKit](https://tractorjuice.github.io/arc-kit/) — 43 AI-driven slash commands for architecture governance across Claude Code, Gemini CLI, and Codex CLI.
 
 ## Project Context
 
@@ -87,7 +87,7 @@ Full dependency ordering is documented in [`DEPENDENCY-MATRIX.md`](DEPENDENCY-MA
 
 ## Available Commands
 
-42 slash commands are available across Claude Code, Gemini CLI, and Codex CLI:
+43 slash commands are available across Claude Code, Gemini CLI, and Codex CLI:
 
 ### Core Workflow
 - `/arckit.plan` - Create project plan with timeline and Mermaid diagrams
@@ -98,6 +98,7 @@ Full dependency ordering is documented in [`DEPENDENCY-MATRIX.md`](DEPENDENCY-MA
 - `/arckit.requirements` - Define comprehensive requirements
 - `/arckit.data-model` - Create data model with ERD, GDPR compliance, data governance
 - `/arckit.research` - Research technology, services, and products with build vs buy analysis
+- `/arckit.datascout` - Discover external data sources, APIs, and open data portals
 - `/arckit.wardley` - Create strategic Wardley Maps for build vs buy and procurement strategy
 - `/arckit.adr` - Document architectural decisions with options analysis
 
@@ -151,8 +152,8 @@ Full dependency ordering is documented in [`DEPENDENCY-MATRIX.md`](DEPENDENCY-MA
 arckit-test-project-v17-fuel-prices/
 ├── .arckit/
 │   ├── scripts/bash/          # Utility scripts (list-projects, create-project, etc.)
-│   └── templates/             # 43 markdown templates for artifact generation
-├── .claude/commands/          # 42 ArcKit slash commands (Claude Code)
+│   └── templates/             # 44 markdown templates for artifact generation
+├── .claude/commands/          # 43 ArcKit slash commands (Claude Code)
 ├── .codex/prompts/arckit/     # Mirrored commands (Codex CLI)
 ├── .gemini/commands/arckit/   # Mirrored commands (Gemini CLI, TOML)
 ├── .mcp.json                  # MCP server config (AWS Knowledge, Microsoft Learn)
