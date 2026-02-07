@@ -153,7 +153,6 @@ arckit-test-project-v17-fuel-prices/
 ├── .arckit/
 │   ├── scripts/bash/          # Utility scripts (list-projects, create-project, etc.)
 │   └── templates/             # 44 markdown templates for artifact generation
-├── .claude/commands/          # 43 ArcKit slash commands (Claude Code)
 ├── .codex/prompts/arckit/     # Mirrored commands (Codex CLI)
 ├── .gemini/commands/arckit/   # Mirrored commands (Gemini CLI, TOML)
 ├── .mcp.json                  # MCP server config (AWS Knowledge, Microsoft Learn)
