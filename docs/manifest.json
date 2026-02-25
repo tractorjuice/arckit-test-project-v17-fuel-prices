@@ -425,6 +425,12 @@
           "title": "Data Pipeline \u2014 High-Level Data Flow",
           "category": "Diagrams",
           "documentId": "ARC-001-DIAG-001-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DIAG-PLANTUML-TEST.md",
+          "title": "PlantUML Rendering Test",
+          "category": "Diagrams",
+          "documentId": "ARC-001-DIAG-PLANTUML-TEST"
         }
       ],
       "research": [
