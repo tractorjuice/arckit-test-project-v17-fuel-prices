@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-28T20:34:46Z",
+  "generated": "2026-02-28T23:00:57.975Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -67,7 +67,7 @@
     },
     {
       "path": "docs/guides/codes-of-practice.md",
-      "title": "UK Government Codes of Practice \u2014 ArcKit Reference Guide",
+      "title": "UK Government Codes of Practice — ArcKit Reference Guide",
       "category": "Compliance",
       "status": "beta"
     },
@@ -97,7 +97,7 @@
     },
     {
       "path": "docs/guides/data-quality-framework.md",
-      "title": "UK Government Data Quality Framework \u2014 ArcKit Reference Guide",
+      "title": "UK Government Data Quality Framework — ArcKit Reference Guide",
       "category": "Governance",
       "status": "beta"
     },
@@ -175,7 +175,7 @@
     },
     {
       "path": "docs/guides/govs-007-security.md",
-      "title": "GovS 007: Security \u2014 ArcKit Reference Guide",
+      "title": "GovS 007: Security — ArcKit Reference Guide",
       "category": "Compliance",
       "status": "beta"
     },
@@ -223,7 +223,7 @@
     },
     {
       "path": "docs/guides/national-data-strategy.md",
-      "title": "UK National Data Strategy \u2014 ArcKit Reference Guide",
+      "title": "UK National Data Strategy — ArcKit Reference Guide",
       "category": "Compliance",
       "status": "beta"
     },
@@ -264,15 +264,15 @@
       "status": "beta"
     },
     {
-      "path": "docs/guides/principles.md",
-      "title": "Architecture Principles Guide",
-      "category": "Architecture",
-      "status": "live"
-    },
-    {
       "path": "docs/guides/principles-compliance.md",
       "title": "Principles Compliance Guide",
       "category": "Governance",
+      "status": "live"
+    },
+    {
+      "path": "docs/guides/principles.md",
+      "title": "Architecture Principles Guide",
+      "category": "Architecture",
       "status": "live"
     },
     {
@@ -306,14 +306,14 @@
       "status": "beta"
     },
     {
-      "path": "docs/guides/risk.md",
-      "title": "Risk Register Playbook",
+      "path": "docs/guides/risk-management.md",
+      "title": "Risk Management Guide",
       "category": "Governance",
       "status": "live"
     },
     {
-      "path": "docs/guides/risk-management.md",
-      "title": "Risk Management Guide",
+      "path": "docs/guides/risk.md",
+      "title": "Risk Register Playbook",
       "category": "Governance",
       "status": "live"
     },
@@ -539,12 +539,24 @@
       "isDefault": true
     }
   ],
-  "globalExternal": [],
-  "globalPolicies": [],
+  "globalExternal": [
+    {
+      "path": "projects/000-global/external/.gitkeep",
+      "title": ".gitkeep",
+      "type": "file"
+    }
+  ],
+  "globalPolicies": [
+    {
+      "path": "projects/000-global/policies/.gitkeep",
+      "title": ".gitkeep",
+      "type": "file"
+    }
+  ],
   "projects": [
     {
       "id": "001-uk-fuel-price-transparency-service",
-      "name": "UK Fuel Price Transparency Service",
+      "name": "Uk Fuel Price Transparency Service",
       "documents": [
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v1.0.md",
@@ -566,13 +578,13 @@
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DIAG-PLANTUML-TEST.md",
-          "title": "ARC 001 DIAG PLANTUML TEST",
+          "title": null,
           "category": "Other",
           "documentId": "ARC-001-DIAG-PLANTUML-TEST"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DPIA-v1.0.md",
-          "title": "DPIA",
+          "title": "Data Protection Impact Assessment",
           "category": "Compliance",
           "documentId": "ARC-001-DPIA-v1.0"
         },
@@ -584,7 +596,7 @@
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v2.0.md",
-          "title": "Data Source Discovery v2.0",
+          "title": "Data Source Discovery",
           "category": "Research",
           "documentId": "ARC-001-DSCT-v2.0"
         },
@@ -602,7 +614,7 @@
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v2.0.md",
-          "title": "Requirements v2.0",
+          "title": "Requirements",
           "category": "Discovery",
           "documentId": "ARC-001-REQ-v2.0"
         },
@@ -620,7 +632,7 @@
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RSCH-v2.0.md",
-          "title": "Research Findings v2.0",
+          "title": "Research Findings",
           "category": "Discovery",
           "documentId": "ARC-001-RSCH-v2.0"
         },
@@ -652,57 +664,17 @@
       "diagrams": [
         {
           "path": "projects/001-uk-fuel-price-transparency-service/diagrams/ARC-001-DIAG-001-v1.0.md",
-          "title": "Architecture Diagram: Data Pipeline \u2014 High-Level Data Flow",
-          "category": "Architecture",
+          "title": "Architecture Diagram: Data Pipeline — High-Level Data Flow",
           "documentId": "ARC-001-DIAG-001-v1.0"
         }
       ],
-      "research": [
+      "external": [
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.0.md",
-          "title": "AWS Research",
-          "category": "Research",
-          "documentId": "ARC-001-AWRS-v1.0"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.1.md",
-          "title": "AWS Research v1.1",
-          "category": "Research",
-          "documentId": "ARC-001-AWRS-v1.1"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v2.0.md",
-          "title": "AWS Research v2.0",
-          "category": "Research",
-          "documentId": "ARC-001-AWRS-v2.0"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.0.md",
-          "title": "Azure Research",
-          "category": "Research",
-          "documentId": "ARC-001-AZRS-v1.0"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.1.md",
-          "title": "Azure Research v1.1",
-          "category": "Research",
-          "documentId": "ARC-001-AZRS-v1.1"
-        },
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v2.0.md",
-          "title": "Azure Research v2.0",
-          "category": "Research",
-          "documentId": "ARC-001-AZRS-v2.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/external/.gitkeep",
+          "title": ".gitkeep",
+          "type": "file"
         }
-      ],
-      "decisions": [],
-      "wardleyMaps": [],
-      "dataContracts": [],
-      "reviews": [],
-      "vendors": [],
-      "vendorProfiles": [],
-      "techNotes": [],
-      "external": []
+      ]
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
-  "generated": "2026-02-28T20:45:00Z",
+  "generated": "2026-02-28T22:57:00Z",
   "scanned": {
-    "projects": 1,
-    "artifacts": 24
+    "projects": 2,
+    "artifacts": 25
   },
   "summary": {
     "HIGH": 0,
@@ -21,6 +21,11 @@
   },
   "projects": [
     {
+      "id": "000-global",
+      "artifacts": 1,
+      "findings": []
+    },
+    {
       "id": "001-uk-fuel-price-transparency-service",
       "artifacts": 24,
       "findings": [
@@ -28,8 +33,8 @@
           "severity": "MEDIUM",
           "rule": "ORPHAN-REQ",
           "file": "ARC-001-REQ-v2.0.md",
-          "message": "Total requirements: 31. Requirements not referenced by any ADR: 31. No ADRs exist in this project.",
-          "action": "Review whether these requirements need architectural decisions documented as ADRs"
+          "message": "Total requirements: 63. Requirements not referenced by any ADR: 63 (no ADRs exist). Examples: BR-001, FR-001, NFR-P-001, NFR-SEC-001, INT-001",
+          "action": "Run /arckit:adr for requirements needing architectural decisions documented as ADRs"
         }
       ]
     }
