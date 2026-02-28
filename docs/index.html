@@ -760,7 +760,7 @@
         }
 
         .app-header__dashboard-link:hover {
-            background: #005a30;  /* darker green — no variable needed */
+            background: #005a30;
         }
 
         @media (max-width: 900px) {
@@ -1424,6 +1424,33 @@
             }
         }
 
+        /* Version Badge */
+        .app-version-badge {
+            font-size: 11px;
+            color: var(--text-inverse);
+            opacity: 0.5;
+            padding: 2px 6px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+
+        /* Icon Links (repo, etc.) */
+        .app-icon-link {
+            color: var(--text-inverse);
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            transition: opacity 0.2s;
+            text-decoration: none;
+        }
+
+        .app-icon-link:hover {
+            opacity: 1;
+        }
+
         /* Theme Toggle */
         .app-theme-toggle {
             background: transparent;
@@ -1471,8 +1498,14 @@
             <nav class="app-header__nav" aria-label="Site navigation">
                 <a href="#dashboard" id="dashboard-link" class="app-header__dashboard-link">Dashboard</a>
                 <a href="#guides" id="guides-link" class="app-header__guides-link">Guides</a>
-                <a href="https://github.com/tractorjuice/arckit-test-project-v17-fuel-prices" target="_blank" rel="noopener">GitHub</a>
+                <a href="#roles" id="roles-link" class="app-header__guides-link">Roles</a>
                 <a href="https://tractorjuice.github.io/arc-kit/">ArcKit</a>
+                <span class="app-version-badge">v2.15.1</span>
+                <a href="https://github.com/tractorjuice/arckit-test-project-v17-fuel-prices" target="_blank" rel="noopener" class="app-icon-link" aria-label="Repository" title="Repository">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                </a>
                 <button class="app-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
                     <svg class="app-theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle class="theme-sun" cx="12" cy="12" r="5"/>
@@ -1498,7 +1531,7 @@
             <div class="app-sidebar-header">
                 <h2>Documents</h2>
                 <button class="app-sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar" title="Collapse sidebar (Ctrl+B)">
-                    ◀
+                    &#9664;
                 </button>
             </div>
             <div class="app-search" id="search-container">
@@ -1521,7 +1554,7 @@
         <div class="app-content-wrapper">
             <!-- Sidebar expand button -->
             <button class="app-sidebar-expand" id="sidebar-expand" aria-label="Expand sidebar">
-                ▶
+                &#9654;
             </button>
 
             <!-- Table of Contents (Left Side) -->
@@ -1580,9 +1613,8 @@
         // Configuration - UPDATE THESE VALUES
         // ============================================
         const CONFIG = {
-            owner: 'tractorjuice',           // GitHub username/org
-            repo: 'arckit-test-project-v17-fuel-prices',             // Repository name
-            branch: 'main'          // Branch name (usually 'main')
+            repo: 'arckit-test-project-v17-fuel-prices',
+            contentBaseUrl: 'https://raw.githubusercontent.com/tractorjuice/arckit-test-project-v17-fuel-prices/main'
         };
 
         // ============================================
@@ -1604,11 +1636,11 @@
         }
 
         function getRawUrl(path) {
-            return `https://raw.githubusercontent.com/${CONFIG.owner}/${CONFIG.repo}/${CONFIG.branch}/${path}`;
+            return `../${path}`;
         }
 
-        function getGitHubUrl(path) {
-            return `https://github.com/${CONFIG.owner}/${CONFIG.repo}/blob/${CONFIG.branch}/${path}`;
+        function getFallbackUrl(path) {
+            return CONFIG.contentBaseUrl ? `${CONFIG.contentBaseUrl}/${path}` : null;
         }
 
         function getDocumentId(path) {
@@ -1633,9 +1665,6 @@
         // ============================================
         // PlantUML Text Encoding
         // ============================================
-        // PlantUML supports ~h (hex) prefix for hex-encoded source text.
-        // This avoids needing a deflate library while keeping URLs valid.
-        // See: https://plantuml.com/text-encoding
         function plantumlEncodeHex(text) {
             const bytes = new TextEncoder().encode(text);
             let hex = '';
@@ -1656,7 +1685,6 @@
         const renderer = new marked.Renderer();
 
         renderer.code = function(code, language) {
-            // Handle object input (newer marked versions)
             if (typeof code === 'object') {
                 language = code.lang;
                 code = code.text;
@@ -1673,9 +1701,7 @@
             return `<pre><code class="${langClass}">${escapeHtml(code)}</code></pre>`;
         };
 
-        // Add IDs to headings for ToC links
         renderer.heading = function(text, level) {
-            // Handle object input (newer marked versions)
             if (typeof text === 'object') {
                 level = text.depth;
                 text = text.text;
@@ -1729,8 +1755,6 @@
         // ============================================
         function buildSearchIndex(manifest) {
             allDocuments = [];
-
-            // Add guides
             if (manifest.guides) {
                 manifest.guides.forEach(doc => {
                     allDocuments.push({
@@ -1739,8 +1763,14 @@
                     });
                 });
             }
-
-            // Add global documents
+            if (manifest.roleGuides) {
+                manifest.roleGuides.forEach(doc => {
+                    allDocuments.push({
+                        ...doc,
+                        searchText: `${doc.title} ${doc.family || ''} role ddat`.toLowerCase()
+                    });
+                });
+            }
             if (manifest.global) {
                 manifest.global.forEach(doc => {
                     allDocuments.push({
@@ -1749,78 +1779,41 @@
                     });
                 });
             }
-
-            // Add project documents
             if (manifest.projects) {
                 manifest.projects.forEach(project => {
                     const projectName = project.name || project.id;
-
                     if (project.documents) {
                         project.documents.forEach(doc => {
-                            allDocuments.push({
-                                ...doc,
-                                project: projectName,
-                                searchText: `${doc.title} ${doc.category || ''} ${projectName}`.toLowerCase()
-                            });
+                            allDocuments.push({ ...doc, project: projectName, searchText: `${doc.title} ${doc.category || ''} ${projectName}`.toLowerCase() });
                         });
                     }
-
                     if (project.diagrams) {
                         project.diagrams.forEach(doc => {
-                            allDocuments.push({
-                                ...doc,
-                                project: projectName,
-                                category: 'Diagrams',
-                                searchText: `${doc.title} diagrams ${projectName}`.toLowerCase()
-                            });
+                            allDocuments.push({ ...doc, project: projectName, category: 'Diagrams', searchText: `${doc.title} diagrams ${projectName}`.toLowerCase() });
                         });
                     }
-
                     if (project.decisions) {
                         project.decisions.forEach(doc => {
-                            allDocuments.push({
-                                ...doc,
-                                project: projectName,
-                                category: 'Decisions',
-                                searchText: `${doc.title} decisions adr ${projectName}`.toLowerCase()
-                            });
+                            allDocuments.push({ ...doc, project: projectName, category: 'Decisions', searchText: `${doc.title} decisions adr ${projectName}`.toLowerCase() });
                         });
                     }
-
                     if (project.vendors) {
                         project.vendors.forEach(vendor => {
                             if (vendor.documents) {
                                 vendor.documents.forEach(doc => {
-                                    allDocuments.push({
-                                        ...doc,
-                                        project: projectName,
-                                        vendor: vendor.name,
-                                        searchText: `${doc.title} ${vendor.name} vendor ${projectName}`.toLowerCase()
-                                    });
+                                    allDocuments.push({ ...doc, project: projectName, vendor: vendor.name, searchText: `${doc.title} ${vendor.name} vendor ${projectName}`.toLowerCase() });
                                 });
                             }
                         });
                     }
-
                     if (project.vendorProfiles) {
                         project.vendorProfiles.forEach(doc => {
-                            allDocuments.push({
-                                ...doc,
-                                project: projectName,
-                                category: 'Vendor Profiles',
-                                searchText: `${doc.title} vendor profile ${projectName}`.toLowerCase()
-                            });
+                            allDocuments.push({ ...doc, project: projectName, category: 'Vendor Profiles', searchText: `${doc.title} vendor profile ${projectName}`.toLowerCase() });
                         });
                     }
-
                     if (project.techNotes) {
                         project.techNotes.forEach(doc => {
-                            allDocuments.push({
-                                ...doc,
-                                project: projectName,
-                                category: 'Tech Notes',
-                                searchText: `${doc.title} tech note technology ${projectName}`.toLowerCase()
-                            });
+                            allDocuments.push({ ...doc, project: projectName, category: 'Tech Notes', searchText: `${doc.title} tech note technology ${projectName}`.toLowerCase() });
                         });
                     }
                 });
@@ -1829,7 +1822,6 @@
 
         function searchDocuments(query) {
             if (!query || query.length < 2) return [];
-
             const terms = query.toLowerCase().split(/\s+/);
             return allDocuments
                 .filter(doc => terms.every(term => doc.searchText.includes(term)))
@@ -1839,26 +1831,20 @@
         function setupSearch() {
             const input = document.getElementById('search-input');
             const results = document.getElementById('search-results');
-
             const doSearch = debounce(() => {
                 const query = input.value.trim();
                 const matches = searchDocuments(query);
-
                 if (matches.length === 0) {
                     results.classList.remove('visible');
                     return;
                 }
-
                 results.innerHTML = matches.map(doc => `
                     <div class="app-search-result" data-path="${doc.path}">
                         <div class="app-search-result-title">${doc.title}</div>
                         <div class="app-search-result-path">${doc.project ? doc.project + ' / ' : ''}${doc.category || 'Document'}</div>
                     </div>
                 `).join('');
-
                 results.classList.add('visible');
-
-                // Add click handlers
                 results.querySelectorAll('.app-search-result').forEach(el => {
                     el.addEventListener('click', () => {
                         const path = el.dataset.path;
@@ -1866,20 +1852,14 @@
                         loadDocument(path);
                         input.value = '';
                         results.classList.remove('visible');
-
-                        // Update active state
                         document.querySelectorAll('#nav-container a').forEach(a => {
                             a.classList.toggle('active', a.dataset.path === path);
                         });
-
-                        // Close mobile sidebar
                         closeMobileSidebar();
                     });
                 });
             }, 150);
-
             input.addEventListener('input', doSearch);
-
             input.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     input.value = '';
@@ -1887,8 +1867,6 @@
                     input.blur();
                 }
             });
-
-            // Close results when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('#search-container')) {
                     results.classList.remove('visible');
@@ -1903,45 +1881,31 @@
             const content = document.getElementById('content');
             const toc = document.getElementById('toc');
             toc.style.display = 'none';
-
             if (!manifest || !manifest.guides || manifest.guides.length === 0) {
-                content.innerHTML = `
-                    <div class="app-welcome">
-                        <h1>Guides</h1>
-                        <p>No guides available. Guides are command usage documentation found in <code>docs/guides/</code>.</p>
-                    </div>
-                `;
+                content.innerHTML = '<div class="app-welcome"><h1>Guides</h1><p>No guides available.</p></div>';
                 return;
             }
-
-            // Group guides by category
             const byCategory = {};
             manifest.guides.forEach(guide => {
                 const cat = guide.category || 'Other';
                 if (!byCategory[cat]) byCategory[cat] = [];
                 byCategory[cat].push(guide);
             });
-
-            // Sort categories
             const categoryOrder = ['Discovery', 'Planning', 'Architecture', 'Governance', 'Compliance', 'Operations', 'Procurement', 'Research', 'Other'];
             const sortedCategories = Object.keys(byCategory).sort((a, b) => {
                 const aIdx = categoryOrder.indexOf(a);
                 const bIdx = categoryOrder.indexOf(b);
                 return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
             });
-
             let guidesHtml = '';
             sortedCategories.forEach(category => {
                 guidesHtml += `<h2>${category}</h2><ul class="app-guides-list">`;
                 byCategory[category].forEach(guide => {
-                    const statusBadge = guide.status
-                        ? `<span class="guide-status ${guide.status}">${guide.status}</span>`
-                        : '';
+                    const statusBadge = guide.status ? `<span class="guide-status ${guide.status}">${guide.status}</span>` : '';
                     guidesHtml += `<li><a href="#${guide.path}" data-path="${guide.path}"><span>${guide.title}</span>${statusBadge}</a></li>`;
                 });
                 guidesHtml += '</ul>';
             });
-
             content.innerHTML = `
                 <div class="app-doc-header">
                     <div class="app-doc-breadcrumb">Documentation</div>
@@ -1952,8 +1916,6 @@
                     ${guidesHtml}
                 </div>
             `;
-
-            // Add click handlers for guide links
             content.querySelectorAll('a[data-path]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -1962,16 +1924,60 @@
                     loadDocument(path);
                 });
             });
-
-            // Clear active states in sidebar
             document.querySelectorAll('#nav-container a').forEach(a => a.classList.remove('active'));
+        }
+
+        // ============================================
+        // Roles Index Page (DDaT Role Guides)
+        // ============================================
+        function showRolesIndex() {
+            const content = document.getElementById('content');
+            const toc = document.getElementById('toc');
+            toc.style.display = 'none';
+            if (!manifest || !manifest.roleGuides || manifest.roleGuides.length === 0) {
+                content.innerHTML = '<div class="app-welcome"><h1>DDaT Role Guides</h1><p>No role guides available.</p></div>';
+                return;
+            }
+            const byFamily = {};
+            manifest.roleGuides.forEach(function(guide) {
+                const family = guide.family || 'Other';
+                if (!byFamily[family]) byFamily[family] = [];
+                byFamily[family].push(guide);
+            });
+            const familyOrder = ['Architecture', 'Chief Digital and Data', 'Product and Delivery', 'Data', 'IT Operations', 'Software Development', 'Other'];
+            const sortedFamilies = Object.keys(byFamily).sort(function(a, b) {
+                const aIdx = familyOrder.indexOf(a);
+                const bIdx = familyOrder.indexOf(b);
+                return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+            });
+            let rolesHtml = '';
+            sortedFamilies.forEach(function(family) {
+                rolesHtml += '<h2>' + family + '</h2><ul class="app-guides-list">';
+                byFamily[family].forEach(function(guide) {
+                    const cmdCount = guide.commandCount ? '<span class="guide-status beta">' + guide.commandCount + ' commands</span>' : '';
+                    rolesHtml += '<li><a href="#' + encodeURIComponent(guide.path) + '" data-path="' + guide.path + '"><span>' + guide.title + '</span>' + cmdCount + '</a></li>';
+                });
+                rolesHtml += '</ul>';
+            });
+            content.innerHTML = '<div class="app-doc-header"><div class="app-doc-breadcrumb">Documentation</div><h1 class="app-doc-title">DDaT Role Guides</h1></div>' +
+                '<div class="app-markdown"><p>Which ArcKit commands should <strong>you</strong> use? These guides map ArcKit commands to ' +
+                '<a href="https://ddat-capability-framework.service.gov.uk/" target="_blank" rel="noopener">UK Government DDaT Capability Framework</a> roles.</p>' +
+                rolesHtml + '</div>';
+            content.querySelectorAll('a[data-path]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const path = link.dataset.path;
+                    window.location.hash = path;
+                    loadDocument(path);
+                });
+            });
+            document.querySelectorAll('#nav-container a').forEach(function(a) { a.classList.remove('active'); });
         }
 
         // ============================================
         // Dashboard
         // ============================================
         const CORE_ARTIFACTS = ['REQ', 'STKE', 'RISK', 'SOBC', 'PLAN', 'DATA'];
-
         const TYPE_CATEGORIES = {
             REQ: 'Discovery', STKE: 'Discovery', RSCH: 'Discovery', DSCT: 'Discovery',
             SOBC: 'Planning', PLAN: 'Planning', ROAD: 'Planning', STRAT: 'Planning', BKLG: 'Planning',
@@ -1986,17 +1992,10 @@
             AWRS: 'Research', AZRS: 'Research', GCRS: 'Research',
             STORY: 'Other'
         };
-
         const CATEGORY_COLORS = {
-            Discovery: '#1d70b8',
-            Planning: '#00703c',
-            Architecture: '#f47738',
-            Governance: '#912b88',
-            Compliance: '#5694ca',
-            Operations: '#28a197',
-            Procurement: '#d53880',
-            Research: '#4c6272',
-            Other: '#b1b4b6'
+            Discovery: '#1d70b8', Planning: '#00703c', Architecture: '#f47738',
+            Governance: '#912b88', Compliance: '#5694ca', Operations: '#28a197',
+            Procurement: '#d53880', Research: '#4c6272', Other: '#b1b4b6'
         };
 
         function extractTypeCode(path) {
@@ -2011,7 +2010,6 @@
             let totalADRs = 0;
             const categoryCounts = {};
             const projectMetrics = [];
-
             realProjects.forEach(project => {
                 const docs = project.documents || [];
                 const diagrams = project.diagrams || [];
@@ -2024,19 +2022,14 @@
                 const techNotes = project.techNotes || [];
                 const allDocs = [...docs, ...diagrams, ...decisions, ...wardleyMaps, ...dataContracts, ...reviews, ...vendorProfiles, ...techNotes];
                 vendors.forEach(v => { if (v.documents) allDocs.push(...v.documents); });
-
                 const projectDocCount = allDocs.length;
                 totalDocs += projectDocCount;
                 totalADRs += decisions.length;
-
-                // Category counts
                 allDocs.forEach(doc => {
                     const typeCode = extractTypeCode(doc.path || '');
                     const category = typeCode ? (TYPE_CATEGORIES[typeCode] || 'Other') : 'Other';
                     categoryCounts[category] = (categoryCounts[category] || 0) + 1;
                 });
-
-                // Per-project coverage
                 const presentTypes = new Set();
                 allDocs.forEach(doc => {
                     const tc = extractTypeCode(doc.path || '');
@@ -2044,25 +2037,14 @@
                 });
                 const corePresent = CORE_ARTIFACTS.filter(t => presentTypes.has(t)).length;
                 const coverage = CORE_ARTIFACTS.length > 0 ? Math.round((corePresent / CORE_ARTIFACTS.length) * 100) : 0;
-
-                // First document path for linking
                 const firstDoc = docs[0] || diagrams[0] || decisions[0] || wardleyMaps[0] || dataContracts[0] || reviews[0];
-
                 projectMetrics.push({
-                    name: project.name || project.id,
-                    id: project.id,
-                    docs: projectDocCount,
-                    diagrams: diagrams.length,
-                    adrs: decisions.length,
-                    vendors: vendors.length,
-                    vendorProfiles: vendorProfiles.length,
-                    techNotes: techNotes.length,
-                    coverage,
-                    firstDocPath: firstDoc ? firstDoc.path : null
+                    name: project.name || project.id, id: project.id,
+                    docs: projectDocCount, diagrams: diagrams.length, adrs: decisions.length,
+                    vendors: vendors.length, vendorProfiles: vendorProfiles.length, techNotes: techNotes.length,
+                    coverage, firstDocPath: firstDoc ? firstDoc.path : null
                 });
             });
-
-            // Add global docs
             const globalDocs = manifest.global || [];
             totalDocs += globalDocs.length;
             globalDocs.forEach(doc => {
@@ -2070,34 +2052,19 @@
                 const category = typeCode ? (TYPE_CATEGORIES[typeCode] || 'Other') : 'Other';
                 categoryCounts[category] = (categoryCounts[category] || 0) + 1;
             });
-
-            // Average coverage
             const avgCoverage = projectMetrics.length > 0
-                ? Math.round(projectMetrics.reduce((sum, p) => sum + p.coverage, 0) / projectMetrics.length)
-                : 0;
-
-            // Guide maturity
+                ? Math.round(projectMetrics.reduce((sum, p) => sum + p.coverage, 0) / projectMetrics.length) : 0;
             const guideCounts = { live: 0, beta: 0, alpha: 0, experimental: 0 };
             (manifest.guides || []).forEach(g => {
-                if (g.status && guideCounts.hasOwnProperty(g.status)) {
-                    guideCounts[g.status]++;
-                }
+                if (g.status && guideCounts.hasOwnProperty(g.status)) guideCounts[g.status]++;
             });
-
-            // Governance coverage (portfolio-wide)
             const GOVERNANCE_TYPES = {
-                'Requirements (REQ)': 'REQ',
-                'Stakeholders (STKE)': 'STKE',
-                'Risk Register (RISK)': 'RISK',
-                'Business Case (SOBC)': 'SOBC',
-                'Project Plan (PLAN)': 'PLAN',
-                'Data Model (DATA)': 'DATA',
-                'Traceability (TRAC)': 'TRAC',
-                'Architecture Decisions (ADR)': 'ADR',
-                'Secure by Design (SECD)': 'SECD',
-                'TCoP Assessment (TCOP)': 'TCOP',
-                'DPIA (DPIA)': 'DPIA',
-                'Principles Compliance': 'PRIN-COMP'
+                'Requirements (REQ)': 'REQ', 'Stakeholders (STKE)': 'STKE',
+                'Risk Register (RISK)': 'RISK', 'Business Case (SOBC)': 'SOBC',
+                'Project Plan (PLAN)': 'PLAN', 'Data Model (DATA)': 'DATA',
+                'Traceability (TRAC)': 'TRAC', 'Architecture Decisions (ADR)': 'ADR',
+                'Secure by Design (SECD)': 'SECD', 'TCoP Assessment (TCOP)': 'TCOP',
+                'DPIA (DPIA)': 'DPIA', 'Principles Compliance': 'PRIN-COMP'
             };
             const firstDocByType = {};
             realProjects.forEach(project => {
@@ -2112,176 +2079,82 @@
             });
             const governanceCoverage = {};
             Object.entries(GOVERNANCE_TYPES).forEach(([label, code]) => {
-                governanceCoverage[label] = {
-                    present: !!firstDocByType[code],
-                    path: firstDocByType[code] || null
-                };
+                governanceCoverage[label] = { present: !!firstDocByType[code], path: firstDocByType[code] || null };
             });
-
-            return {
-                totalProjects: realProjects.length,
-                totalDocs,
-                totalADRs,
-                avgCoverage,
-                categoryCounts,
-                projectMetrics,
-                guideCounts,
-                governanceCoverage
-            };
+            return { totalProjects: realProjects.length, totalDocs, totalADRs, avgCoverage,
+                categoryCounts, projectMetrics, guideCounts, governanceCoverage };
         }
 
         function renderDonutChart(containerId, data) {
             const container = document.getElementById(containerId);
             if (!container) return;
-
             const total = data.reduce((sum, d) => sum + d.value, 0);
-            if (total === 0) {
-                container.innerHTML = '<p style="color:var(--text-muted);font-size:0.875rem;">No data</p>';
-                return;
-            }
-
-            const size = 140;
-            const radius = 56;
-            const holeRadius = 36;
-            const cx = size / 2;
-            const cy = size / 2;
+            if (total === 0) { container.innerHTML = '<p style="color:var(--text-muted);font-size:0.875rem;">No data</p>'; return; }
+            const size = 140, radius = 56, holeRadius = 36, cx = size / 2, cy = size / 2;
             let currentAngle = -Math.PI / 2;
-
             let paths = '';
             data.filter(d => d.value > 0).forEach(d => {
                 const sliceAngle = (d.value / total) * 2 * Math.PI;
                 const endAngle = currentAngle + sliceAngle;
                 const largeArc = sliceAngle > Math.PI ? 1 : 0;
-
-                // Handle full circle (single segment)
                 if (Math.abs(sliceAngle - 2 * Math.PI) < 0.001) {
                     paths += `<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="${d.color}" stroke-width="${radius - holeRadius}"/>`;
                 } else {
-                    const x1 = cx + radius * Math.cos(currentAngle);
-                    const y1 = cy + radius * Math.sin(currentAngle);
-                    const x2 = cx + radius * Math.cos(endAngle);
-                    const y2 = cy + radius * Math.sin(endAngle);
-                    const ix1 = cx + holeRadius * Math.cos(endAngle);
-                    const iy1 = cy + holeRadius * Math.sin(endAngle);
-                    const ix2 = cx + holeRadius * Math.cos(currentAngle);
-                    const iy2 = cy + holeRadius * Math.sin(currentAngle);
-
+                    const x1 = cx + radius * Math.cos(currentAngle), y1 = cy + radius * Math.sin(currentAngle);
+                    const x2 = cx + radius * Math.cos(endAngle), y2 = cy + radius * Math.sin(endAngle);
+                    const ix1 = cx + holeRadius * Math.cos(endAngle), iy1 = cy + holeRadius * Math.sin(endAngle);
+                    const ix2 = cx + holeRadius * Math.cos(currentAngle), iy2 = cy + holeRadius * Math.sin(currentAngle);
                     paths += `<path d="M${x1},${y1} A${radius},${radius} 0 ${largeArc} 1 ${x2},${y2} L${ix1},${iy1} A${holeRadius},${holeRadius} 0 ${largeArc} 0 ${ix2},${iy2} Z" fill="${d.color}"/>`;
                 }
                 currentAngle = endAngle;
             });
-
             const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim() || '#0b0c0c';
-            const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-                ${paths}
-                <text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="${textColor}">${total}</text>
-            </svg>`;
-
+            const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${paths}<text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="${textColor}">${total}</text></svg>`;
             const legendHtml = data.filter(d => d.value > 0).map(d =>
                 `<li><span class="app-dashboard-legend-swatch" style="background:${d.color}"></span>${d.label}<span class="app-dashboard-legend-count">${d.value}</span></li>`
             ).join('');
-
-            container.innerHTML = `
-                <div class="app-dashboard-chart-container">
-                    ${svg}
-                    <ul class="app-dashboard-legend">${legendHtml}</ul>
-                </div>
-            `;
+            container.innerHTML = `<div class="app-dashboard-chart-container">${svg}<ul class="app-dashboard-legend">${legendHtml}</ul></div>`;
         }
 
         function showDashboard(healthData) {
             const content = document.getElementById('content');
             const toc = document.getElementById('toc');
             toc.style.display = 'none';
-
-            if (!manifest) {
-                content.innerHTML = '<div class="app-loading"><div class="app-spinner"></div>Loading...</div>';
-                return;
-            }
-
+            if (!manifest) { content.innerHTML = '<div class="app-loading"><div class="app-spinner"></div>Loading...</div>'; return; }
             const m = computeDashboardMetrics(manifest);
-
             function coverageColor(pct) {
                 if (pct >= 80) return '#00703c';
                 if (pct >= 50) return '#f47738';
                 return '#d4351c';
             }
-
-            // KPI cards
             let html = `
                 <div class="app-doc-header">
                     <div class="app-doc-breadcrumb">Portfolio Overview</div>
                     <h1 class="app-doc-title">Architecture Governance Dashboard</h1>
                 </div>
                 <div class="app-dashboard-kpis">
-                    <div class="app-dashboard-kpi">
-                        <div class="app-dashboard-kpi-value">${m.totalProjects}</div>
-                        <div class="app-dashboard-kpi-label">Total Projects</div>
+                    <div class="app-dashboard-kpi"><div class="app-dashboard-kpi-value">${m.totalProjects}</div><div class="app-dashboard-kpi-label">Total Projects</div></div>
+                    <div class="app-dashboard-kpi"><div class="app-dashboard-kpi-value">${m.totalDocs}</div><div class="app-dashboard-kpi-label">Total Documents</div></div>
+                    <div class="app-dashboard-kpi"><div class="app-dashboard-kpi-value">${m.totalADRs}</div><div class="app-dashboard-kpi-label">Architecture Decisions</div></div>
+                    <div class="app-dashboard-kpi"><div class="app-dashboard-kpi-value">${m.avgCoverage}%</div><div class="app-dashboard-kpi-label">Avg Artifact Coverage</div>
+                        <div class="app-dashboard-kpi-bar"><div class="app-dashboard-kpi-bar-fill" style="width:${m.avgCoverage}%;background:${coverageColor(m.avgCoverage)}"></div></div>
                     </div>
-                    <div class="app-dashboard-kpi">
-                        <div class="app-dashboard-kpi-value">${m.totalDocs}</div>
-                        <div class="app-dashboard-kpi-label">Total Documents</div>
-                    </div>
-                    <div class="app-dashboard-kpi">
-                        <div class="app-dashboard-kpi-value">${m.totalADRs}</div>
-                        <div class="app-dashboard-kpi-label">Architecture Decisions</div>
-                    </div>
-                    <div class="app-dashboard-kpi">
-                        <div class="app-dashboard-kpi-value">${m.avgCoverage}%</div>
-                        <div class="app-dashboard-kpi-label">Avg Artifact Coverage</div>
-                        <div class="app-dashboard-kpi-bar">
-                            <div class="app-dashboard-kpi-bar-fill" style="width:${m.avgCoverage}%;background:${coverageColor(m.avgCoverage)}"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Row 2: Donut chart + Coverage bars
+                </div>`;
             let coverageBars = '';
             m.projectMetrics.forEach(p => {
                 const barLabel = p.firstDocPath
                     ? `<a href="#${p.firstDocPath}" class="app-dashboard-link" data-path="${p.firstDocPath}">${escapeHtml(p.name)}</a>`
                     : escapeHtml(p.name);
-                coverageBars += `
-                    <div class="app-dashboard-bar-row">
-                        <div class="app-dashboard-bar-label" title="${escapeHtml(p.name)}">${barLabel}</div>
-                        <div class="app-dashboard-bar-track">
-                            <div class="app-dashboard-bar-fill" style="width:${p.coverage}%;background:${coverageColor(p.coverage)}"></div>
-                        </div>
-                        <div class="app-dashboard-bar-value">${p.coverage}%</div>
-                    </div>
-                `;
+                coverageBars += `<div class="app-dashboard-bar-row"><div class="app-dashboard-bar-label" title="${escapeHtml(p.name)}">${barLabel}</div><div class="app-dashboard-bar-track"><div class="app-dashboard-bar-fill" style="width:${p.coverage}%;background:${coverageColor(p.coverage)}"></div></div><div class="app-dashboard-bar-value">${p.coverage}%</div></div>`;
             });
-            if (m.projectMetrics.length === 0) {
-                coverageBars = '<p style="color:var(--text-muted);font-size:0.875rem;">No projects found</p>';
-            }
-
-            html += `
-                <div class="app-dashboard-panels">
-                    <div class="app-dashboard-panel">
-                        <h3>Documents by Category</h3>
-                        <div id="dashboard-category-chart"></div>
-                    </div>
-                    <div class="app-dashboard-panel">
-                        <h3>Project Artifact Coverage</h3>
-                        ${coverageBars}
-                    </div>
-                </div>
-            `;
-
-            // Row 3: Projects table
-            // Build per-project health lookup
+            if (m.projectMetrics.length === 0) coverageBars = '<p style="color:var(--text-muted);font-size:0.875rem;">No projects found</p>';
+            html += `<div class="app-dashboard-panels"><div class="app-dashboard-panel"><h3>Documents by Category</h3><div id="dashboard-category-chart"></div></div><div class="app-dashboard-panel"><h3>Project Artifact Coverage</h3>${coverageBars}</div></div>`;
             const healthByProject = {};
-            if (healthData && healthData.projects) {
-                healthData.projects.forEach(hp => { healthByProject[hp.id] = hp; });
-            }
-
+            if (healthData && healthData.projects) { healthData.projects.forEach(hp => { healthByProject[hp.id] = hp; }); }
             if (m.projectMetrics.length > 0) {
                 let tableRows = '';
                 m.projectMetrics.forEach(p => {
-                    const nameCell = p.firstDocPath
-                        ? `<a href="#${p.firstDocPath}" class="app-dashboard-link" data-path="${p.firstDocPath}">${escapeHtml(p.name)}</a>`
-                        : escapeHtml(p.name);
+                    const nameCell = p.firstDocPath ? `<a href="#${p.firstDocPath}" class="app-dashboard-link" data-path="${p.firstDocPath}">${escapeHtml(p.name)}</a>` : escapeHtml(p.name);
                     let healthCell = '\u2014';
                     if (healthData) {
                         const hp = healthByProject[p.id];
@@ -2290,58 +2163,19 @@
                             const hasMedium = hp.findings.some(f => f.severity === 'MEDIUM');
                             const color = hasHigh ? '#d4351c' : hasMedium ? '#f47738' : '#b1b4b6';
                             healthCell = `<span style="color:${color};font-weight:bold">${hp.findings.length}</span>`;
-                        } else {
-                            healthCell = '<span style="color:#00703c">&#10003;</span>';
-                        }
+                        } else { healthCell = '<span style="color:#00703c">&#10003;</span>'; }
                     }
-                    tableRows += `<tr>
-                        <td>${nameCell}</td>
-                        <td>${p.docs}</td>
-                        <td>${p.diagrams}</td>
-                        <td>${p.adrs}</td>
-                        <td>${p.vendors}</td>
-                        <td>${(p.vendorProfiles || 0) + (p.techNotes || 0)}</td>
-                        <td>${healthCell}</td>
-                        <td><span class="app-dashboard-coverage-bar"><span class="app-dashboard-coverage-fill" style="width:${p.coverage}%;background:${coverageColor(p.coverage)}"></span></span>${p.coverage}%</td>
-                    </tr>`;
+                    tableRows += `<tr><td>${nameCell}</td><td>${p.docs}</td><td>${p.diagrams}</td><td>${p.adrs}</td><td>${p.vendors}</td><td>${(p.vendorProfiles || 0) + (p.techNotes || 0)}</td><td>${healthCell}</td><td><span class="app-dashboard-coverage-bar"><span class="app-dashboard-coverage-fill" style="width:${p.coverage}%;background:${coverageColor(p.coverage)}"></span></span>${p.coverage}%</td></tr>`;
                 });
-                html += `
-                    <div class="app-dashboard-panel" style="margin-bottom:1.5rem;">
-                        <h3>Projects</h3>
-                        <table class="app-dashboard-table">
-                            <thead><tr><th>Project</th><th>Docs</th><th>Diagrams</th><th>ADRs</th><th>Vendors</th><th>Knowledge</th><th>Health</th><th>Coverage</th></tr></thead>
-                            <tbody>${tableRows}</tbody>
-                        </table>
-                    </div>
-                `;
+                html += `<div class="app-dashboard-panel" style="margin-bottom:1.5rem;"><h3>Projects</h3><table class="app-dashboard-table"><thead><tr><th>Project</th><th>Docs</th><th>Diagrams</th><th>ADRs</th><th>Vendors</th><th>Knowledge</th><th>Health</th><th>Coverage</th></tr></thead><tbody>${tableRows}</tbody></table></div>`;
             }
-
-            // Row 4: Guide maturity + Governance checklist
             let checklistHtml = '';
             Object.entries(m.governanceCoverage).forEach(([label, info]) => {
-                const icon = info.present
-                    ? '<span class="app-dashboard-check">&#10003;</span>'
-                    : '<span class="app-dashboard-cross">&#10007;</span>';
-                const labelHtml = info.path
-                    ? `<a href="#${info.path}" class="app-dashboard-link" data-path="${info.path}">${escapeHtml(label)}</a>`
-                    : escapeHtml(label);
+                const icon = info.present ? '<span class="app-dashboard-check">&#10003;</span>' : '<span class="app-dashboard-cross">&#10007;</span>';
+                const labelHtml = info.path ? `<a href="#${info.path}" class="app-dashboard-link" data-path="${info.path}">${escapeHtml(label)}</a>` : escapeHtml(label);
                 checklistHtml += `<li>${icon} ${labelHtml}</li>`;
             });
-
-            html += `
-                <div class="app-dashboard-panels">
-                    <div class="app-dashboard-panel">
-                        <h3>Guide Maturity</h3>
-                        <div id="dashboard-guide-chart"></div>
-                    </div>
-                    <div class="app-dashboard-panel">
-                        <h3>Governance Coverage</h3>
-                        <ul class="app-dashboard-checklist">${checklistHtml}</ul>
-                    </div>
-                </div>
-            `;
-
-            // Row 5: Artifact Health (only if healthData exists)
+            html += `<div class="app-dashboard-panels"><div class="app-dashboard-panel"><h3>Guide Maturity</h3><div id="dashboard-guide-chart"></div></div><div class="app-dashboard-panel"><h3>Governance Coverage</h3><ul class="app-dashboard-checklist">${checklistHtml}</ul></div></div>`;
             if (healthData) {
                 const hs = healthData.summary || { HIGH: 0, MEDIUM: 0, LOW: 0, total: 0 };
                 let healthLeftHtml = '';
@@ -2349,97 +2183,42 @@
                     healthLeftHtml = '<p style="color:#00703c;font-weight:bold;margin:1rem 0;">&#10003; All clear &mdash; no findings</p>';
                 } else {
                     const maxCount = Math.max(hs.HIGH, hs.MEDIUM, hs.LOW, 1);
-                    const bars = [
-                        { label: 'HIGH', count: hs.HIGH, color: '#d4351c' },
-                        { label: 'MEDIUM', count: hs.MEDIUM, color: '#f47738' },
-                        { label: 'LOW', count: hs.LOW, color: '#b1b4b6' }
-                    ];
-                    bars.forEach(b => {
+                    [{ label: 'HIGH', count: hs.HIGH, color: '#d4351c' }, { label: 'MEDIUM', count: hs.MEDIUM, color: '#f47738' }, { label: 'LOW', count: hs.LOW, color: '#b1b4b6' }].forEach(b => {
                         const pct = Math.round((b.count / maxCount) * 100);
-                        healthLeftHtml += `
-                            <div class="app-dashboard-bar-row">
-                                <div class="app-dashboard-bar-label" style="min-width:70px">${b.label}</div>
-                                <div class="app-dashboard-bar-track">
-                                    <div class="app-dashboard-bar-fill" style="width:${pct}%;background:${b.color}"></div>
-                                </div>
-                                <div class="app-dashboard-bar-value">${b.count}</div>
-                            </div>
-                        `;
+                        healthLeftHtml += `<div class="app-dashboard-bar-row"><div class="app-dashboard-bar-label" style="min-width:70px">${b.label}</div><div class="app-dashboard-bar-track"><div class="app-dashboard-bar-fill" style="width:${pct}%;background:${b.color}"></div></div><div class="app-dashboard-bar-value">${b.count}</div></div>`;
                     });
                 }
                 const scanDate = healthData.generated ? new Date(healthData.generated).toLocaleDateString() : 'Unknown';
                 const scanArtifacts = healthData.scanned ? healthData.scanned.artifacts : '?';
                 const scanProjects = healthData.scanned ? healthData.scanned.projects : '?';
                 healthLeftHtml += `<p style="color:var(--text-muted);font-size:0.75rem;margin-top:0.75rem;">Scanned: ${scanDate} \u2014 ${scanArtifacts} artifacts across ${scanProjects} projects</p>`;
-
-                const typeLabels = {
-                    'STALE-RSCH': 'Stale Research',
-                    'FORGOTTEN-ADR': 'Forgotten ADRs',
-                    'UNRESOLVED-COND': 'Unresolved Conditions',
-                    'ORPHAN-REQ': 'Orphaned Requirements',
-                    'MISSING-TRACE': 'Missing Traceability',
-                    'VERSION-DRIFT': 'Version Drift'
-                };
+                const typeLabels = { 'STALE-RSCH': 'Stale Research', 'FORGOTTEN-ADR': 'Forgotten ADRs', 'UNRESOLVED-COND': 'Unresolved Conditions', 'ORPHAN-REQ': 'Orphaned Requirements', 'MISSING-TRACE': 'Missing Traceability', 'VERSION-DRIFT': 'Version Drift' };
                 let healthRightHtml = '<ul class="app-dashboard-checklist">';
                 const bt = healthData.byType || {};
                 Object.entries(typeLabels).forEach(([key, label]) => {
                     const count = bt[key] || 0;
-                    if (count > 0) {
-                        healthRightHtml += `<li><span class="app-dashboard-cross">&#10007;</span> ${escapeHtml(label)}: ${count}</li>`;
-                    }
+                    if (count > 0) healthRightHtml += `<li><span class="app-dashboard-cross">&#10007;</span> ${escapeHtml(label)}: ${count}</li>`;
                 });
-                if (Object.values(bt).every(v => !v)) {
-                    healthRightHtml += '<li><span class="app-dashboard-check">&#10003;</span> No issues detected</li>';
-                }
+                if (Object.values(bt).every(v => !v)) healthRightHtml += '<li><span class="app-dashboard-check">&#10003;</span> No issues detected</li>';
                 healthRightHtml += '</ul>';
-
-                html += `
-                    <div class="app-dashboard-panels">
-                        <div class="app-dashboard-panel">
-                            <h3>Artifact Health</h3>
-                            ${healthLeftHtml}
-                        </div>
-                        <div class="app-dashboard-panel">
-                            <h3>Findings by Type</h3>
-                            ${healthRightHtml}
-                        </div>
-                    </div>
-                `;
+                html += `<div class="app-dashboard-panels"><div class="app-dashboard-panel"><h3>Artifact Health</h3>${healthLeftHtml}</div><div class="app-dashboard-panel"><h3>Findings by Type</h3>${healthRightHtml}</div></div>`;
             }
-
-            // Note: innerHTML is used here with data sourced from local manifest.json
-            // and health.json files (both generated by ArcKit commands, not user input).
-            // All user-facing text passes through escapeHtml() above.
             content.innerHTML = html;
-
-            // Render donut charts after DOM is populated
-            const categoryData = Object.entries(CATEGORY_COLORS)
-                .map(([label, color]) => ({ label, value: m.categoryCounts[label] || 0, color }));
+            const categoryData = Object.entries(CATEGORY_COLORS).map(([label, color]) => ({ label, value: m.categoryCounts[label] || 0, color }));
             renderDonutChart('dashboard-category-chart', categoryData);
-
             const guideColors = { live: '#00703c', beta: '#1d70b8', alpha: '#f47738', experimental: '#912b88' };
-            const guideData = Object.entries(guideColors)
-                .map(([label, color]) => ({ label: label.charAt(0).toUpperCase() + label.slice(1), value: m.guideCounts[label] || 0, color }));
+            const guideData = Object.entries(guideColors).map(([label, color]) => ({ label: label.charAt(0).toUpperCase() + label.slice(1), value: m.guideCounts[label] || 0, color }));
             renderDonutChart('dashboard-guide-chart', guideData);
-
-            // Wire up dashboard links to navigate to documents
             content.querySelectorAll('.app-dashboard-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const path = link.dataset.path;
                     window.location.hash = path;
                     loadDocument(path);
-                    // Update sidebar active state
-                    document.querySelectorAll('#nav-container a').forEach(a => {
-                        a.classList.toggle('active', a.dataset.path === path);
-                    });
+                    document.querySelectorAll('#nav-container a').forEach(a => { a.classList.toggle('active', a.dataset.path === path); });
                 });
             });
-
-            // Clear active states in sidebar
             document.querySelectorAll('#nav-container a').forEach(a => a.classList.remove('active'));
-
-            // Scroll to top
             document.getElementById('main-content').scrollTo(0, 0);
         }
 
@@ -2450,47 +2229,28 @@
             const toc = document.getElementById('toc');
             const tocList = document.getElementById('toc-list');
             const headings = container.querySelectorAll('h2, h3');
-
-            if (headings.length < 2) {
-                toc.style.display = 'none';
-                return;
-            }
-
+            if (headings.length < 2) { toc.style.display = 'none'; return; }
             toc.style.display = '';
             tocList.innerHTML = '';
-
             headings.forEach(heading => {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = `#${heading.id}`;
                 a.textContent = heading.textContent;
-                if (heading.tagName === 'H3') {
-                    a.classList.add('toc-h3');
-                }
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    heading.scrollIntoView({ behavior: 'smooth' });
-                });
+                if (heading.tagName === 'H3') a.classList.add('toc-h3');
+                a.addEventListener('click', (e) => { e.preventDefault(); heading.scrollIntoView({ behavior: 'smooth' }); });
                 li.appendChild(a);
                 tocList.appendChild(li);
             });
-
-            // Setup intersection observer for active state
-            if (currentTocObserver) {
-                currentTocObserver.disconnect();
-            }
-
+            if (currentTocObserver) currentTocObserver.disconnect();
             currentTocObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const id = entry.target.id;
-                        tocList.querySelectorAll('a').forEach(a => {
-                            a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
-                        });
+                        tocList.querySelectorAll('a').forEach(a => { a.classList.toggle('active', a.getAttribute('href') === `#${id}`); });
                     }
                 });
             }, { rootMargin: '-20% 0px -70% 0px' });
-
             headings.forEach(heading => currentTocObserver.observe(heading));
         }
 
@@ -2500,32 +2260,11 @@
         function buildNavigation(manifest) {
             const container = document.getElementById('nav-container');
             let html = '';
-
-            // Global documents
-            if (manifest.global && manifest.global.length > 0) {
-                html += buildNavSection('Global', manifest.global, 'global');
-            }
-
-            // Global external documents (mention only - not clickable)
-            if (manifest.globalExternal && manifest.globalExternal.length > 0) {
-                html += buildExternalNavSection('Global External Documents', manifest.globalExternal);
-            }
-
-            // Global policies (mention only - not clickable)
-            if (manifest.globalPolicies && manifest.globalPolicies.length > 0) {
-                html += buildExternalNavSection('Global Policies', manifest.globalPolicies);
-            }
-
-            // Projects
-            if (manifest.projects) {
-                manifest.projects.forEach(project => {
-                    html += buildProjectNav(project);
-                });
-            }
-
+            if (manifest.global && manifest.global.length > 0) html += buildNavSection('Global', manifest.global, 'global');
+            if (manifest.globalExternal && manifest.globalExternal.length > 0) html += buildExternalNavSection('Global External Documents', manifest.globalExternal);
+            if (manifest.globalPolicies && manifest.globalPolicies.length > 0) html += buildExternalNavSection('Global Policies', manifest.globalPolicies);
+            if (manifest.projects) manifest.projects.forEach(project => { html += buildProjectNav(project); });
             container.innerHTML = html;
-
-            // Add click handlers for section headers
             container.querySelectorAll('.app-nav-section-header').forEach(header => {
                 header.addEventListener('click', () => {
                     header.classList.toggle('collapsed');
@@ -2533,20 +2272,14 @@
                     list.style.display = header.classList.contains('collapsed') ? 'none' : 'block';
                 });
             });
-
-            // Add click handlers for document links
             container.querySelectorAll('a[data-path]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const path = link.dataset.path;
                     window.location.hash = path;
                     loadDocument(path);
-
-                    // Update active state
                     container.querySelectorAll('a').forEach(a => a.classList.remove('active'));
                     link.classList.add('active');
-
-                    // Close mobile sidebar
                     closeMobileSidebar();
                 });
             });
@@ -2554,133 +2287,59 @@
 
         function buildNavSection(title, documents, sectionId) {
             if (!documents || documents.length === 0) return '';
-
-            // Group by category
             const byCategory = {};
-            documents.forEach(doc => {
-                const cat = doc.category || 'Other';
-                if (!byCategory[cat]) byCategory[cat] = [];
-                byCategory[cat].push(doc);
-            });
-
+            documents.forEach(doc => { const cat = doc.category || 'Other'; if (!byCategory[cat]) byCategory[cat] = []; byCategory[cat].push(doc); });
             let listHtml = '';
             Object.keys(byCategory).forEach(category => {
                 listHtml += `<li class="app-nav-category">${category}</li>`;
-                byCategory[category].forEach(doc => {
-                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                });
+                byCategory[category].forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
             });
-
-            return `
-                <div class="app-nav-section">
-                    <button class="app-nav-section-header">
-                        ${title}
-                        <span class="chevron">&#9660;</span>
-                    </button>
-                    <ul class="app-nav-list">${listHtml}</ul>
-                </div>
-            `;
+            return `<div class="app-nav-section"><button class="app-nav-section-header">${title}<span class="chevron">&#9660;</span></button><ul class="app-nav-list">${listHtml}</ul></div>`;
         }
 
         function buildExternalNavSection(title, files) {
             if (!files || files.length === 0) return '';
             let listHtml = '';
-            files.forEach(doc => {
-                listHtml += `<li class="app-nav-external">${doc.title} <span class="app-nav-file-type">${doc.type || ''}</span></li>`;
-            });
-            return `
-                <div class="app-nav-section">
-                    <button class="app-nav-section-header">
-                        ${title}
-                        <span class="chevron">&#9660;</span>
-                    </button>
-                    <ul class="app-nav-list">${listHtml}</ul>
-                </div>
-            `;
+            files.forEach(doc => { listHtml += `<li class="app-nav-external">${doc.title} <span class="app-nav-file-type">${doc.type || ''}</span></li>`; });
+            return `<div class="app-nav-section"><button class="app-nav-section-header">${title}<span class="chevron">&#9660;</span></button><ul class="app-nav-list">${listHtml}</ul></div>`;
         }
 
         function buildProjectNav(project) {
             let listHtml = '';
-
-            // Main documents by category
             if (project.documents) {
                 const byCategory = {};
-                project.documents.forEach(doc => {
-                    const cat = doc.category || 'Other';
-                    if (!byCategory[cat]) byCategory[cat] = [];
-                    byCategory[cat].push(doc);
-                });
-
+                project.documents.forEach(doc => { const cat = doc.category || 'Other'; if (!byCategory[cat]) byCategory[cat] = []; byCategory[cat].push(doc); });
                 Object.keys(byCategory).forEach(category => {
                     listHtml += `<li class="app-nav-category">${category}</li>`;
-                    byCategory[category].forEach(doc => {
-                        listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                    });
+                    byCategory[category].forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
                 });
             }
-
-            // Diagrams
             if (project.diagrams && project.diagrams.length > 0) {
-                listHtml += `<li class="app-nav-category">Diagrams</li>`;
-                project.diagrams.forEach(doc => {
-                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                });
+                listHtml += '<li class="app-nav-category">Diagrams</li>';
+                project.diagrams.forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
             }
-
-            // Decisions (ADRs)
             if (project.decisions && project.decisions.length > 0) {
-                listHtml += `<li class="app-nav-category">Decisions</li>`;
-                project.decisions.forEach(doc => {
-                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                });
+                listHtml += '<li class="app-nav-category">Decisions</li>';
+                project.decisions.forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
             }
-
-            // Vendors
             if (project.vendors && project.vendors.length > 0) {
-                listHtml += `<li class="app-nav-category">Vendors</li>`;
-                project.vendors.forEach(vendor => {
-                    if (vendor.documents) {
-                        vendor.documents.forEach(doc => {
-                            listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${vendor.name}: ${doc.title}</a></li>`;
-                        });
-                    }
-                });
+                listHtml += '<li class="app-nav-category">Vendors</li>';
+                project.vendors.forEach(vendor => { if (vendor.documents) vendor.documents.forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${vendor.name}: ${doc.title}</a></li>`; }); });
             }
-
-            // Vendor Profiles
             if (project.vendorProfiles && project.vendorProfiles.length > 0) {
-                listHtml += `<li class="app-nav-category">Vendor Profiles</li>`;
-                project.vendorProfiles.forEach(doc => {
-                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                });
+                listHtml += '<li class="app-nav-category">Vendor Profiles</li>';
+                project.vendorProfiles.forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
             }
-
-            // Tech Notes
             if (project.techNotes && project.techNotes.length > 0) {
-                listHtml += `<li class="app-nav-category">Tech Notes</li>`;
-                project.techNotes.forEach(doc => {
-                    listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`;
-                });
+                listHtml += '<li class="app-nav-category">Tech Notes</li>';
+                project.techNotes.forEach(doc => { listHtml += `<li><a href="#${doc.path}" data-path="${doc.path}">${doc.title}</a></li>`; });
             }
-
-            // External Documents (mention only - not clickable)
             if (project.external && project.external.length > 0) {
-                listHtml += `<li class="app-nav-category">External Documents</li>`;
-                project.external.forEach(doc => {
-                    listHtml += `<li class="app-nav-external">${doc.title} <span class="app-nav-file-type">${doc.type || ''}</span></li>`;
-                });
+                listHtml += '<li class="app-nav-category">External Documents</li>';
+                project.external.forEach(doc => { listHtml += `<li class="app-nav-external">${doc.title} <span class="app-nav-file-type">${doc.type || ''}</span></li>`; });
             }
-
             const displayName = project.name || project.id;
-            return `
-                <div class="app-nav-section">
-                    <button class="app-nav-section-header">
-                        ${displayName}
-                        <span class="chevron">&#9660;</span>
-                    </button>
-                    <ul class="app-nav-list">${listHtml}</ul>
-                </div>
-            `;
+            return `<div class="app-nav-section"><button class="app-nav-section-header">${displayName}<span class="chevron">&#9660;</span></button><ul class="app-nav-list">${listHtml}</ul></div>`;
         }
 
         // ============================================
@@ -2689,73 +2348,50 @@
         async function loadDocument(path) {
             const content = document.getElementById('content');
             const toc = document.getElementById('toc');
-
-            // Clean up interactive diagram instances before replacing content
             destroyPanZoomInstances();
-
-            // Hide TOC while loading
             toc.style.display = 'none';
-
-            // Show loading
-            content.innerHTML = `
-                <div class="app-loading">
-                    <div class="app-spinner"></div>
-                    Loading document...
-                </div>
-            `;
-
+            content.innerHTML = '<div class="app-loading"><div class="app-spinner"></div>Loading document...</div>';
             try {
                 let markdown;
-
-                // Check cache
                 if (documentCache.has(path)) {
                     markdown = documentCache.get(path);
                 } else {
-                    const response = await fetch(getRawUrl(path));
+                    let response = await fetch(getRawUrl(path));
                     if (!response.ok) {
-                        throw new Error(response.status === 404 ? 'not_found' : `fetch_error_${response.status}`);
+                        const fallback = getFallbackUrl(path);
+                        if (fallback) response = await fetch(fallback);
                     }
+                    if (!response.ok) throw new Error(response.status === 404 ? 'not_found' : `fetch_error_${response.status}`);
                     markdown = await response.text();
                     documentCache.set(path, markdown);
                 }
-
-                // Extract title from first H1 or filename
                 let title = extractTitle(path);
                 const h1Match = markdown.match(/^#\s+(.+)$/m);
                 if (h1Match) {
                     title = h1Match[1];
-                    // Remove the first H1 from markdown to avoid duplicate title
                     markdown = markdown.replace(/^#\s+.+$/m, '').trimStart();
                 }
-
-                // Build breadcrumb
                 const parts = path.split('/');
                 const breadcrumb = parts.slice(0, -1).join(' / ');
-
-                // Render markdown
                 const html = marked.parse(markdown);
-
-                content.innerHTML = `
-                    <div class="app-doc-header">
-                        <div class="app-doc-breadcrumb">${breadcrumb}</div>
-                        <h1 class="app-doc-title">${title}</h1>
-                    </div>
-                    <div class="app-markdown">${html}</div>
-                `;
-
-                // Build table of contents
+                content.innerHTML = `<div class="app-doc-header"><div class="app-doc-breadcrumb">${breadcrumb}</div><h1 class="app-doc-title">${title}</h1></div><div class="app-markdown">${html}</div>`;
+                const docDir = path.substring(0, path.lastIndexOf('/') + 1);
+                content.querySelectorAll('.app-markdown a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
+                    if (!href.endsWith('.md') && !href.includes('.md#')) return;
+                    const parts = (docDir + href.split('#')[0]).split('/');
+                    const resolved = [];
+                    parts.forEach(p => { if (p === '..') resolved.pop(); else if (p && p !== '.') resolved.push(p); });
+                    const fragment = href.includes('#') ? '#' + href.split('#').slice(1).join('#') : '';
+                    const resolvedPath = resolved.join('/') + fragment;
+                    a.href = '#' + resolvedPath;
+                    a.addEventListener('click', function(e) { e.preventDefault(); window.location.hash = resolvedPath; loadDocument(resolved.join('/')); });
+                });
                 buildTableOfContents(content.querySelector('.app-markdown'));
-
-                // Render mermaid diagrams
                 await mermaid.run({ querySelector: '.mermaid' });
-
-                // Render PlantUML diagrams (via PlantUML server)
                 renderPlantUMLDiagrams();
-
-                // Initialize interactive pan/zoom on rendered diagrams
                 initDiagramPanZoom();
-
-                // PlantUML images load async — init pan/zoom once they're ready
                 const plantumlImages = document.querySelectorAll('.plantuml-diagram img');
                 if (plantumlImages.length) {
                     Promise.all(Array.from(plantumlImages).map(img =>
@@ -2765,31 +2401,33 @@
                         })
                     )).then(() => initPlantUMLPanZoom());
                 }
-
-                // Scroll to top
                 document.getElementById('main-content').scrollTo(0, 0);
-
             } catch (error) {
-                const githubUrl = getGitHubUrl(path);
-                const isPrivateRepo = error.message === 'not_found' || error.message.startsWith('fetch_error');
-                content.innerHTML = `
-                    <div class="app-doc-header">
-                        <div class="app-doc-breadcrumb">${path.split('/').slice(0, -1).join(' / ')}</div>
-                        <h1 class="app-doc-title">${extractTitle(path)}</h1>
-                    </div>
-                    <div style="background:var(--background-light);border-left:4px solid var(--primary-color);padding:1.25rem;margin:1.5rem 0;">
-                        <p style="margin:0 0 0.75rem 0;font-weight:700;">This document cannot be displayed inline</p>
-                        <p style="margin:0 0 1rem 0;color:var(--text-muted);">
-                            ${isPrivateRepo
-                                ? 'This is likely a private repository. Documents from private repos require GitHub authentication, which is not available to the browser on GitHub Pages.'
-                                : error.message}
-                        </p>
-                        <a href="${githubUrl}" target="_blank" rel="noopener"
-                           style="display:inline-block;background:var(--primary-color);color:var(--text-inverse);padding:0.5rem 1rem;text-decoration:none;font-weight:700;">
-                            View on GitHub &rarr;
-                        </a>
-                    </div>
-                `;
+                const header = document.createElement('div');
+                header.className = 'app-doc-header';
+                const breadcrumb = document.createElement('div');
+                breadcrumb.className = 'app-doc-breadcrumb';
+                breadcrumb.textContent = path.split('/').slice(0, -1).join(' / ');
+                const title = document.createElement('h1');
+                title.className = 'app-doc-title';
+                title.textContent = extractTitle(path);
+                header.appendChild(breadcrumb);
+                header.appendChild(title);
+                const notice = document.createElement('div');
+                notice.style.cssText = 'background:var(--background-light);border-left:4px solid var(--primary-color);padding:1.25rem;margin:1.5rem 0;';
+                const heading = document.createElement('p');
+                heading.style.cssText = 'margin:0 0 0.75rem 0;font-weight:700;';
+                heading.textContent = 'Document not found';
+                const detail = document.createElement('p');
+                detail.style.cssText = 'margin:0;color:var(--text-muted);';
+                detail.appendChild(document.createTextNode('The file '));
+                const code = document.createElement('code');
+                code.textContent = path;
+                detail.appendChild(code);
+                detail.appendChild(document.createTextNode(' could not be loaded. Check that the file exists and the site has been deployed correctly.'));
+                notice.appendChild(heading);
+                notice.appendChild(detail);
+                content.replaceChildren(header, notice);
             }
         }
 
@@ -2800,14 +2438,12 @@
             const sidebar = document.getElementById('sidebar');
             const toggleBtn = document.getElementById('sidebar-toggle');
             const expandBtn = document.getElementById('sidebar-expand');
-
             function toggleSidebar() {
                 sidebar.classList.toggle('collapsed');
                 const isCollapsed = sidebar.classList.contains('collapsed');
                 toggleBtn.innerHTML = isCollapsed ? '&#9654;' : '&#9664;';
                 toggleBtn.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
             }
-
             toggleBtn.addEventListener('click', toggleSidebar);
             expandBtn.addEventListener('click', toggleSidebar);
         }
@@ -2817,25 +2453,11 @@
         // ============================================
         function setupKeyboardShortcuts() {
             document.addEventListener('keydown', (e) => {
-                // Ctrl+K - Focus search
-                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                    e.preventDefault();
-                    document.getElementById('search-input').focus();
-                }
-
-                // Ctrl+B - Toggle sidebar
-                if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
-                    e.preventDefault();
-                    document.getElementById('sidebar-toggle').click();
-                }
-
-                // Escape - Close search
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); }
+                if ((e.ctrlKey || e.metaKey) && e.key === 'b') { e.preventDefault(); document.getElementById('sidebar-toggle').click(); }
                 if (e.key === 'Escape') {
                     const searchInput = document.getElementById('search-input');
-                    if (document.activeElement === searchInput) {
-                        searchInput.blur();
-                        document.getElementById('search-results').classList.remove('visible');
-                    }
+                    if (document.activeElement === searchInput) { searchInput.blur(); document.getElementById('search-results').classList.remove('visible'); }
                 }
             });
         }
@@ -2846,9 +2468,7 @@
         let activePanZoomInstances = [];
 
         function destroyPanZoomInstances() {
-            activePanZoomInstances.forEach(instance => {
-                try { instance.destroy(); } catch (e) { /* already destroyed */ }
-            });
+            activePanZoomInstances.forEach(instance => { try { instance.destroy(); } catch (e) {} });
             activePanZoomInstances = [];
         }
 
@@ -2858,28 +2478,16 @@
         function renderPlantUMLDiagrams() {
             const diagrams = document.querySelectorAll('.app-markdown .plantuml-diagram');
             if (!diagrams.length) return;
-
             diagrams.forEach(diagram => {
-                // Skip if already rendered
                 if (diagram.querySelector('img')) return;
-
-                // Get base64-encoded source from data attribute
                 const encoded = diagram.dataset.plantumlSource;
                 if (!encoded) return;
-
-                // Decode base64 back to raw text
                 const rawSource = decodeURIComponent(escape(atob(encoded)));
-
-                // Build PlantUML server URL
                 const url = plantumlGetUrl(rawSource, 'svg');
-
-                // Replace code block with rendered image
                 const img = document.createElement('img');
                 img.src = url;
                 img.alt = 'PlantUML Diagram';
                 img.loading = 'lazy';
-
-                // Show fallback on error
                 img.onerror = function() {
                     while (diagram.firstChild) diagram.removeChild(diagram.firstChild);
                     const errorP = document.createElement('p');
@@ -2899,7 +2507,6 @@
                     pre.appendChild(code);
                     diagram.appendChild(pre);
                 };
-
                 while (diagram.firstChild) diagram.removeChild(diagram.firstChild);
                 diagram.appendChild(img);
             });
@@ -2907,40 +2514,28 @@
 
         function initPlantUMLPanZoom() {
             if (typeof svgPanZoom === 'undefined') return;
-
             const diagrams = document.querySelectorAll('.app-markdown .plantuml-diagram');
             if (!diagrams.length) return;
-
             diagrams.forEach(diagram => {
                 const img = diagram.querySelector('img');
                 if (!img) return;
-
-                // Skip if already wrapped
                 if (diagram.parentElement && diagram.parentElement.classList.contains('plantuml-viewport')) return;
-
-                // Create wrapper structure
                 const container = document.createElement('div');
                 container.className = 'plantuml-container';
-
                 const viewport = document.createElement('div');
                 viewport.className = 'plantuml-viewport';
                 viewport.tabIndex = 0;
                 viewport.setAttribute('role', 'img');
                 viewport.setAttribute('aria-label', 'Interactive PlantUML diagram — use controls to zoom');
-
                 const controls = document.createElement('div');
                 controls.className = 'plantuml-controls';
-
-                // Zoom/fullscreen controls
                 const buttonDefs = [
                     { action: 'zoom-in', title: 'Zoom in', icon: '+' },
                     { action: 'zoom-out', title: 'Zoom out', icon: '\u2212' },
                     { action: 'reset', title: 'Reset view', icon: '\u21ba' },
                     { action: 'fullscreen', title: 'Fullscreen', icon: '\u26f6' }
                 ];
-
                 let currentScale = 1;
-
                 buttonDefs.forEach(def => {
                     const button = document.createElement('button');
                     button.className = 'mermaid-ctrl-btn';
@@ -2949,20 +2544,15 @@
                     button.textContent = def.icon;
                     controls.appendChild(button);
                 });
-
-                // Reparent diagram into viewport
                 diagram.parentNode.insertBefore(container, diagram);
                 viewport.appendChild(diagram);
                 container.appendChild(viewport);
                 container.appendChild(controls);
-
-                // CSS-based zoom for raster/img (svg-pan-zoom needs inline SVG)
                 function applyScale(scale) {
                     currentScale = Math.max(0.25, Math.min(10, scale));
                     img.style.transform = 'scale(' + currentScale + ')';
                     img.style.transformOrigin = 'center center';
                 }
-
                 controls.addEventListener('click', (e) => {
                     const btn = e.target.closest('.mermaid-ctrl-btn');
                     if (!btn) return;
@@ -2970,12 +2560,8 @@
                     if (action === 'zoom-in') applyScale(currentScale * 1.3);
                     else if (action === 'zoom-out') applyScale(currentScale / 1.3);
                     else if (action === 'reset') applyScale(1);
-                    else if (action === 'fullscreen') {
-                        container.classList.toggle('fullscreen');
-                        setTimeout(() => applyScale(1), 50);
-                    }
+                    else if (action === 'fullscreen') { container.classList.toggle('fullscreen'); setTimeout(() => applyScale(1), 50); }
                 });
-
                 viewport.addEventListener('keydown', (e) => {
                     if (e.key === '+' || e.key === '=') { e.preventDefault(); applyScale(currentScale * 1.3); }
                     else if (e.key === '-') { e.preventDefault(); applyScale(currentScale / 1.3); }
@@ -2983,71 +2569,45 @@
                     else if (e.key === 'f') { e.preventDefault(); container.classList.toggle('fullscreen'); setTimeout(() => applyScale(1), 50); }
                     else if (e.key === 'Escape' && container.classList.contains('fullscreen')) { e.preventDefault(); container.classList.remove('fullscreen'); setTimeout(() => applyScale(1), 50); }
                 });
-
-                // Scroll-to-zoom
-                viewport.addEventListener('wheel', (e) => {
-                    e.preventDefault();
-                    applyScale(currentScale * (e.deltaY < 0 ? 1.1 : 0.9));
-                }, { passive: false });
+                viewport.addEventListener('wheel', (e) => { e.preventDefault(); applyScale(currentScale * (e.deltaY < 0 ? 1.1 : 0.9)); }, { passive: false });
             });
         }
 
         function initDiagramPanZoom() {
-            // Clean up previous instances
             destroyPanZoomInstances();
-
-            // Check library loaded
             if (typeof svgPanZoom === 'undefined') return;
-
             const diagrams = document.querySelectorAll('.app-markdown .mermaid');
             if (!diagrams.length) return;
-
             diagrams.forEach(diagram => {
                 const svg = diagram.querySelector('svg');
                 if (!svg) return;
-
-                // Skip if already wrapped
                 if (diagram.parentElement && diagram.parentElement.classList.contains('mermaid-viewport')) return;
-
-                // Ensure SVG has explicit dimensions
                 if (!svg.getAttribute('width') || !svg.getAttribute('height')) {
                     const bbox = svg.getBBox();
-                    if (bbox.width && bbox.height) {
-                        svg.setAttribute('width', bbox.width);
-                        svg.setAttribute('height', bbox.height);
-                    }
+                    if (bbox.width && bbox.height) { svg.setAttribute('width', bbox.width); svg.setAttribute('height', bbox.height); }
                 }
-
-                // Create wrapper structure
                 const container = document.createElement('div');
                 container.className = 'mermaid-container';
-
                 const viewport = document.createElement('div');
                 viewport.className = 'mermaid-viewport';
                 viewport.tabIndex = 0;
                 viewport.setAttribute('role', 'img');
                 viewport.setAttribute('aria-label', 'Interactive diagram — scroll to zoom, drag to pan');
-
                 const controls = document.createElement('div');
                 controls.className = 'mermaid-controls';
-
-                // Button definitions: action, title, SVG icon path
                 const buttonDefs = [
                     { action: 'zoom-in', title: 'Zoom in (+)', icon: 'line:12,5,12,19|line:5,12,19,12' },
                     { action: 'zoom-out', title: 'Zoom out (-)', icon: 'line:5,12,19,12' },
                     { action: 'reset', title: 'Reset view (0)', icon: 'path:M3 12a9 9 0 1 0 9-9 4.5 4.5 0 0 0-4.5 4.5|path:M3 3v4.5h4.5' },
                     { action: 'fullscreen', title: 'Fullscreen (f)', icon: 'polyline:15 3 21 3 21 9|polyline:9 21 3 21 3 15|line:21,3,14,10|line:3,21,10,14' }
                 ];
-
                 buttonDefs.forEach(def => {
                     const button = document.createElement('button');
                     button.className = 'mermaid-ctrl-btn';
                     button.dataset.action = def.action;
                     button.title = def.title;
-
                     const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
                     svgEl.setAttribute('viewBox', '0 0 24 24');
-
                     def.icon.split('|').forEach(part => {
                         const [type, data] = part.split(':');
                         if (type === 'line') {
@@ -3066,133 +2626,54 @@
                             svgEl.appendChild(pl);
                         }
                     });
-
                     button.appendChild(svgEl);
                     controls.appendChild(button);
                 });
-
-                // Reparent diagram into viewport
                 diagram.parentNode.insertBefore(container, diagram);
                 viewport.appendChild(diagram);
                 container.appendChild(viewport);
                 container.appendChild(controls);
-
-                // Initialize svg-pan-zoom
                 try {
                     const panZoomInstance = svgPanZoom(svg, {
-                        fit: true,
-                        center: true,
-                        minZoom: 0.25,
-                        maxZoom: 10,
-                        zoomScaleSensitivity: 0.3,
-                        dblClickZoomEnabled: true,
-                        controlIconsEnabled: false,
-                        mouseWheelZoomEnabled: true,
+                        fit: true, center: true, minZoom: 0.25, maxZoom: 10,
+                        zoomScaleSensitivity: 0.3, dblClickZoomEnabled: true,
+                        controlIconsEnabled: false, mouseWheelZoomEnabled: true,
                         preventMouseEventsDefault: true
                     });
-
                     activePanZoomInstances.push(panZoomInstance);
-
-                    // Wire up control buttons
                     controls.addEventListener('click', (e) => {
                         const btn = e.target.closest('.mermaid-ctrl-btn');
                         if (!btn) return;
-
                         const action = btn.dataset.action;
-                        if (action === 'zoom-in') {
-                            panZoomInstance.zoomIn();
-                        } else if (action === 'zoom-out') {
-                            panZoomInstance.zoomOut();
-                        } else if (action === 'reset') {
-                            panZoomInstance.resetZoom();
-                            panZoomInstance.resetPan();
-                            panZoomInstance.fit();
-                            panZoomInstance.center();
-                        } else if (action === 'fullscreen') {
-                            container.classList.toggle('fullscreen');
-                            // Resize after layout change
-                            setTimeout(() => panZoomInstance.resize(), 50);
-                            setTimeout(() => {
-                                panZoomInstance.fit();
-                                panZoomInstance.center();
-                            }, 100);
-                        }
+                        if (action === 'zoom-in') panZoomInstance.zoomIn();
+                        else if (action === 'zoom-out') panZoomInstance.zoomOut();
+                        else if (action === 'reset') { panZoomInstance.resetZoom(); panZoomInstance.resetPan(); panZoomInstance.fit(); panZoomInstance.center(); }
+                        else if (action === 'fullscreen') { container.classList.toggle('fullscreen'); setTimeout(() => panZoomInstance.resize(), 50); setTimeout(() => { panZoomInstance.fit(); panZoomInstance.center(); }, 100); }
                     });
-
-                    // Keyboard handlers on viewport
                     viewport.addEventListener('keydown', (e) => {
-                        if (e.key === '+' || e.key === '=') {
-                            e.preventDefault();
-                            panZoomInstance.zoomIn();
-                        } else if (e.key === '-') {
-                            e.preventDefault();
-                            panZoomInstance.zoomOut();
-                        } else if (e.key === '0') {
-                            e.preventDefault();
-                            panZoomInstance.resetZoom();
-                            panZoomInstance.resetPan();
-                            panZoomInstance.fit();
-                            panZoomInstance.center();
-                        } else if (e.key === 'f') {
-                            e.preventDefault();
-                            container.classList.toggle('fullscreen');
-                            setTimeout(() => panZoomInstance.resize(), 50);
-                            setTimeout(() => {
-                                panZoomInstance.fit();
-                                panZoomInstance.center();
-                            }, 100);
-                        } else if (e.key === 'Escape' && container.classList.contains('fullscreen')) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            container.classList.remove('fullscreen');
-                            setTimeout(() => panZoomInstance.resize(), 50);
-                            setTimeout(() => {
-                                panZoomInstance.fit();
-                                panZoomInstance.center();
-                            }, 100);
-                        }
+                        if (e.key === '+' || e.key === '=') { e.preventDefault(); panZoomInstance.zoomIn(); }
+                        else if (e.key === '-') { e.preventDefault(); panZoomInstance.zoomOut(); }
+                        else if (e.key === '0') { e.preventDefault(); panZoomInstance.resetZoom(); panZoomInstance.resetPan(); panZoomInstance.fit(); panZoomInstance.center(); }
+                        else if (e.key === 'f') { e.preventDefault(); container.classList.toggle('fullscreen'); setTimeout(() => panZoomInstance.resize(), 50); setTimeout(() => { panZoomInstance.fit(); panZoomInstance.center(); }, 100); }
+                        else if (e.key === 'Escape' && container.classList.contains('fullscreen')) { e.preventDefault(); e.stopPropagation(); container.classList.remove('fullscreen'); setTimeout(() => panZoomInstance.resize(), 50); setTimeout(() => { panZoomInstance.fit(); panZoomInstance.center(); }, 100); }
                     });
-
-                    // Touch pinch-to-zoom
                     let lastTouchDistance = null;
-                    viewport.addEventListener('touchstart', (e) => {
-                        if (e.touches.length === 2) {
-                            lastTouchDistance = Math.hypot(
-                                e.touches[0].clientX - e.touches[1].clientX,
-                                e.touches[0].clientY - e.touches[1].clientY
-                            );
-                        }
-                    }, { passive: true });
-
+                    viewport.addEventListener('touchstart', (e) => { if (e.touches.length === 2) lastTouchDistance = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }, { passive: true });
                     viewport.addEventListener('touchmove', (e) => {
                         if (e.touches.length === 2 && lastTouchDistance !== null) {
-                            const distance = Math.hypot(
-                                e.touches[0].clientX - e.touches[1].clientX,
-                                e.touches[0].clientY - e.touches[1].clientY
-                            );
+                            const distance = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
                             const scale = distance / lastTouchDistance;
-                            if (scale > 1.02) {
-                                panZoomInstance.zoomIn();
-                                lastTouchDistance = distance;
-                            } else if (scale < 0.98) {
-                                panZoomInstance.zoomOut();
-                                lastTouchDistance = distance;
-                            }
+                            if (scale > 1.02) { panZoomInstance.zoomIn(); lastTouchDistance = distance; }
+                            else if (scale < 0.98) { panZoomInstance.zoomOut(); lastTouchDistance = distance; }
                         }
                     }, { passive: true });
-
-                    viewport.addEventListener('touchend', () => {
-                        lastTouchDistance = null;
-                    }, { passive: true });
-
+                    viewport.addEventListener('touchend', () => { lastTouchDistance = null; }, { passive: true });
                 } catch (err) {
-                    // If svg-pan-zoom fails, leave diagram functional without interactivity
                     console.warn('svg-pan-zoom init failed for diagram:', err);
                 }
             });
         }
 
-        // Global Escape to exit fullscreen diagrams
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 const fs = document.querySelector('.mermaid-container.fullscreen');
@@ -3202,16 +2683,11 @@
                     const idx = containers.indexOf(fs);
                     if (idx >= 0 && activePanZoomInstances[idx]) {
                         setTimeout(() => activePanZoomInstances[idx].resize(), 50);
-                        setTimeout(() => {
-                            activePanZoomInstances[idx].fit();
-                            activePanZoomInstances[idx].center();
-                        }, 100);
+                        setTimeout(() => { activePanZoomInstances[idx].fit(); activePanZoomInstances[idx].center(); }, 100);
                     }
                 }
                 const pfs = document.querySelector('.plantuml-container.fullscreen');
-                if (pfs) {
-                    pfs.classList.remove('fullscreen');
-                }
+                if (pfs) pfs.classList.remove('fullscreen');
             }
         });
 
@@ -3219,117 +2695,54 @@
         // Initialization
         // ============================================
         async function init() {
-            // Update header
             document.getElementById('header-title').textContent = `${CONFIG.repo} Documentation`;
-
-            // Setup theme toggle
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-
-            // Listen for system preference changes (only apply if no stored preference)
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
                 if (!localStorage.getItem('arckit-theme')) {
                     document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-                    mermaid.initialize({
-                        startOnLoad: false,
-                        theme: e.matches ? 'dark' : 'default',
-                        securityLevel: 'loose',
-                        flowchart: { useMaxWidth: true },
-                        sequence: { useMaxWidth: true }
-                    });
+                    mermaid.initialize({ startOnLoad: false, theme: e.matches ? 'dark' : 'default', securityLevel: 'loose', flowchart: { useMaxWidth: true }, sequence: { useMaxWidth: true } });
                 }
             });
-
             try {
-                // Load manifest
                 const response = await fetch('manifest.json');
-                if (!response.ok) {
-                    throw new Error('manifest.json not found');
-                }
+                if (!response.ok) throw new Error('manifest.json not found');
                 manifest = await response.json();
-
-                // Optionally load health data (graceful if missing)
                 try {
                     const healthResponse = await fetch('health.json');
-                    if (healthResponse.ok) {
-                        healthData = await healthResponse.json();
-                    }
-                } catch (e) {
-                    // health.json not available — dashboard renders without health panel
-                }
-
-                // Update footer
+                    if (healthResponse.ok) healthData = await healthResponse.json();
+                } catch (e) {}
                 if (manifest.generated) {
                     const date = new Date(manifest.generated);
-                    document.getElementById('footer-generated').textContent =
-                        `Generated: ${date.toLocaleDateString()}`;
+                    document.getElementById('footer-generated').textContent = `Generated: ${date.toLocaleDateString()}`;
                 }
-
-                // Build search index
                 buildSearchIndex(manifest);
-
-                // Build navigation
                 buildNavigation(manifest);
-
-                // Setup search
                 setupSearch();
-
-                // Setup sidebar toggle
                 setupSidebarToggle();
-
-                // Setup keyboard shortcuts
                 setupKeyboardShortcuts();
-
-                // Setup dashboard link
-                document.getElementById('dashboard-link').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.hash = 'dashboard';
-                    closeMobileSidebar();
-                });
-
-                // Setup header title link (back to dashboard)
-                document.getElementById('header-title').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.hash = 'dashboard';
-                    closeMobileSidebar();
-                });
-
-                // Setup guides link
-                document.getElementById('guides-link').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.location.hash = 'guides';
-                    closeMobileSidebar();
-                });
-
-                // Handle initial hash or load dashboard
+                document.getElementById('dashboard-link').addEventListener('click', (e) => { e.preventDefault(); window.location.hash = 'dashboard'; closeMobileSidebar(); });
+                document.getElementById('header-title').addEventListener('click', (e) => { e.preventDefault(); window.location.hash = 'dashboard'; closeMobileSidebar(); });
+                document.getElementById('guides-link').addEventListener('click', (e) => { e.preventDefault(); window.location.hash = 'guides'; closeMobileSidebar(); });
+                document.getElementById('roles-link').addEventListener('click', (e) => { e.preventDefault(); window.location.hash = 'roles'; closeMobileSidebar(); });
                 if (window.location.hash) {
                     const path = window.location.hash.slice(1);
-                    if (path === 'dashboard') {
-                        showDashboard(healthData);
-                    } else if (path === 'guides') {
-                        showGuidesIndex();
-                    } else {
+                    if (path === 'dashboard') showDashboard(healthData);
+                    else if (path === 'guides') showGuidesIndex();
+                    else if (path === 'roles') showRolesIndex();
+                    else {
                         loadDocument(path);
-
-                        // Mark as active
                         const link = document.querySelector(`a[data-path="${path}"]`);
                         if (link) link.classList.add('active');
                     }
                 } else {
-                    // Dashboard is the default landing page
                     window.location.hash = 'dashboard';
                     showDashboard(healthData);
                 }
-
             } catch (error) {
-                document.getElementById('nav-container').innerHTML = `
-                    <div class="app-error">
-                        Failed to load manifest: ${error.message}
-                    </div>
-                `;
+                document.getElementById('nav-container').innerHTML = `<div class="app-error">Failed to load manifest: ${error.message}</div>`;
             }
         }
 
-        // Mobile menu toggle (header hamburger + backdrop)
         function openMobileSidebar() {
             document.getElementById('sidebar').classList.add('open');
             document.getElementById('sidebar-backdrop').classList.add('visible');
@@ -3342,33 +2755,23 @@
 
         document.getElementById('mobile-menu').addEventListener('click', () => {
             const sidebar = document.getElementById('sidebar');
-            if (sidebar.classList.contains('open')) {
-                closeMobileSidebar();
-            } else {
-                openMobileSidebar();
-            }
+            if (sidebar.classList.contains('open')) closeMobileSidebar();
+            else openMobileSidebar();
         });
 
         document.getElementById('sidebar-backdrop').addEventListener('click', closeMobileSidebar);
 
-        // Hash change handler
         window.addEventListener('hashchange', () => {
             const path = window.location.hash.slice(1);
-            if (path === 'dashboard') {
-                showDashboard(healthData);
-            } else if (path === 'guides') {
-                showGuidesIndex();
-            } else if (path) {
+            if (path === 'dashboard') showDashboard(healthData);
+            else if (path === 'guides') showGuidesIndex();
+            else if (path === 'roles') showRolesIndex();
+            else if (path) {
                 loadDocument(path);
-
-                // Update active state
-                document.querySelectorAll('#nav-container a').forEach(a => {
-                    a.classList.toggle('active', a.dataset.path === path);
-                });
+                document.querySelectorAll('#nav-container a').forEach(a => { a.classList.toggle('active', a.dataset.path === path); });
             }
         });
 
-        // Initialize on load
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
