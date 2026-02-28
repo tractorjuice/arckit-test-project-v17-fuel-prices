@@ -443,7 +443,7 @@ Detailed stakeholder analysis in ARC-001-STKE-v1.0. Summary for requirements con
 - **Alt 7a**: Officer marks forecourt as "under investigation" (restricts visibility to enforcement team)
 
 **Business Rules**:
-- Non-compliance defined as: no submission within [X hours] of regulatory deadline
+- Non-compliance defined as: no submission within 24 hours of regulatory deadline (aligned with BR-004 detection target and data staleness threshold)
 - Enforcement actions follow published CMA enforcement guidance escalation path
 - Enforcement data access restricted to authorised CMA staff only
 
@@ -770,7 +770,7 @@ Detailed stakeholder analysis in ARC-001-STKE-v1.0. Summary for requirements con
 **Relates To**: BR-002, BR-004
 
 **Acceptance Criteria**:
-- [ ] Given a forecourt with no submission for [X] hours, when the reminder threshold is reached, then an automated email/SMS reminder is sent
+- [ ] Given a forecourt with no submission for 24 hours, when the reminder threshold is reached, then an automated email/SMS reminder is sent
 - [ ] Given a successful price submission, when processed, then an optional confirmation notification is sent (configurable by retailer)
 - [ ] Given an enforcement action, when initiated by CMA, then the appropriate notification template is sent to the retailer's registered contact
 
