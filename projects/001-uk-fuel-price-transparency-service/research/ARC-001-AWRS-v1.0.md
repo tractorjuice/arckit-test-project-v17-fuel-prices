@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-02-01 |
 | **Review Cycle** | Quarterly |
 | **Next Review Date** | 2026-05-01 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | Enterprise Architect |
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | CMA Digital, DESNZ Policy, GDS Assessors, Delivery Team, Architecture Review Board |

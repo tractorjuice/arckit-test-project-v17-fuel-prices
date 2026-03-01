@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-28T23:00:57.975Z",
+  "generated": "2026-03-01T08:42:20.377Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -559,12 +559,6 @@
       "name": "Uk Fuel Price Transparency Service",
       "documents": [
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v1.0.md",
-          "title": "Analysis Report",
-          "category": "Governance",
-          "documentId": "ARC-001-ANAL-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-BKLG-v1.0.md",
           "title": "Product Backlog",
           "category": "Planning",
@@ -659,6 +653,12 @@
           "title": "TCoP Assessment",
           "category": "Compliance",
           "documentId": "ARC-001-TCOP-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v3.0.md",
+          "title": "Analysis Report",
+          "documentId": "ARC-001-ANAL-v3.0",
+          "category": "Governance"
         }
       ],
       "diagrams": [

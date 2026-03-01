@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-30 |
 | **Review Cycle** | Monthly |
 | **Next Review Date** | 2026-03-01 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | CMA Digital Lead (Product Owner) |
 | **Reviewed By** | [PENDING] |
 | **Approved By** | [PENDING] |
 | **Distribution** | CMA Digital, DESNZ Policy, GDS Assessors, Delivery Team, Architecture Review Board |
@@ -2052,29 +2052,40 @@ Detailed stakeholder analysis in ARC-001-STKE-v1.0. Summary for requirements con
 
 ## Budget
 
-Budget figures subject to HM Treasury Green Book business case approval. Structure:
+Budget figures are derived from the Strategic Outline Business Case (ARC-001-SOBC-v1.0, Option 3 — Balanced). All figures are Rough Order of Magnitude (ROM ±30%) in 2026 prices, excluding VAT. Subject to HM Treasury Green Book business case approval.
 
-### Cost Estimate
+### Capital Expenditure (Year 1 Delivery)
 
 | Category | Estimated Cost | Notes |
 |----------|----------------|-------|
-| Delivery Team (multidisciplinary) | TBD | Per approved business case |
-| Cloud Infrastructure | TBD | UK sovereign cloud; auto-scaling |
+| Delivery Team (multidisciplinary, 12 months) | £1.20M | 10-person team |
+| Cloud Infrastructure Setup | £0.10M | UK sovereign cloud |
+| Third-party Licences (initial) | £0.05M | Address Gazetteer (OS AddressBase or equivalent) |
+| Security Testing (pen test + accessibility audit) | £0.08M | CHECK-approved provider |
 | GOV.UK Notify | Included | Government shared platform (no additional cost) |
-| Address Gazetteer Licence | TBD | OS AddressBase or equivalent |
-| Penetration Testing | TBD | CHECK-approved provider; pre-Beta and pre-Live |
-| Accessibility Audit | TBD | Manual audit by specialist provider |
-| **Total** | **TBD** | **Per approved business case** |
+| Contingency (15%) | £0.21M | Scope clarification, integration complexity |
+| **Total CapEx** | **£1.64M** | |
 
-### Ongoing Operational Costs
+### Ongoing Operational Costs (from Year 2)
 
 | Category | Annual Cost | Notes |
 |----------|-------------|-------|
-| Cloud Infrastructure | TBD | Auto-scaling; pay-per-use |
-| Support Team | TBD | 2nd/3rd line support; on-call |
-| Address Gazetteer Licence | TBD | Annual renewal |
-| Penetration Testing | TBD | Annual re-test |
-| **Total** | **TBD/year** | |
+| Cloud Hosting | £0.15M | Auto-scaling; pay-per-use |
+| Support Team (2nd/3rd line, 3 FTE) | £0.25M | On-call included |
+| Third-party Licences (annual) | £0.03M | Address Gazetteer renewal |
+| Security Testing (annual) | £0.03M | Annual pen test and re-audit |
+| Platform Maintenance | £0.10M | Patching, updates, monitoring |
+| **Total OpEx** | **~£0.56M/year** | Steady-state from Year 2 |
+
+### 3-Year Total Cost of Ownership
+
+| | Year 1 | Year 2 | Year 3 | 3-Year Total |
+|---|--------|--------|--------|--------------|
+| CapEx | £1.64M | — | — | £1.64M |
+| OpEx | £0.06M | £0.56M | £0.58M | £1.20M |
+| **Total** | **£1.70M** | **£0.56M** | **£0.58M** | **£2.84M** |
+
+*With HM Treasury optimism bias (+20%): £3.41M. See ARC-001-SOBC-v1.0 Section D (Financial Case) for full breakdown.*
 
 ---
 

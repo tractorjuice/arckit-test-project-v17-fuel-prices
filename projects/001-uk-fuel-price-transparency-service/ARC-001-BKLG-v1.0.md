@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-31 |
 | **Review Cycle** | Per Sprint |
 | **Next Review Date** | 2026-02-14 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | CMA Digital Lead (Product Owner) |
 | **Reviewed By** | [PENDING] |
 | **Approved By** | [PENDING] |
 | **Distribution** | CMA Digital, CMA Enforcement, DESNZ Policy, GDS Assessors, Delivery Team |

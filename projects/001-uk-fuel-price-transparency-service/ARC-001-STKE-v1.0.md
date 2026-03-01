@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-30 |
 | **Review Cycle** | Quarterly |
 | **Next Review Date** | 2026-04-30 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | Programme Manager |
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | CMA Digital, DESNZ Policy, GDS Assessors, Delivery Team, Programme Board |

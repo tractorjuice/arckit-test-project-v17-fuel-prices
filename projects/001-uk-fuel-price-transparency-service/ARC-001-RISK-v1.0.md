@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-30 |
 | **Review Cycle** | Monthly |
 | **Next Review Date** | 2026-03-01 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | CMA Senior Responsible Owner (SRO) |
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | CMA Board, CMA SRO, DESNZ Policy, CMA Enforcement, CMA Digital, Programme Board |

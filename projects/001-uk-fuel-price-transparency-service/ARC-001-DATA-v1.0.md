@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-30 |
 | **Review Cycle** | Monthly |
 | **Next Review Date** | 2026-03-01 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | Data Architect / Data Governance Lead |
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | CMA Digital, DESNZ Policy, GDS Assessors, Delivery Team, Architecture Review Board |

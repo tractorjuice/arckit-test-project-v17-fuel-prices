@@ -16,7 +16,7 @@
 | **Last Modified** | 2026-01-31 |
 | **Review Cycle** | Monthly |
 | **Next Review Date** | 2026-03-01 |
-| **Owner** | [OWNER_NAME_AND_ROLE] |
+| **Owner** | Delivery Manager |
 | **Reviewed By** | [PENDING] |
 | **Approved By** | [PENDING] |
 | **Distribution** | CMA SRO, CMA Digital Lead, DESNZ Policy, GDS Assessors, Programme Board |
