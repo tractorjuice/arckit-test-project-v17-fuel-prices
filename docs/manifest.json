@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-01T08:42:20.377Z",
+  "generated": "2026-03-01T18:51:04.565Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -539,6 +539,57 @@
       "isDefault": true
     }
   ],
+  "typeCategories": {
+    "REQ": "Discovery",
+    "STKE": "Discovery",
+    "RSCH": "Discovery",
+    "DSCT": "Discovery",
+    "SOBC": "Planning",
+    "PLAN": "Planning",
+    "ROAD": "Planning",
+    "STRAT": "Planning",
+    "BKLG": "Planning",
+    "PRIN": "Architecture",
+    "HLDR": "Architecture",
+    "DLDR": "Architecture",
+    "DATA": "Architecture",
+    "WARD": "Architecture",
+    "DIAG": "Architecture",
+    "DFD": "Architecture",
+    "ADR": "Architecture",
+    "PLAT": "Architecture",
+    "RISK": "Governance",
+    "TRAC": "Governance",
+    "PRIN-COMP": "Governance",
+    "CONF": "Governance",
+    "PRES": "Governance",
+    "ANAL": "Governance",
+    "GAPS": "Governance",
+    "TCOP": "Compliance",
+    "SECD": "Compliance",
+    "SECD-MOD": "Compliance",
+    "AIPB": "Compliance",
+    "ATRS": "Compliance",
+    "DPIA": "Compliance",
+    "JSP936": "Compliance",
+    "SVCASS": "Compliance",
+    "SNOW": "Operations",
+    "DEVOPS": "Operations",
+    "MLOPS": "Operations",
+    "FINOPS": "Operations",
+    "OPS": "Operations",
+    "SOW": "Procurement",
+    "EVAL": "Procurement",
+    "DOS": "Procurement",
+    "GCLD": "Procurement",
+    "GCLC": "Procurement",
+    "DMC": "Procurement",
+    "VEND": "Procurement",
+    "AWRS": "Research",
+    "AZRS": "Research",
+    "GCRS": "Research",
+    "STORY": "Other"
+  },
   "globalExternal": [
     {
       "path": "projects/000-global/external/.gitkeep",
@@ -558,6 +609,24 @@
       "id": "001-uk-fuel-price-transparency-service",
       "name": "Uk Fuel Price Transparency Service",
       "documents": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v1.0.md",
+          "title": "Analysis Report",
+          "category": "Governance",
+          "documentId": "ARC-001-ANAL-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v2.0.md",
+          "title": "Analysis Report",
+          "category": "Governance",
+          "documentId": "ARC-001-ANAL-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v3.0.md",
+          "title": "Analysis Report",
+          "category": "Governance",
+          "documentId": "ARC-001-ANAL-v3.0"
+        },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-BKLG-v1.0.md",
           "title": "Product Backlog",
@@ -585,13 +654,13 @@
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v1.0.md",
           "title": "Data Source Discovery",
-          "category": "Research",
+          "category": "Discovery",
           "documentId": "ARC-001-DSCT-v1.0"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v2.0.md",
           "title": "Data Source Discovery",
-          "category": "Research",
+          "category": "Discovery",
           "documentId": "ARC-001-DSCT-v2.0"
         },
         {
@@ -644,7 +713,7 @@
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-STKE-v1.0.md",
-          "title": "Stakeholder Drivers",
+          "title": "Stakeholder Analysis",
           "category": "Discovery",
           "documentId": "ARC-001-STKE-v1.0"
         },
@@ -655,10 +724,10 @@
           "documentId": "ARC-001-TCOP-v1.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v3.0.md",
-          "title": "Analysis Report",
-          "documentId": "ARC-001-ANAL-v3.0",
-          "category": "Governance"
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TRAC-v1.0.md",
+          "title": "Traceability Matrix",
+          "category": "Governance",
+          "documentId": "ARC-001-TRAC-v1.0"
         }
       ],
       "diagrams": [
@@ -666,6 +735,38 @@
           "path": "projects/001-uk-fuel-price-transparency-service/diagrams/ARC-001-DIAG-001-v1.0.md",
           "title": "Architecture Diagram: Data Pipeline — High-Level Data Flow",
           "documentId": "ARC-001-DIAG-001-v1.0"
+        }
+      ],
+      "research": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.0.md",
+          "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AWRS-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.1.md",
+          "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AWRS-v1.1"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v2.0.md",
+          "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AWRS-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.0.md",
+          "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AZRS-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.1.md",
+          "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AZRS-v1.1"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v2.0.md",
+          "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-AZRS-v2.0"
         }
       ],
       "external": [
