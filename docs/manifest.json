@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-01T18:51:04.565Z",
+  "generated": "2026-03-02T07:18:51.872Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -664,12 +664,6 @@
           "documentId": "ARC-001-DSCT-v2.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v1.0.md",
-          "title": "Project Plan",
-          "category": "Planning",
-          "documentId": "ARC-001-PLAN-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v1.0.md",
           "title": "Requirements",
           "category": "Discovery",
@@ -728,6 +722,12 @@
           "title": "Traceability Matrix",
           "category": "Governance",
           "documentId": "ARC-001-TRAC-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v2.0.md",
+          "title": "Project Plan",
+          "documentId": "ARC-001-PLAN-v2.0",
+          "category": "Planning"
         }
       ],
       "diagrams": [
