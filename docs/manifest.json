@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-03T07:09:27.258Z",
+  "generated": "2026-03-03T17:18:48.632Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -624,6 +624,12 @@
           "title": "Analysis Report",
           "category": "Governance",
           "documentId": "ARC-001-ANAL-v3.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v4.0.md",
+          "title": "Analysis Report",
+          "category": "Governance",
+          "documentId": "ARC-001-ANAL-v4.0"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-BKLG-v1.0.md",
