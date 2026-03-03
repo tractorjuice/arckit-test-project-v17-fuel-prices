@@ -426,8 +426,8 @@
       "status": "experimental"
     },
     {
-      "path": ".arckit/guides-custom/alibab-research.md",
-      "title": "Alibab Cloud Research Guide",
+      "path": ".arckit/guides-custom/alibaba-research.md",
+      "title": "Alibaba Cloud Research Guide",
       "category": "Community",
       "status": "community"
     }

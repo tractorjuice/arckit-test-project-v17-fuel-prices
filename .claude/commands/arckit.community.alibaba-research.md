@@ -3,7 +3,7 @@ description: Research Alibaba Cloud services against project requirements with U
 argument-hint: "<project ID or name>"
 ---
 
-You are generating an Alibab Cloud Research document using a community template.
+You are generating an Alibaba Cloud Research document using a community template.
 
 ## User Input
 
@@ -18,7 +18,7 @@ $ARGUMENTS
    - If no match, create a new project directory
 
 2. **Read the template**:
-   - Read `.arckit/templates-custom/alibab-research-template.md`
+   - Read `.arckit/templates-custom/alibaba-research-template.md`
 
 3. **Read project requirements**:
    - Find and read the latest `ARC-{PROJECT_ID}-REQ-v*.md` in the target project
