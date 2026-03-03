@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-03T06:16:33.254Z",
+  "generated": "2026-03-03T07:01:58.369Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -602,20 +602,6 @@
     "GCRS": "Research",
     "STORY": "Other"
   },
-  "globalExternal": [
-    {
-      "path": "projects/000-global/external/.gitkeep",
-      "title": ".gitkeep",
-      "type": "file"
-    }
-  ],
-  "globalPolicies": [
-    {
-      "path": "projects/000-global/policies/.gitkeep",
-      "title": ".gitkeep",
-      "type": "file"
-    }
-  ],
   "projects": [
     {
       "id": "001-uk-fuel-price-transparency-service",
@@ -788,13 +774,6 @@
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v3.0.md",
           "title": "Alibaba Cloud Research: UK Fuel Price Transparency Service",
           "documentId": "ARC-001-RSCH-v3.0"
-        }
-      ],
-      "external": [
-        {
-          "path": "projects/001-uk-fuel-price-transparency-service/external/.gitkeep",
-          "title": ".gitkeep",
-          "type": "file"
         }
       ]
     }
