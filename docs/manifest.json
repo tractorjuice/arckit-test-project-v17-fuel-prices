@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-03T17:18:48.632Z",
+  "generated": "2026-03-11T10:13:06.093Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -120,6 +120,12 @@
       "status": "experimental"
     },
     {
+      "path": "docs/guides/dfd.md",
+      "title": "Data Flow Diagram Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/diagram.md",
       "title": "Architecture Diagram Guide",
       "category": "Architecture",
@@ -156,6 +162,12 @@
       "status": "experimental"
     },
     {
+      "path": "docs/guides/framework.md",
+      "title": "Framework Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/gcloud-clarify.md",
       "title": "G-Cloud Clarification Questions Playbook",
       "category": "Procurement",
@@ -174,15 +186,39 @@
       "status": "experimental"
     },
     {
+      "path": "docs/guides/glossary.md",
+      "title": "Glossary Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/govs-007-security.md",
       "title": "GovS 007: Security — ArcKit Reference Guide",
       "category": "Compliance",
       "status": "beta"
     },
     {
+      "path": "docs/guides/health.md",
+      "title": "Health Check Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/hld-review.md",
       "title": "High-Level Design Review Playbook",
       "category": "Architecture",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/impact.md",
+      "title": "Impact Analysis",
+      "category": "Governance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/init.md",
+      "title": "Init Guide",
+      "category": "Other",
       "status": "beta"
     },
     {
@@ -195,6 +231,12 @@
       "path": "docs/guides/knowledge-compounding.md",
       "title": "Knowledge Compounding Guide",
       "category": "Governance",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/maturity-model.md",
+      "title": "Maturity Model Guide",
+      "category": "Other",
       "status": "beta"
     },
     {
@@ -321,6 +363,18 @@
       "path": "docs/guides/roadmap.md",
       "title": "Architecture Roadmap Playbook",
       "category": "Planning",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/score.md",
+      "title": "Vendor Scoring",
+      "category": "Procurement",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/search.md",
+      "title": "Project Search",
+      "category": "Governance",
       "status": "beta"
     },
     {
@@ -783,5 +837,3554 @@
         }
       ]
     }
-  ]
+  ],
+  "dependencyGraph": {
+    "nodes": {
+      "ARC-000-PRIN-v1.0": {
+        "type": "PRIN",
+        "project": "000-global",
+        "path": "projects/000-global/ARC-000-PRIN-v1.0.md",
+        "title": "UK Government Fuel Price Transparency Service — Enterprise Architecture Principles",
+        "status": "DRAFT",
+        "severity": "MEDIUM"
+      },
+      "ARC-001-ANAL-v1.0": {
+        "type": "ANAL",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v1.0.md",
+        "title": "Architecture Governance Analysis Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-ANAL-v2.0": {
+        "type": "ANAL",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v2.0.md",
+        "title": "Architecture Governance Analysis Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-ANAL-v3.0": {
+        "type": "ANAL",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v3.0.md",
+        "title": "Architecture Governance Analysis Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-ANAL-v4.0": {
+        "type": "ANAL",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-ANAL-v4.0.md",
+        "title": "Architecture Governance Analysis Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-BKLG-v1.0": {
+        "type": "BKLG",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-BKLG-v1.0.md",
+        "title": "Product Backlog: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-DATA-v1.0": {
+        "type": "DATA",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DATA-v1.0.md",
+        "title": "Data Model: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "MEDIUM"
+      },
+      "ARC-001-DIAG-PLANTUML-TEST": {
+        "type": null,
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DIAG-PLANTUML-TEST.md",
+        "title": "PlantUML Rendering Test",
+        "status": "",
+        "severity": "LOW"
+      },
+      "ARC-001-DPIA-v1.0": {
+        "type": "DPIA",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DPIA-v1.0.md",
+        "title": "Data Protection Impact Assessment (DPIA)",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-DSCT-v1.0": {
+        "type": "DSCT",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v1.0.md",
+        "title": "Data Source Discovery: UK Fuel Price Transparency Service",
+        "status": "**Beta** — breaking changes possible",
+        "severity": "LOW"
+      },
+      "ARC-001-DSCT-v2.0": {
+        "type": "DSCT",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v2.0.md",
+        "title": "Data Source Discovery: UK Fuel Price Transparency Service",
+        "status": "**Beta** — breaking changes possible",
+        "severity": "LOW"
+      },
+      "ARC-001-PLAN-v1.0": {
+        "type": "PLAN",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v1.0.md",
+        "title": "Project Plan: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-PLAN-v2.0": {
+        "type": "PLAN",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-PLAN-v2.0.md",
+        "title": "Project Plan: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-REQ-v1.0": {
+        "type": "REQ",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v1.0.md",
+        "title": "Project Requirements: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-REQ-v2.0": {
+        "type": "REQ",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v2.0.md",
+        "title": "Project Requirements: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-RISK-v1.0": {
+        "type": "RISK",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RISK-v1.0.md",
+        "title": "Risk Register: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-SECD-v1.0": {
+        "type": "SECD",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-SECD-v1.0.md",
+        "title": "UK Government Secure by Design Assessment",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-SOBC-v1.0": {
+        "type": "SOBC",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-SOBC-v1.0.md",
+        "title": "Strategic Outline Business Case (SOBC)",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-STKE-v1.0": {
+        "type": "STKE",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-STKE-v1.0.md",
+        "title": "Stakeholder Drivers & Goals Analysis: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-TCOP-v1.0": {
+        "type": "TCOP",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TCOP-v1.0.md",
+        "title": "Technology Code of Practice (TCoP) Review",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-TRAC-v1.0": {
+        "type": "TRAC",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TRAC-v1.0.md",
+        "title": "Requirements Traceability Matrix: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "HIGH"
+      },
+      "ARC-001-DIAG-001-v1.0": {
+        "type": "DIAG",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/diagrams/ARC-001-DIAG-001-v1.0.md",
+        "title": "Architecture Diagram: Data Pipeline — High-Level Data Flow",
+        "status": "DRAFT",
+        "severity": "MEDIUM"
+      },
+      "ARC-001-AWRS-v1.0": {
+        "type": "AWRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.0.md",
+        "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-AWRS-v1.1": {
+        "type": "AWRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v1.1.md",
+        "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-AWRS-v2.0": {
+        "type": "AWRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AWRS-v2.0.md",
+        "title": "AWS Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-AZRS-v1.0": {
+        "type": "AZRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.0.md",
+        "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-AZRS-v1.1": {
+        "type": "AZRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v1.1.md",
+        "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-AZRS-v2.0": {
+        "type": "AZRS",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v2.0.md",
+        "title": "Azure Technology Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-RSCH-v1.0": {
+        "type": "RSCH",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v1.0.md",
+        "title": "Technology and Service Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-RSCH-v2.0": {
+        "type": "RSCH",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v2.0.md",
+        "title": "Technology and Service Research: Open Source Tools for Fuel Data Feed Access",
+        "status": "DRAFT",
+        "severity": "LOW"
+      },
+      "ARC-001-RSCH-v3.0": {
+        "type": "RSCH",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v3.0.md",
+        "title": "Alibaba Cloud Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW"
+      }
+    },
+    "edges": [
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v2.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DSCT",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v3.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-ADR-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-TRAC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-ANAL-v4.0",
+        "to": "ARC-001-DSCT",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-BKLG-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-BKLG-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-BKLG-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-BKLG-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-BKLG-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DATA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-SBD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-SBD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-GDS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DPIA-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DSCT-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DSCT-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DSCT-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DSCT-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-WARD-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SVCA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOW",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-EVAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-ADR-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-ADR",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-TRACE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-ANAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-OPS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-WARD-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SVCA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOW",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-EVAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-ADR-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-TRACE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-ANAL",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SVCA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-PCOMP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-OPS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-STORY",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DSCT",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DSCT",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-PLAN-v2.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v2.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RISK-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RISK-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RISK-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RISK-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RISK-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SECD-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-SOBC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STKE-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-STKE-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TCOP-v1.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-PLAN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DIAG-001",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-TRAC-v1.0",
+        "to": "ARC-001-BKLG",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-DIAG-001-v1.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AWRS-v1.1",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AWRS-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v1.1",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-AZRS-v2.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      }
+    ]
+  }
 }
