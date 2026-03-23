@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-11T18:08:59.736Z",
+  "generated": "2026-03-23T12:39:32.915Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -34,6 +34,12 @@
       "title": "Algorithmic Transparency Recording Standard Playbook",
       "category": "Compliance",
       "status": "alpha"
+    },
+    {
+      "path": "docs/guides/autoresearch.md",
+      "title": "Autoresearch Guide: Self-Improving Command Prompts",
+      "category": "Other",
+      "status": "beta"
     },
     {
       "path": "docs/guides/aws-research.md",
@@ -190,6 +196,24 @@
       "title": "Glossary Guide",
       "category": "Reporting",
       "status": "experimental"
+    },
+    {
+      "path": "docs/guides/gov-code-search.md",
+      "title": "Government Code Search Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/gov-landscape.md",
+      "title": "Government Code Landscape Analysis Guide",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/gov-reuse.md",
+      "title": "Government Code Reuse Assessment Guide",
+      "category": "Other",
+      "status": "beta"
     },
     {
       "path": "docs/guides/govs-007-security.md",
@@ -402,6 +426,12 @@
       "status": "beta"
     },
     {
+      "path": "docs/guides/session-memory.md",
+      "title": "Session Memory",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
       "path": "docs/guides/sobc.md",
       "title": "Strategic Outline Business Case Playbook",
       "category": "Planning",
@@ -471,6 +501,30 @@
       "path": "docs/guides/upgrading.md",
       "title": "Upgrading ArcKit",
       "category": "Getting Started",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/wardley-climate.md",
+      "title": "Climate Assessment Playbook",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/wardley-doctrine.md",
+      "title": "Doctrine Assessment Playbook",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/wardley-gameplay.md",
+      "title": "Gameplay Analysis Playbook",
+      "category": "Other",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/wardley-value-chain.md",
+      "title": "Value Chain Decomposition Playbook",
+      "category": "Other",
       "status": "beta"
     },
     {
@@ -620,6 +674,10 @@
     "DLDR": "Architecture",
     "DATA": "Architecture",
     "WARD": "Architecture",
+    "WDOC": "Architecture",
+    "WGAM": "Architecture",
+    "WCLM": "Architecture",
+    "WVCH": "Architecture",
     "DIAG": "Architecture",
     "DFD": "Architecture",
     "ADR": "Architecture",
@@ -654,6 +712,9 @@
     "AWRS": "Research",
     "AZRS": "Research",
     "GCRS": "Research",
+    "GOVR": "Research",
+    "GCSR": "Research",
+    "GLND": "Research",
     "STORY": "Reporting"
   },
   "projects": [
@@ -819,6 +880,21 @@
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-AZRS-v2.0.md",
           "title": "Azure Technology Research: UK Fuel Price Transparency Service",
           "documentId": "ARC-001-AZRS-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GLND-v1.0.md",
+          "title": "Government Landscape Analysis: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GLND-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GOVR-v1.0.md",
+          "title": "Government Reuse Assessment: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GOVR-v1.0"
         },
         {
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v1.0.md",
@@ -1119,6 +1195,36 @@
         "severity": "LOW",
         "createdDate": "2026-02-02",
         "lastModified": "2026-02-02"
+      },
+      "ARC-001-GCSR-v1.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v1.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-23",
+        "lastModified": "2026-03-23"
+      },
+      "ARC-001-GLND-v1.0": {
+        "type": "GLND",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GLND-v1.0.md",
+        "title": "Government Landscape Analysis: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-23",
+        "lastModified": "2026-03-23"
+      },
+      "ARC-001-GOVR-v1.0": {
+        "type": "GOVR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GOVR-v1.0.md",
+        "title": "Government Reuse Assessment: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-23",
+        "lastModified": "2026-03-23"
       },
       "ARC-001-RSCH-v1.0": {
         "type": "RSCH",
@@ -2045,6 +2151,46 @@
       {
         "from": "ARC-001-AZRS-v2.0",
         "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GLND-v1.0",
+        "to": "ARC-001-GOVR",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GLND-v1.0",
+        "to": "ARC-001-GCSR",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GLND-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GLND-v1.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GOVR-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GOVR-v1.0",
+        "to": "ARC-000-PRIN",
         "type": "references"
       },
       {
