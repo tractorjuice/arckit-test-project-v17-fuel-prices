@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-24T15:37:07.853Z",
+  "generated": "2026-03-24T16:45:08.853Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -882,11 +882,6 @@
           "documentId": "ARC-001-AZRS-v2.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v1.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
-          "documentId": "ARC-001-GCSR-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GLND-v1.0.md",
           "title": "Government Landscape Analysis: UK Fuel Price Transparency Service",
           "documentId": "ARC-001-GLND-v1.0"
@@ -925,6 +920,26 @@
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-004-v1.0.md",
           "title": "Government Code Search Report: UK Fuel Price Transparency Service",
           "documentId": "ARC-001-GCSR-004-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-003-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-003-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-005-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Regulatory Compliance Dashboards",
+          "documentId": "ARC-001-GCSR-005-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v2.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-v2.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-002-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Geospatial Facility Finder with PostGIS",
+          "documentId": "ARC-001-GCSR-002-v1.0"
         }
       ]
     }
