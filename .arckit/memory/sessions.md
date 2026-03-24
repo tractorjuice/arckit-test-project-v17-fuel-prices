@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-03-24 14:42 — research
+
+- **Commits:** 1 | **Files changed:** 13
+- **Artifacts:**
+  - [001] Research: Government Landscape Analysis, Government Reuse Assessment
+- **Summary:**
+  - docs: add v2.0 gov reuse assessment, landscape analysis, and regenerate pages
+
 ### 2026-03-23 12:46 — research
 
 - **Commits:** 1 | **Files changed:** 23
@@ -51,6 +59,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
