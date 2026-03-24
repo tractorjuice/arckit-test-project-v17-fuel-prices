@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-03-23 12:46 — research
+
+- **Commits:** 1 | **Files changed:** 23
+- **Artifacts:**
+  - [001] Research: Government Code Search Report, Government Landscape Analysis, Government Reuse Assessment
+- **Summary:**
+  - docs: add gov code search, reuse assessment, and landscape analysis
+
 ### 2026-03-23 12:11 — general
 
 - **Commits:** 1 | **Files changed:** 4
@@ -43,6 +51,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
