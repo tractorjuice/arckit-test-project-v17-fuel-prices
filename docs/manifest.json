@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-24T16:45:08.853Z",
+  "generated": "2026-03-27T04:09:23.406Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -882,6 +882,36 @@
           "documentId": "ARC-001-AZRS-v2.0"
         },
         {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-002-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Geospatial Facility Finder with PostGIS",
+          "documentId": "ARC-001-GCSR-002-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-003-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-003-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-004-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-004-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-005-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Regulatory Compliance Dashboards",
+          "documentId": "ARC-001-GCSR-005-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v1.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v2.0.md",
+          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-GCSR-v2.0"
+        },
+        {
           "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GLND-v1.0.md",
           "title": "Government Landscape Analysis: UK Fuel Price Transparency Service",
           "documentId": "ARC-001-GLND-v1.0"
@@ -917,29 +947,37 @@
           "documentId": "ARC-001-RSCH-v3.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-004-v1.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
-          "documentId": "ARC-001-GCSR-004-v1.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v4.1.md",
+          "title": "Technology and Service Research: UK Fuel Price Transparency Service",
+          "documentId": "ARC-001-RSCH-v4.1"
+        }
+      ],
+      "vendorProfiles": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/vendors/aws-profile.md",
+          "title": "Aws"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-003-v1.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
-          "documentId": "ARC-001-GCSR-003-v1.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/vendors/govuk-notify-profile.md",
+          "title": "Govuk Notify"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-005-v1.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Regulatory Compliance Dashboards",
-          "documentId": "ARC-001-GCSR-005-v1.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/vendors/ordnance-survey-profile.md",
+          "title": "Ordnance Survey"
+        }
+      ],
+      "techNotes": [
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/tech-notes/fuel-finder-api.md",
+          "title": "Tech Note: Fuel Finder Statutory API"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v2.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service",
-          "documentId": "ARC-001-GCSR-v2.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/tech-notes/oauth-20-client-credentials.md",
+          "title": "Tech Note: OAuth 2.0 Client Credentials Flow"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-002-v1.0.md",
-          "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Geospatial Facility Finder with PostGIS",
-          "documentId": "ARC-001-GCSR-002-v1.0"
+          "path": "projects/001-uk-fuel-price-transparency-service/tech-notes/postgis-geospatial-search.md",
+          "title": "Tech Note: PostGIS Geospatial Search"
         }
       ]
     }
@@ -1226,6 +1264,46 @@
         "createdDate": "2026-02-02",
         "lastModified": "2026-02-02"
       },
+      "ARC-001-GCSR-002-v1.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-002-v1.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Geospatial Facility Finder with PostGIS",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-24",
+        "lastModified": "2026-03-24"
+      },
+      "ARC-001-GCSR-003-v1.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-003-v1.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-24",
+        "lastModified": "2026-03-24"
+      },
+      "ARC-001-GCSR-004-v1.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-004-v1.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-24",
+        "lastModified": "2026-03-24"
+      },
+      "ARC-001-GCSR-005-v1.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-005-v1.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service -- Regulatory Compliance Dashboards",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-24",
+        "lastModified": "2026-03-24"
+      },
       "ARC-001-GCSR-v1.0": {
         "type": "GCSR",
         "project": "001-uk-fuel-price-transparency-service",
@@ -1235,6 +1313,16 @@
         "severity": "LOW",
         "createdDate": "2026-03-23",
         "lastModified": "2026-03-23"
+      },
+      "ARC-001-GCSR-v2.0": {
+        "type": "GCSR",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-GCSR-v2.0.md",
+        "title": "Government Code Search Report: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-23",
+        "lastModified": "2026-03-24"
       },
       "ARC-001-GLND-v1.0": {
         "type": "GLND",
@@ -1305,6 +1393,16 @@
         "severity": "LOW",
         "createdDate": "2026-03-03",
         "lastModified": "2026-03-03"
+      },
+      "ARC-001-RSCH-v4.1": {
+        "type": "RSCH",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/research/ARC-001-RSCH-v4.1.md",
+        "title": "Technology and Service Research: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-03-26",
+        "lastModified": "2026-03-27"
       }
     },
     "edges": [
@@ -2204,12 +2302,47 @@
         "type": "references"
       },
       {
+        "from": "ARC-001-GCSR-002-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-003-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-004-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-004-v1.0",
+        "to": "ARC-001-GCSR",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-005-v1.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
         "from": "ARC-001-GCSR-v1.0",
         "to": "ARC-001-REQ",
         "type": "references"
       },
       {
         "from": "ARC-001-GCSR-v1.0",
+        "to": "ARC-001-DATA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-v2.0",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-GCSR-v2.0",
         "to": "ARC-001-DATA",
         "type": "references"
       },
@@ -2290,6 +2423,26 @@
       },
       {
         "from": "ARC-001-RSCH-v3.0",
+        "to": "ARC-001-AZRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v4.1",
+        "to": "ARC-001-REQ",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v4.1",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v4.1",
+        "to": "ARC-001-AWRS",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-RSCH-v4.1",
         "to": "ARC-001-AZRS",
         "type": "references"
       }
