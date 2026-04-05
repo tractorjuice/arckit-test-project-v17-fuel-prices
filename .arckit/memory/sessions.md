@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-05 12:45 — discovery
+
+- **Commits:** 1 | **Files changed:** 7
+- **Artifacts:**
+  - [001] Discovery: Requirements
+- **Summary:**
+  - docs: add v3.0 requirements with VE3 API architecture pivot, regenerate pages
+
 ### 2026-03-27 04:12 — discovery
 
 - **Commits:** 1 | **Files changed:** 10
@@ -83,6 +91,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
