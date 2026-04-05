@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-27T04:09:23.406Z",
+  "generated": "2026-04-05T12:44:15.439Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -231,6 +231,12 @@
       "path": "docs/guides/hld-review.md",
       "title": "High-Level Design Review Playbook",
       "category": "Architecture",
+      "status": "beta"
+    },
+    {
+      "path": "docs/guides/hooks.md",
+      "title": "Hooks Guide",
+      "category": "Other",
       "status": "beta"
     },
     {
@@ -807,6 +813,12 @@
           "documentId": "ARC-001-REQ-v2.0"
         },
         {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v3.0.md",
+          "title": "Requirements",
+          "category": "Discovery",
+          "documentId": "ARC-001-REQ-v3.0"
+        },
+        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RISK-v1.0.md",
           "title": "Risk Register",
           "category": "Governance",
@@ -1133,6 +1145,16 @@
         "severity": "LOW",
         "createdDate": "2026-01-30",
         "lastModified": "2026-01-30"
+      },
+      "ARC-001-REQ-v3.0": {
+        "type": "REQ",
+        "project": "001-uk-fuel-price-transparency-service",
+        "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-REQ-v3.0.md",
+        "title": "Project Requirements: UK Fuel Price Transparency Service",
+        "status": "DRAFT",
+        "severity": "LOW",
+        "createdDate": "2026-04-05",
+        "lastModified": "2026-04-05"
       },
       "ARC-001-RISK-v1.0": {
         "type": "RISK",
@@ -2039,6 +2061,51 @@
       {
         "from": "ARC-001-REQ-v2.0",
         "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-STKE",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-000-PRIN",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-DPIA",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-SECD",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-TCOP",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-SOBC",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-RISK",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-RSCH",
+        "type": "references"
+      },
+      {
+        "from": "ARC-001-REQ-v3.0",
+        "to": "ARC-001-PLAN",
         "type": "references"
       },
       {
