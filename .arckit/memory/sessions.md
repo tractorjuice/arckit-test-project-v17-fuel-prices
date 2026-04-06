@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-05 12:55 — architecture
+
+- **Commits:** 1 | **Files changed:** 5
+- **Artifacts:**
+  - [001] Architecture: Data Model
+- **Summary:**
+  - docs: add v2.0 data model with VE3 API entity structure and PostGIS geospatial indexing
+
 ### 2026-04-05 12:45 — discovery
 
 - **Commits:** 1 | **Files changed:** 7
@@ -91,6 +99,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
