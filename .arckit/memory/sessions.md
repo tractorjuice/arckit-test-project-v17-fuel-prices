@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:18 — architecture
+
+- **Commits:** 1 | **Files changed:** 5
+- **Artifacts:**
+  - [001] Architecture: Architecture Decision Records
+- **Summary:**
+  - docs: add ADR-001 for VE3 API consumer architecture decision
+
 ### 2026-04-06 10:10 — general
 
 - **Commits:** 1 | **Files changed:** 4
@@ -128,6 +136,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
