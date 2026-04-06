@@ -2,6 +2,13 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:10 — general
+
+- **Commits:** 1 | **Files changed:** 4
+- **Artifacts:** none detected
+- **Summary:**
+  - docs: regenerate pages site with updated plugin version
+
 ### 2026-04-06 10:06 — general
 
 - **Commits:** 1 | **Files changed:** 4
@@ -121,6 +128,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
