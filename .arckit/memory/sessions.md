@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:04 — compliance
+
+- **Commits:** 1 | **Files changed:** 5
+- **Artifacts:**
+  - [001] Compliance: Data Protection Impact Assessment | Governance: Risk Register
+- **Summary:**
+  - docs: add DPIA v2.0 and risk register v2.0 for VE3 API architecture pivot
+
 ### 2026-04-06 09:26 — general
 
 - **Commits:** 1 | **Files changed:** 3
@@ -106,6 +114,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
