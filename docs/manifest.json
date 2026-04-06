@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-05T12:54:48.586Z",
+  "generated": "2026-04-06T10:02:15.344Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -777,12 +777,6 @@
           "documentId": "ARC-001-DIAG-PLANTUML-TEST"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DPIA-v1.0.md",
-          "title": "Data Protection Impact Assessment",
-          "category": "Compliance",
-          "documentId": "ARC-001-DPIA-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DSCT-v1.0.md",
           "title": "Data Source Discovery",
           "category": "Discovery",
@@ -825,12 +819,6 @@
           "documentId": "ARC-001-REQ-v3.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RISK-v1.0.md",
-          "title": "Risk Register",
-          "category": "Governance",
-          "documentId": "ARC-001-RISK-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-SECD-v1.0.md",
           "title": "Secure by Design",
           "category": "Compliance",
@@ -859,6 +847,18 @@
           "title": "Traceability Matrix",
           "category": "Governance",
           "documentId": "ARC-001-TRAC-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-DPIA-v2.0.md",
+          "title": "Data Protection Impact Assessment",
+          "documentId": "ARC-001-DPIA-v2.0",
+          "category": "Compliance"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-RISK-v2.0.md",
+          "title": "Risk Register",
+          "documentId": "ARC-001-RISK-v2.0",
+          "category": "Governance"
         }
       ],
       "diagrams": [

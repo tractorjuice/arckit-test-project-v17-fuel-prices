@@ -2,6 +2,13 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 09:26 — general
+
+- **Commits:** 1 | **Files changed:** 3
+- **Artifacts:** none detected
+- **Summary:**
+  - chore: update session memory and plugin marketplace settings
+
 ### 2026-04-05 12:55 — architecture
 
 - **Commits:** 1 | **Files changed:** 5
@@ -99,6 +106,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
