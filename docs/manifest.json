@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-06T10:18:46.549Z",
+  "generated": "2026-04-06T10:26:34.399Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -861,16 +861,16 @@
           "documentId": "ARC-001-STKE-v1.0"
         },
         {
-          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TCOP-v1.0.md",
-          "title": "TCoP Assessment",
-          "category": "Compliance",
-          "documentId": "ARC-001-TCOP-v1.0"
-        },
-        {
           "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TRAC-v1.0.md",
           "title": "Traceability Matrix",
           "category": "Governance",
           "documentId": "ARC-001-TRAC-v1.0"
+        },
+        {
+          "path": "projects/001-uk-fuel-price-transparency-service/ARC-001-TCOP-v2.0.md",
+          "title": "TCoP Assessment",
+          "documentId": "ARC-001-TCOP-v2.0",
+          "category": "Compliance"
         }
       ],
       "diagrams": [
