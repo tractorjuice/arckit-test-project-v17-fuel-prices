@@ -2,6 +2,13 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:33 — general
+
+- **Commits:** 1 | **Files changed:** 3
+- **Artifacts:** none detected
+- **Summary:**
+  - docs: regenerate pages site with TRAC v2.0 and clean health
+
 ### 2026-04-06 10:33 — governance
 
 - **Commits:** 1 | **Files changed:** 5
@@ -159,6 +166,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 

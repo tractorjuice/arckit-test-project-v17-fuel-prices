@@ -13,14 +13,14 @@
 | **Status** | DRAFT |
 | **Version** | 1.0 |
 | **Created Date** | 2026-03-26 |
-| **Last Modified** | 2026-03-26 |
+| **Last Modified** | 2026-04-06 |
 | **Review Cycle** | On-Demand |
 | **Next Review Date** | 2026-09-26 |
 | **Owner** | Enterprise Architect |
 | **Reviewed By** | PENDING |
 | **Approved By** | PENDING |
 | **Distribution** | CMA Digital, Architecture Review Board |
-| **Source Research** | ARC-001-RSCH-v4.0 |
+| **Source Research** | ARC-001-RSCH-v5.0 |
 | **Confidence** | High |
 
 ## Revision History
@@ -28,6 +28,7 @@
 | Version | Date | Author | Changes | Approved By | Approval Date |
 |---------|------|--------|---------|-------------|---------------|
 | 1.0 | 2026-03-26 | ArcKit AI | Initial creation from `/arckit:research` agent | PENDING | PENDING |
+| 1.0 | 2026-04-06 | ArcKit AI | Updated: source research reference to v5.0; Last Researched date updated; recommendation confirmed unchanged | PENDING | PENDING |
 
 ---
 
@@ -92,7 +93,7 @@ GOV.UK Notify is the UK Government's cross-government notification platform, ope
 
 ## Last Researched
 
-2026-03-26
+2026-04-06
 
 ---
 
