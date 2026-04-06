@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:27 — compliance
+
+- **Commits:** 1 | **Files changed:** 4
+- **Artifacts:**
+  - [001] Compliance: TCoP Assessment
+- **Summary:**
+  - docs: add TCoP v2.0 review reflecting VE3 API architecture pivot
+
 ### 2026-04-06 10:19 — general
 
 - **Commits:** 1 | **Files changed:** 3
@@ -143,6 +151,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
