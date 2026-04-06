@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-06 10:33 — governance
+
+- **Commits:** 1 | **Files changed:** 5
+- **Artifacts:**
+  - [001] Governance: Traceability Matrix
+- **Summary:**
+  - docs: add traceability matrix v2.0, update pages and health
+
 ### 2026-04-06 10:27 — compliance
 
 - **Commits:** 1 | **Files changed:** 4
@@ -151,6 +159,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
