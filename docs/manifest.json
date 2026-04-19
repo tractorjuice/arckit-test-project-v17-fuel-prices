@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-07T08:37:09.203Z",
+  "generated": "2026-04-19T22:23:00.393Z",
   "repository": {
     "name": "arckit-test-project-v17-fuel-prices"
   },
@@ -722,7 +722,25 @@
     "GCSR": "Research",
     "GLND": "Research",
     "GRNT": "Research",
-    "STORY": "Reporting"
+    "STORY": "Reporting",
+    "RGPD": "Compliance",
+    "NIS2": "Compliance",
+    "AIACT": "Compliance",
+    "DORA": "Compliance",
+    "CRA": "Compliance",
+    "DSA": "Compliance",
+    "DATAACT": "Compliance",
+    "CNIL": "Compliance",
+    "SECNUM": "Compliance",
+    "MARPUB": "Procurement",
+    "DINUM": "Compliance",
+    "EBIOS": "Governance",
+    "ANSSI": "Compliance",
+    "CARTO": "Architecture",
+    "DR": "Compliance",
+    "ALGO": "Compliance",
+    "PSSI": "Compliance",
+    "REUSE": "Procurement"
   },
   "projects": [
     {

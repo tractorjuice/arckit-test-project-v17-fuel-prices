@@ -2,6 +2,14 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-07 08:37 — research
+
+- **Commits:** 1 | **Files changed:** 11
+- **Artifacts:**
+  - [001] Research: Grants Research
+- **Summary:**
+  - docs: add UK grants research v1.0, tech notes, and regenerate pages site
+
 ### 2026-04-06 11:04 — general
 
 - **Commits:** 1 | **Files changed:** 2
@@ -181,6 +189,7 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
 
 
 
