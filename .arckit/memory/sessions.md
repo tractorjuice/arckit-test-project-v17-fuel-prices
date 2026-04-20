@@ -2,6 +2,20 @@
 
 Automated session summaries captured by the ArcKit session-learner hook.
 
+### 2026-04-20 08:00 — general
+
+- **Commits:** 1 | **Files changed:** 1
+- **Artifacts:** none detected
+- **Summary:**
+  - docs: refresh README to reflect v4.7.2 and current artifact state
+
+### 2026-04-20 08:00 — general
+
+- **Commits:** 1 | **Files changed:** 24
+- **Artifacts:** none detected
+- **Summary:**
+  - docs: regenerate pages site with v4.7.2 and community guides
+
 ### 2026-04-19 22:25 — general
 
 - **Commits:** 1 | **Files changed:** 12
@@ -196,6 +210,8 @@ Automated session summaries captured by the ArcKit session-learner hook.
 - **Artifacts:** none detected
 - **Summary:**
   - docs: regenerate pages site with v4.2.1 — 9 new guides, updated manifest
+
+
 
 
 
