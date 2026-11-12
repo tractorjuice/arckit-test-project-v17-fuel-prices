@@ -1,6 +1,13 @@
 {
   "enabledPlugins": {
-    "arckit@arc-kit": true
+    "arckit@arckit-claude": true
   },
-  "extraKnownMarketplaces": {}
+  "extraKnownMarketplaces": {
+    "arckit-claude": {
+      "source": {
+        "source": "github",
+        "repo": "tractorjuice/arckit-claude"
+      }
+    }
+  }
 }
